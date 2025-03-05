@@ -156,7 +156,7 @@
   }
   
   #toolbar .toolbar-icon.outlook {
-    background-image: url(Members/reiko.png);
+    background-image: url(images/cash.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
@@ -164,7 +164,7 @@
   }
   
   #toolbar .toolbar-icon.correction {
-    background-image: url(Members/convict.png);
+    background-image: url(images/Flank.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
@@ -233,19 +233,19 @@
   
   
   .desktop-icons .desktop-icon.november {
-    background-image: url(Members/nov.png);
+    background-image: url(images/Flank.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
   
   .desktop-icons .desktop-icon.reiko {
-    background-image: url(Members/reiko.png);
+    background-image: url(images/Flank.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
   
   .desktop-icons .desktop-icon.convict {
-    background-image: url(Members/convict.png);
+    background-image: url(images/dorm.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
