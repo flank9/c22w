@@ -309,12 +309,12 @@
   
   @media only screen and (max-width: 600px) {
     #enter {
-        background-image: url("images/mobile-girl.png");
+        background-image: url("background.png");
         z-index: 1;
     }
   
     #desktop {
-        background-image: url("images/mobile-girl.png");
+        background-image: url("background.png");
         z-index: 1;
     }
   
