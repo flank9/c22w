@@ -5,7 +5,7 @@ function showPopup(popupId) {
   function hidePopup(popupId) {
     document.getElementById(popupId).style.display = "none";
   }
-  
+   
   function togglePopup(id) {
     const popup = document.getElementById(id);
     if (popup.style.display === "block") {
