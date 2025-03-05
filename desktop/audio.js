@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("audio");
-    const trackList = document
+    const trackList = document 
       .getElementById("trackList")
       .getElementsByTagName("li");
     const songTitle = document.getElementById("songTitle");
