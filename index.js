@@ -65,7 +65,7 @@ function showPopup(popupId) {
         if (counter % 2 === 1) {
           desktop.style.backgroundImage = 'url(./images/retard.png)';
         } else {
-          desktop.style.backgroundImage = 'url(./images/girl.jpg)';
+          desktop.style.backgroundImage = 'url(./images/background.jpg)';
         }
       });
     });
