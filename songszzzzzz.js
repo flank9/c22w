@@ -1,6 +1,6 @@
 const defaultSongIndex = 8;
 let defaultSongCurrentTime = 0;
-let currentSongIndex = 0;
+let currentSongIndex = 0; 
 
 const playlist = [{
         title: 'Careless Whisper - George Michael [FLANK]',
