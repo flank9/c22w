@@ -4,7 +4,7 @@ function showMember(member) {
     const memberInfo = {
         'Lte': {
             'name': 'cash',
-            'image': 'cash.jpg',
+            'image': 'cash.png',
             'description': '#1 fed dodger',
             'songIndex': 3
         },
