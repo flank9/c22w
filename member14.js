@@ -5,19 +5,19 @@ function showMember(member) {
         'Lte': {
             'name': 'cash',
             'image': 'cash.png',
-            'description': '#1 fed dodger',
+            'description': '#1 Fed dodger.',
             'songIndex': 1
         },
         'Viscount': {
             'name': 'flank',
             'image': 'flank.png',
-            'description': 'nignog',
+            'description': 'I value myself.',
             'songIndex': 2
         },
         'CEO': {
             'name': 'dorm',
             'image': 'dorm.png',
-            'description': '#BLM',
+            'description': '#Muslim',
             'songIndex': 3
         },
 
