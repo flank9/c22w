@@ -7,12 +7,12 @@ const playlist = [{
         src: 'audio4.mp3'
     },
     {
-        title: 'Wickr Man - Bladee [DORM]',
-        src: 'audio2.mp3'
+        title: 'Wickr Man - Bladee [DINERO]',
+        src: 'audio.mp3'
     },
     {
-        title: 'osquinn - drama [DINERO]',
-        src: 'audio.mp3'
+        title: 'osquinn - drama [DRAMA]',
+        src: 'audio4.mp3'
     },
 ];
 
