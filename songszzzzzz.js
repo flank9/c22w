@@ -3,19 +3,15 @@ let defaultSongCurrentTime = 0;
 let currentSongIndex = 0;
 
 const playlist = [{
-        title: 'Careless Whisper - George Michael [CEO]',
+        title: 'Careless Whisper - George Michael [FLANK]',
         src: 'audio4.mp3'
     },
     {
-        title: 'Routine - Funeral [Romance]',
-        src: 'audio3.mp3'
-    },
-    {
-        title: 'Wickr Man - Bladee [VIS]',
+        title: 'Wickr Man - Bladee [DORM]',
         src: 'audio2.mp3'
     },
     {
-        title: 'osquinn - drama [LTE]',
+        title: 'osquinn - drama [DINERO]',
         src: 'audio.mp3'
     },
 ];
