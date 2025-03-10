@@ -6,7 +6,7 @@ function showMember(member) {
             'name': 'cash',
             'image': 'cash.png',
             'description': '#1 fed dodger',
-            'songIndex': 3
+            'songIndex': 1
         },
         'Viscount': {
             'name': 'flank',
@@ -18,7 +18,7 @@ function showMember(member) {
             'name': 'dorm',
             'image': 'dorm.png',
             'description': '#BLM',
-            'songIndex': 0
+            'songIndex': 3
         },
 
     };
