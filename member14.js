@@ -14,12 +14,6 @@ function showMember(member) {
             'description': 'I value myself.',
             'songIndex': 2
         },
-        'CEO': {
-            'name': 'dorm',
-            'image': 'dorm.png',
-            'description': '#Muslim',
-            'songIndex': 3
-        },
 
     };
 
