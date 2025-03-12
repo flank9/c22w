@@ -3,15 +3,15 @@ let currentMember = null;
 function showMember(member) {
     const memberInfo = {
         'Lte': {
-            'name': 'cash',
+            'name': 'Cash',
             'image': 'cash.png',
             'description': '#1 Fed dodger.',
             'songIndex': 1
         },
         'Viscount': {
-            'name': 'flank',
-            'image': 'flank.png',
-            'description': 'I value myself.',
+            'name': 'Flank',
+            'image': 'flank.gif',
+            'description': 'I',
             'songIndex': 2
         },
 
