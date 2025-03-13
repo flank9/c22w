@@ -90,4 +90,16 @@
 <div id="songTitle" class="glitch" style="text-align: center;">None</div>
 /* Credits to alo.ne for the original code structure &amp; layout */
 <script data-cfasync="false" src="/web/20240807102115js_/http://ironveil.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<audio id="instakillAudio" src="instakill.mp3" preload="auto"></audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var instakillAudio = document.getElementById("instakillAudio");
+
+    if (window.location.hash === "#") {
+        instakillAudio.play().catch(error => console.log("Autoplay blocked:", error));
+    }
+});
+</script>
+
 </html>
