@@ -85,16 +85,3 @@
 /* Credits to alo.ne for the original code structure &amp; layout */
 <script data-cfasync="false" src="/web/20240807102115js_/http://ironveil.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
-<audio id="backgroundAudio" src="instakill.mp3" preload="auto"></audio>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var audio = document.getElementById("backgroundAudio");
-
-    document.body.addEventListener("click", function playOnce() {
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-        document.body.removeEventListener("click", playOnce);
-    });
-});
-</script>
-</html>
