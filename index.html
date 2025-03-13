@@ -90,42 +90,4 @@
 <div id="songTitle" class="glitch" style="text-align: center;">None</div>
 /* Credits to alo.ne for the original code structure &amp; layout */
 <script data-cfasync="false" src="/web/20240807102115js_/http://ironveil.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
-<audio id="instakillAudio" src="instakill.mp3" preload="auto"></audio>
-
-<script>
-<audio id="instakillAudio" src="instakill.mp3" preload="auto"></audio>
-
-<!-- Clickable Image -->
-<img id="instakillImg" src="instakill.png" alt="Instakill" style="height: 21%;" draggable="false">
-
-<!-- Instakill GIF Overlay -->
-<div id="instakillOverlay" style="
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: black url('instakill.gif') center/contain no-repeat;
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 10s ease-in-out, opacity 1s ease-in-out;">
-</div>
-
-<script>
-document.getElementById("instakillImg").addEventListener("click", function () {
-    var audio = document.getElementById("instakillAudio");
-    var overlay = document.getElementById("instakillOverlay");
-
-    if (!audio.played.length) {
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-
-        overlay.style.opacity = "1";
-        overlay.style.transform = "scale(3)";
-
-        setTimeout(() => {
-            overlay.style.opacity = "0";
-            overlay.style.transform = "scale(1)";
-        }, 10000);
-    }
-});
-</script>
-
 </html>
