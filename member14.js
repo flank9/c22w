@@ -10,7 +10,7 @@ function showMember(member) {
         },
         'Viscount': {
             'name': 'Flank',
-            'image': 'flank.gif',
+            'image': 'flank.png',
             'description': 'I',
             'songIndex': 2
         },
