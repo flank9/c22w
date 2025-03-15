@@ -102,12 +102,12 @@ hr {
   border: none;
   border-top: 1px solid #333;
   margin: 2rem 0;
-  width: 100%;
+  width:  100vw;
 }
 
 .first-line, .second-line, .third-line {
   border-color: #fff;
-  width: 90%;
+  width:  100vw;
   margin: 10px auto;
 }
 
