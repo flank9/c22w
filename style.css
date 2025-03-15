@@ -62,11 +62,22 @@ hr {
   border: none;
   height: 2px;
   background-color: #ffffff;
-  width: 100vw;  /* Ensures it spans the entire viewport width */
+  width: 100vw;
   position: absolute;
   left: 0;
-  top: 50%;  /* Adjust as needed */
-  margin: 0;  /* Ensures no additional margins */
+  margin: 0;
+}
+
+hr.first-line {
+  top: 20%; /* Adjust the position where the first line should appear */
+}
+
+hr.second-line {
+  top: 50%; /* Adjust the position where the second line should appear */
+}
+
+hr.third-line {
+  top: 80%; /* Adjust the position where the third line should appear */
 }
 
 .checklist-item {
