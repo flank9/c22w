@@ -44,39 +44,41 @@ a {
   padding: 1rem;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
-h2 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #aaa;
-  margin-bottom: 1rem;
+.angel {
+  width: 350px; 
 }
+
 
 .member-img {
-  width: 30px;
-  height: 30px;
+  width: 50px; 
+  height: 50px;
   border-radius: 50%;
   vertical-align: middle;
   margin-right: 10px;
 }
 
+
 .checklist-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 .doxbin-link {
   color: #ffffff !important;
   font-size: 0.9rem;
   text-decoration: underline;
+  display: block; 
+  margin-top: 5px;
 }
 
 .telegram-button {
@@ -91,15 +93,4 @@ h2 {
 
 .telegram-button:hover {
   background-color: #4d010f;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 250px; 
-}
-
-.angel {
-  width: 200px;
 }
