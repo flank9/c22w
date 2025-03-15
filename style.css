@@ -62,10 +62,11 @@ hr {
   border: none;
   height: 2px;
   background-color: #ffffff;
-  width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
+  width: 100vw;  /* Ensures it spans the entire viewport width */
+  position: absolute;
+  left: 0;
+  top: 50%;  /* Adjust as needed */
+  margin: 0;  /* Ensures no additional margins */
 }
 
 .checklist-item {
