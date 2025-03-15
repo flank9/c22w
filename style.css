@@ -88,4 +88,28 @@ footer {
   margin-top: 2rem;
   font-size: 0.875rem;
   color: #888;
+
+@keyframes sparkle {
+  0% {
+    text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold;
+  }
+  50% {
+    text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold, 0 0 40px gold;
+  }
+  100% {
+    text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold;
+  }
+}
+
+.doxbin-link {
+  color: gold;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+.doxbin-link:hover {
+  color: #ffcc00; /* Bright gold on hover */
+  text-decoration: underline;
 }
