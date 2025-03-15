@@ -73,38 +73,5 @@
         this.remove();
       }, 1000);
     });
- <script>
-  // Disable right-click
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-  });
 
-  // Disable text selection
-  document.addEventListener("selectstart", function (e) {
-    e.preventDefault();
-  });
-
-  document.onkeydown = function (e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key === 'U') {
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key === 'S') {
-      e.preventDefault();
-    }
-    if (e.ctrlKey && e.key === 'P') {
-      e.preventDefault();
-    }
-    if (e.altKey && e.key === 'F4') {
-      e.preventDefault();
-    }
-  };
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
-      e.preventDefault();
-    }
-  });
-</script>
-</html>
+  <html>
