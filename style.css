@@ -191,11 +191,11 @@ a:visited {
 /* Style for individual flakes */
 .flake {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 4px;
+  height: 4px;
   background-color: gold;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.3;
   animation: fall 5s infinite linear;
 }
 
