@@ -65,6 +65,15 @@ hr {
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .member-img {
@@ -75,14 +84,6 @@ hr {
   margin-right: 15px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   display: inline-block;
-}
-
-.checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  justify-content: center;
 }
 
 .member-info {
