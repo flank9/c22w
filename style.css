@@ -64,22 +64,22 @@ hr {
   border: none;
   height: 2px;
   background-color: #ffffff;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   left: 0;
   margin: 0;
 }
 
 hr.first-line {
-  top: 20%;
+  top: 10%; /* First line after some space from the top */
 }
 
 hr.second-line {
-  top: 50%;
+  top: 35%; /* Midway between top and bottom */
 }
 
 hr.third-line {
-  top: 80%;
+  top: 60%; /* Near bottom but not at the very bottom */
 }
 
 .checklist-item {
@@ -134,7 +134,7 @@ hr.third-line {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);  /* This centers the image horizontally */
-  width: 300px;  /* You can adjust this to fit the size of your image */
+  transform: translateX(-50%);
+  width: 300px; /* Adjust to your image size */
   z-index: 1;
 }
