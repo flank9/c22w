@@ -11,9 +11,12 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
 
 #enter-overlay {
   position: fixed;
@@ -27,59 +30,91 @@ body {
   justify-content: center;
   z-index: 1000;
   cursor: pointer;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s ease;
 }
 
 #enter-overlay.fade-out {
   opacity: 0;
-  pointer-events: none;
 }
 
-/* Member Section Fix */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+
 .checklist-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 15px; 
   margin-bottom: 15px;
 }
-
 
 .member-img {
   width: 40px; 
   height: 40px;
   border-radius: 50%;
-  margin-bottom: 5px; 
+  vertical-align: middle;
 }
 
+.member-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.member-info a {
+  font-size: 1rem;
+}
 
 .doxbin-link {
-  color: #FFD700 !important;
+  color: gold;
   font-size: 0.9rem;
   text-decoration: underline;
-  display: block; 
-  margin-top: 3px;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
-  position: relative;
-  animation: sparkle 1.5s infinite alternate;
+  text-shadow: 0 0 5px gold;
+}
+
+.doxbin-link:hover {
+  text-shadow: 0 0 10px gold, 0 0 20px gold;
 }
 
 
-@keyframes sparkle {
-  0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6); }
-  50% { text-shadow: 0 0 8px rgba(255, 215, 0, 1), 0 0 15px rgba(255, 215, 0, 0.9); }
-  100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6); }
+.telegram-button {
+  background-color: #400106;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+.telegram-button:hover {
+  background-color: #4d010f;
 }
+
 
 .angel {
-  width: 130px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
 }
