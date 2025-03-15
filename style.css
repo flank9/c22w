@@ -11,12 +11,10 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  position: relative;
 }
 
 a {
   text-decoration: none;
-  color: #ffffff;
 }
 
 #enter-overlay {
@@ -38,17 +36,33 @@ a {
   opacity: 0;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+#enter-overlay h1 {
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+header {
   position: relative;
-  z-index: 1;
+  height: 450px;
+}
+
+.angel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -60,51 +74,68 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.links {
+  margin: 1.5rem 0;
+}
+
+.links a {
+  display: block;
+  color: #f05454;
+  margin: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: #ff6f6f;
+  text-decoration: underline;
+}
+
 hr {
   border: none;
-  height: 2px;
-  background-color: #ffffff;
+  border-top: 1px solid #ffffff;
+  margin: 2rem 0;
+}
+
+hr.first-line,
+hr.second-line,
+hr.third-line {
   width: 100%;
   position: absolute;
   left: 0;
-  margin: 0;
 }
 
 hr.first-line {
-  top: 10%; /* First line after some space from the top */
+  top: 10%;
 }
 
 hr.second-line {
-  top: 35%; /* Midway between top and bottom */
+  top: 35%;
 }
 
 hr.third-line {
-  top: 60%; /* Near bottom but not at the very bottom */
+  top: 60%;
 }
 
-.checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  justify-content: center;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.member-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 15px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  display: inline-block;
+ul li {
+  margin: 0.5rem auto;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  max-width: 300px;
+  background: none;
+  border: none;
 }
 
-.member-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #888;
+  padding-bottom: 1rem;
 }
 
 .doxbin-link {
@@ -130,11 +161,16 @@ hr.third-line {
   text-shadow: 0 0 10px gold;
 }
 
-.angel {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px; /* Adjust to your image size */
-  z-index: 1;
+.telegram-button {
+  background-color: #0088cc;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.telegram-button:hover {
+  background-color: #0077bb;
 }
