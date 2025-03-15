@@ -1,93 +1,230 @@
-    <meta charset="UTF-8">
-    <title>𝙄𝙉$𝙏𝘼𝙆𝙄𝙇𝙇𝙀𝙍𝙎</title>
-    <link rel="stylesheet" href="stylem.css">
-    <meta property="og:title" content="INSTAKILL | Hosted by instakill.cc">
-    <meta property="og:description" content="Within Reach">
-    <meta name="theme-color" content="#f4b6e5" data-react-helmet="true">
-     <meta property="og:title" content="「IN$TAKILL」"/>
-     <meta property="og:type" content="website"/>
-     <meta property="og:description" content="$VLH$"/>
- <div id="overlay" class="overlay" onclick="removeOverlay();">
-     <p class="glitch" style="margin-top: 5px;">-Click To Enter-</p>
- </div>
- </head>
-    <meta charset="UTF-8">
-    <title>𝙄𝙉$𝙏𝘼𝙆𝙄𝙇𝙇𝙀𝙍𝙎</title>
-    <link rel="stylesheet" href="stylem.css">
-    
 
-    <meta property="og:title" content="INSTAKILL | Hosted by c22w.site">
-    <meta property="og:description" content="Within Reach">
-    <meta property="og:image" content="https://c22w.site/instakill.png"> <!-- Ensure this URL is correct -->
-    <meta property="og:url" content="https://c22w.site">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#f4b6e5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>INSTAKILLED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: rgb(6,6,6);
+      color: #e0e0e0;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    #enter-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(6,6,6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: opacity 1s ease;
+    }
+    #enter-overlay.fade-out {
+      opacity: 0;
+    }
+    #enter-overlay h1 {
+      color: #e0e0e0;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    header {
+      position: relative;
+      height: 450px;
+    }
+    .angel {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 200px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+    .links {
+      margin: 1.5rem 0;
+    }
+    .links a {
+      display: block;
+      color: #f05454;
+      margin: 0.5rem 0;
+      transition: color 0.2s ease;
+    }
+    .links a:hover {
+      color: #ff6f6f;
+      text-decoration: underline;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 2rem 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 0.5rem auto;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      max-width: 300px;
+      background: none;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: #888;
+      padding-bottom: 1rem;
+    }
+    @-webkit-keyframes swing {
+      0% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        -webkit-transform: translateX(-50%) rotate(-6deg);
+                transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    @keyframes swing {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    .swing {
+      transform-origin: top center;
+      -webkit-animation-name: swing;
+              animation-name: swing;
+      -webkit-animation-duration: 4s;
+              animation-duration: 4s;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+    }
+
+    .telegram-button {
+      background-color: #0088cc;
+      color: #ffffff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .telegram-button:hover {
+      background-color: #0077bb;
+    }
+  </style>
 </head>
+<body>
+    <div id="enter-overlay">
+        <h1>Something is coming soon!</h1>
+      </div>
+    <header>
+        <img class="angel swing" src="angelina_kapllani.png" alt="Angel Symbol (rope at top)" />
+      </header>
+  <div class="container">
+    <h1>Welcome to instakill</h1>
+    <h5>INSTAKILLED</h5>
+    <div id="twitter-widget"></div>
+    <a href="https://t.me/flank155" class="telegram-button" target="_blank">Join us on Telegram</a>
+    <hr>
+    <div class="development-checklist">
+      <h2>Important Development Tasks:</h2>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> View & Editting Paste (Request Edits, Fixing viewing paste to where you can find a paste by /paste/TransparencyReport)</div>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> Settings (Auth, Change Password, PFPs, Banners needs to be finished)</div>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> Upgrades (Need to implement BTCPay and automatically giving your upgrade after paid.)</div>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> Administration, Management, Moderation Panel & Tools (So, Staff can moderate, manage, and do administrative changes to the site.)</div>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> Viewing Profiles (Primarily adding Recent Activities, Following, Followers, My Pastes Functions.)</div>
+      <div class="checklist-item"><i class="not-checked">⚠️</i> Ability for Staff to Hide Pastes and View them Hidden on the Home Page and Profiles alongside the Edit User feature on the Users Page.</div>
 
-<script src="songszzzzzz.js"></script>
-<script src="member14.js"></script>
-<pre style="margin-bottom: -16px;">
-    <div class="blink">
-<img src="instakill.png" alt="IronVeil" style="height: 21%; margin: center;" draggable="false">
     </div>
-</pre>
-
-<div id="content">
-    <span>
-        <p class="pale-red">
-            0---- 
-            <span class="red">
-                <span class="red flicker-text2">XXX</span>
-            </span>
-            <span class="pale-red">
-                --------------------------<span class="red flicker-text1">lol</span><span class="flicker-text1"><span class="red"></span></span>--------------------------------------
-            </span>
-        </p>
-    </span>
-
-    <div id="text">
-        <p>
-            <span class="yellow">::</span>
-            <span class="blink2">IN$TAKILL </span> 
-            <br>
-            <span class="yellow"></span>
-        </p>
-    </div>
-
-    <span>
-        <p class="pale-red">
-            0---- 
-            <span class="red">
-                <span class="flicker-text">XXX</span>
-            </span>
-            <span class="pale-red">
-                ------------------------<span class="red">M<span class="brightred">e</span>m<span class="flicker-text">b</span><span class="flicker-text1">ers</span></span>-----------------------------------
-            </span>
-        </p>
-    </span>
-
-    <div id="text">
-        <p>
-            <span class="yellow" id="Lte-dot">::</span>
-            <span class="atts">@</span><a href="#" onclick="showMember('Lte')">DINERO</a> *
-            <span class="purple">[<a href="https://doxbin.com/user/line">/user/line</a>]</span>
-            ::
-            <span class="purple">[<a href="https://t.me/instakiII">t.me/@instakiII</a>]</span>
-        </p>
-        <p>
-            <span class="yellow" id="Viscount-dot">::</span>
-            <span class="atts">@</span><a href="#" onclick="showMember('Viscount')">FLANK</a> *
-            <span class="purple">[<a href="https://doxbin.com/user/cxxz">/user/cxxz</a>]</span>
-            ::
-            <span class="purple">[<a href="https://t.me/flank155">t.me/@flank155</a>]</span>
-        </p>
-        <p>
-    </div>
-
-    <div id="member-info" style="text-align: center; margin-top: 35px;"></div>
-</div>
-<div id="controls"> 
-<div id="songTitle" class="glitch" style="text-align: center;">None</div>
-/* Credits to alo.ne for the original code structure &amp; layout */
-<script data-cfasync="false" src="/web/20240807102115js_/http://ironveil.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
-</html>
+    <hr>
+    <h5>Need to contact us?</h5>
+    <h5>For official inquiries email: legal@vilebin.org</h5>
+    <h5>If this isn't a official inquiries relating to Law Enforcement, Lawyers, to Report Abuse then contact us on Telegram.</h5>
+    <h5>If not your email will be ignored and as well If you send in stupid shit, etc. That will also be ignored too.</h5>
+    <footer>
+      <p>&copy; 2025 VileBin. All rights reserved.</p>
+    </footer>
+  </div>
+  <audio id="background-music" src="fedded young.mp3" loop></audio>
+  <script>
+    document.getElementById('enter-overlay').addEventListener('click', function() {
+      this.classList.add('fade-out');
+      var audio = document.getElementById('background-music');
+      audio.play();
+      setTimeout(() => {
+        this.remove();
+      }, 1000);
+    });
+  </script>
+  <script src="https://platform.twitter.com/widgets.js"></script>
+<script>
+    twttr.widgets.createTimeline({
+      sourceType: "profile",
+      screenName: "vilebin"
+    }, document.getElementById("twitter-widget"), {
+      height: 400
+    });
+</script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl509010'},{'dcenter':'p3'},{'cp_id':'10239901'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>
