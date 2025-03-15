@@ -53,10 +53,10 @@ hr {
   border: none;
   height: 1px; /* Thickness */
   background-color: #ffffff; /* White color */
-  width: 1000vw; /* Full viewport width */
-  margin: 20px auto; /* Centered */
+  width: 100vw; /* Full viewport width */
+  margin: 30px auto; /* Centered */
   position: relative;
-  left: 0;
+  left: 100;
 }
 .member-img {
   width: 40px;
