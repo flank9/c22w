@@ -43,6 +43,8 @@ a {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -69,15 +71,15 @@ hr {
 }
 
 hr.first-line {
-  top: 20%; /* Adjust the position where the first line should appear */
+  top: 20%;
 }
 
 hr.second-line {
-  top: 50%; /* Adjust the position where the second line should appear */
+  top: 50%;
 }
 
 hr.third-line {
-  top: 80%; /* Adjust the position where the third line should appear */
+  top: 80%;
 }
 
 .checklist-item {
@@ -130,8 +132,9 @@ hr.third-line {
 
 .angel {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
+  transform: translateX(-50%);  /* This centers the image horizontally */
+  width: 300px;  /* You can adjust this to fit the size of your image */
+  z-index: 1;
 }
