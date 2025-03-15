@@ -12,19 +12,29 @@
     <h1>Lmfao</h1>
   </div>
 
+  <!-- Play and Pause buttons with Song Info -->
+  <div class="audio-controls">
+    <button id="play-button">Play</button>
+    <button id="pause-button" disabled>Pause</button>
+    <h4 id="current-song">Current Song: None</h4>
+  </div>
+
   <!-- Center the angel image at the top -->
   <header>
     <img class="angel" src="instakill.png" alt="Angel Symbol (rope at top)" />
   </header>
 
   <div class="container">
-    <h1></h1>
-    <h5></h5>
+    <h1>INSTAKILLED</h1>
+    <h5>Welcome to the instakill page</h5>
 
     <!-- First Line -->
     <hr class="first-line">
 
     <h5>???</h5>
+
+    <!-- Second Line -->
+    <hr class="second-line">
 
     <div class="development-checklist">
       <h2>Members</h2>
@@ -63,16 +73,51 @@
     </footer>
   </div>
 
-  <audio id="background-music" src="audio3.mp3" loop></audio>
+  <!-- Audio Player -->
+  <audio id="background-music" loop>
+    <source src="audio.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-      this.classList.add('fade-out');
-      var audio = document.getElementById('background-music');
-      audio.play();
-      setTimeout(() => {
-        this.remove();
-      }, 1000);
+    // Audio Player
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
+    const currentSongDisplay = document.getElementById('current-song');
+    const audioPlayer = document.getElementById('background-music');
+    
+    const songs = ['audio.mp3', 'audio2.mp3', 'audio3.mp3', 'audio4.mp3'];
+    let currentSongIndex = 0;
+
+    // Display the current song
+    function updateSongDisplay() {
+      currentSongDisplay.textContent = `Current Song: ${songs[currentSongIndex]}`;
+    }
+
+    // Play button functionality
+    playButton.addEventListener('click', () => {
+      audioPlayer.src = songs[currentSongIndex]; // Change the audio source to the current song
+      audioPlayer.play();
+      playButton.disabled = true;
+      pauseButton.disabled = false;
+      updateSongDisplay();
     });
+
+    // Pause button functionality
+    pauseButton.addEventListener('click', () => {
+      audioPlayer.pause();
+      playButton.disabled = false;
+      pauseButton.disabled = true;
+    });
+
+    // Automatically move to next song when the current one ends
+    audioPlayer.addEventListener('ended', () => {
+      currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop through the songs
+      audioPlayer.src = songs[currentSongIndex];
+      updateSongDisplay();
+      audioPlayer.play();
+    });
+
   </script>
 </body>
 </html>
