@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8" /> 
   <title>[IX] 𝗜𝗡$𝗧𝗔𝗞𝗜𝗟𝗟𝗘𝗗</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,6 +12,7 @@
     <h1>Power up</h1>
   </div>
 
+  <!-- Center the angel image at the top -->
   <header>
     <img class="angel" src="instakill.png" alt="Angel Symbol (rope at top)" />
   </header>
@@ -22,6 +23,7 @@
     
     <h5>???</h5>
 
+    <!-- Second Line -->
     <hr class="second-line">
 
     <div class="development-checklist">
@@ -52,57 +54,25 @@
       </div>
     </div>
 
+    <!-- Third Line -->
     <hr class="third-line">
+
+    <h5></h5>
     <footer>
       <p>&copy; 2025 INSTAKILLED. All rights reserved.</p>
     </footer>
   </div>
 
   <audio id="background-music" src="audio4.mp3" loop></audio>
-
-  <!-- Taskbar with app icons -->
-  <div id="taskbar">
-    <div class="task-icon" onclick="openApp('spotify')">
-      <img src="spotify_icon.png" alt="Spotify" width="30">
-    </div>
-    <div class="task-icon" onclick="openApp('notepad')">
-      <img src="notepad_icon.png" alt="Notepad" width="30">
-    </div>
-    <!-- Add more app icons as needed -->
-  </div>
-
-  
-  <div class="app-window" id="spotify" style="top: 20px; left: 20px;">
-    <h2>Spotify</h2>
-    <div class="app-content">
-      <img src="spotify.png" alt="Spotify Window">
-    </div>
-  </div>
-
-  <div class="app-window" id="notepad" style="top: 100px; left: 100px;">
-    <h2>Notepad</h2>
-    <div class="app-content">
-      <img src="notepad_window.png" alt="Notepad Window">
-    </div>
-  </div>
-
-  <script>
-    
-    function openApp(appName) {
-      const appWindow = document.getElementById(appName);
-      appWindow.style.display = 'block';
-    }
-
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-        this.classList.add('fade-out');
-        var audio = document.getElementById('background-music');
-        audio.play();
-        setTimeout(() => {
-            this.remove();
-        }, 1000);
-    });
-  </script>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        document.getElementById('enter-overlay').addEventListener('click', function() {
+            this.classList.add('fade-out');
+            var audio = document.getElementById('background-music');
+            audio.play();
+            setTimeout(() => {
+                this.remove();
+            }, 1000);
+        });
+    </script>
+<script src="script.js"></script>
+  </html>
