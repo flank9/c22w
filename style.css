@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(6,6,6);
@@ -10,11 +11,14 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  position: relative;
 }
+
 a {
   text-decoration: none;
   color: #ffffff;
 }
+
 #enter-overlay {
   position: fixed;
   top: 0;
@@ -29,58 +33,73 @@ a {
   cursor: pointer;
   transition: opacity 1s ease;
 }
+
 #enter-overlay.fade-out {
   opacity: 0;
 }
+
 .container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
+
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #aaa;
   margin-bottom: 1rem;
 }
-hr {
+
 hr {
   border: none;
   height: 2px;
   background-color: #ffffff;
-  width: 100vw; /* Force full viewport width */
+  width: 100%;
   position: absolute;
+  top: 10vh;
   left: 0;
+  z-index: -1;
 }
+
 .member-img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   vertical-align: middle;
+  margin-right: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
+
 .checklist-item {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
+
 .member-info {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
+
 .doxbin-link {
   color: gold;
-  font-size: 0.9rem;
-  text-decoration: underline;
+  font-size: 1rem;
+  text-decoration: none;
   font-weight: bold;
   position: relative;
 }
+
 .doxbin-link::after {
   content: "";
   position: absolute;
@@ -91,25 +110,37 @@ hr {
   background: gold;
   box-shadow: 0px 0px 8px gold;
 }
+
 .doxbin-link:hover {
   text-shadow: 0 0 10px gold;
 }
+
 .telegram-button {
   background-color: #400106;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 12px 25px;
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
   margin-top: 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
+
 .telegram-button:hover {
   background-color: #4d010f;
 }
+
 .angel {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
+  width: 300px;
+  animation: angelAnimation 3s infinite;
+}
+
+@keyframes angelAnimation {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
