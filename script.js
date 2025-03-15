@@ -13,3 +13,17 @@ document.getElementById('enter-overlay').addEventListener('click', function() {
         this.remove();
     }, 1000);
 });
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault(); // Disable right-click
+    alert(" error 666: lil nigga."); // Show error message
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let membersList = document.querySelector(".development-checklist");
+    membersList.style.opacity = "0"; // Start hidden
+    membersList.style.transition = "opacity 2s"; // Smooth fade-in effect
+
+    setTimeout(() => {
+        membersList.style.opacity = "1"; // Slowly fade in after page loads
+    }, 500);
+});
