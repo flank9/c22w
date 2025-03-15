@@ -19,49 +19,24 @@ a {
   color: #ffffff;
 }
 
-#enter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(6,6,6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  cursor: pointer;
-  transition: opacity 1s ease;
-}
 
-#enter-overlay.fade-out {
-  opacity: 0;
-}
-
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-
-.angel {
-  width: 350px; 
+.doxbin-link {
+  color: #FFD700 !important;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  display: block; 
+  margin-top: 5px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
+  position: relative;
+  animation: sparkle 1.5s infinite alternate;
 }
 
 
-.member-img {
-  width: 50px; 
-  height: 50px;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 10px;
+@keyframes sparkle {
+  0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6); }
+  50% { text-shadow: 0 0 8px rgba(255, 215, 0, 1), 0 0 15px rgba(255, 215, 0, 0.9); }
+  100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6); }
 }
 
 
@@ -73,24 +48,22 @@ header {
   margin-bottom: 20px;
 }
 
-.doxbin-link {
-  color: #ffffff !important;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  display: block; 
-  margin-top: 5px;
+/
+.member-img {
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 5px; 
 }
 
-.telegram-button {
-  background-color: #400106;
-  color: #ffffff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 20px;
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
-.telegram-button:hover {
-  background-color: #4d010f;
+.angel {
+  width: 350px; /
 }
