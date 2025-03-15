@@ -177,3 +177,7 @@ a {
 a:visited {
   color: #fff; 
 }
+.development-checklist {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
