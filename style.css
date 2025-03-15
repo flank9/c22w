@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(6,6,6);
@@ -10,10 +11,14 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
+
 a {
   text-decoration: none;
+  color: #ffffff;
 }
+
 #enter-overlay {
   position: fixed;
   top: 0;
@@ -28,26 +33,30 @@ a {
   cursor: pointer;
   transition: opacity 1s ease;
 }
+
 #enter-overlay.fade-out {
   opacity: 0;
 }
+
 .container {
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: center;
 }
+
 h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
+
 h2 {
   font-size: 1.25rem;
   font-weight: 400;
   color: #aaa;
   margin-bottom: 1rem;
 }
+
 .member-img {
   width: 30px;
   height: 30px;
@@ -55,6 +64,7 @@ h2 {
   vertical-align: middle;
   margin-right: 10px;
 }
+
 .checklist-item {
   display: flex;
   align-items: center;
@@ -62,11 +72,13 @@ h2 {
   gap: 10px;
   margin-bottom: 10px;
 }
+
 .doxbin-link {
-  color: #ff0000;
+  color: #ffffff !important;
   font-size: 0.9rem;
   text-decoration: underline;
 }
+
 .telegram-button {
   background-color: #400106;
   color: #ffffff;
@@ -76,6 +88,18 @@ h2 {
   display: inline-block;
   margin-top: 20px;
 }
+
 .telegram-button:hover {
   background-color: #4d010f;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px; 
+}
+
+.angel {
+  width: 200px;
 }
