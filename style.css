@@ -14,9 +14,42 @@ body {
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: #ffffff;
+
+#enter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(6,6,6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.8s ease-in-out;
+}
+
+#enter-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Member Section Fix */
+.checklist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+
+.member-img {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 5px; 
 }
 
 
@@ -25,7 +58,7 @@ a {
   font-size: 0.9rem;
   text-decoration: underline;
   display: block; 
-  margin-top: 5px;
+  margin-top: 3px;
   font-weight: bold;
   text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
   position: relative;
@@ -40,23 +73,6 @@ a {
 }
 
 
-.checklist-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 20px;
-}
-
-/
-.member-img {
-  width: 50px; 
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom: 5px; 
-}
-
-
 header {
   display: flex;
   justify-content: center;
@@ -65,5 +81,5 @@ header {
 }
 
 .angel {
-  width: 350px; /
+  width: 130px; 
 }
