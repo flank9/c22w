@@ -51,10 +51,12 @@ h2 {
 }
 hr {
   border: none;
-  height: 2px; /* Thickness */
+  height: 1px; /* Thickness */
   background-color: #ffffff; /* White color */
-  width: 100vw; /* Full viewport width */
-  margin: 20px 0; /* Spacing */
+  width: 1000vw; /* Full viewport width */
+  margin: 20px auto; /* Centered */
+  position: relative;
+  left: 0;
 }
 .member-img {
   width: 40px;
