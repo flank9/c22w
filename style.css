@@ -102,12 +102,12 @@ hr {
   border: none;
   border-top: 1px solid #333;
   margin: 2rem 0;
-  width:  100px;
+  width: 100px;
 }
 
 .first-line, .second-line, .third-line {
   border-color: #fff;
-  width:  100px;
+  width: 100px;
   margin: 10px auto;
 }
 
@@ -149,7 +149,52 @@ audio {
   display: none;
 }
 
-/* Adding some additional responsive design if needed */
+/* Taskbar Styling */
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #444;
+}
+
+#taskbar .task-icon {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#taskbar .task-icon:hover {
+  transform: scale(1.2);
+}
+
+/* App Window Styles */
+.app-window {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 300px;
+  height: 200px;
+  border: 1px solid #333;
+  display: none;
+  z-index: 999;
+  padding: 10px;
+  color: #e0e0e0;
+}
+
+.app-window h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.app-content {
+  overflow: hidden;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     padding: 0.5rem;
@@ -167,17 +212,4 @@ audio {
     flex-direction: column;
     text-align: center;
   }
-}
-
-a {
-  color: #fff; 
-  text-decoration: none; 
-}
-
-a:visited {
-  color: #fff; 
-}
-.development-checklist {
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
 }
