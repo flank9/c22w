@@ -39,9 +39,9 @@ a {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -52,7 +52,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #aaa;
   margin-bottom: 1rem;
@@ -63,10 +63,8 @@ hr {
   height: 2px;
   background-color: #ffffff;
   width: 100%;
-  position: absolute;
-  top: 10vh;
-  left: 0;
-  z-index: -1;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .member-img {
@@ -83,6 +81,7 @@ hr {
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .member-info {
@@ -137,10 +136,4 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  animation: angelAnimation 3s infinite;
-}
-
-@keyframes angelAnimation {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
