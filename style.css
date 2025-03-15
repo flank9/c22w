@@ -74,6 +74,7 @@ hr {
   vertical-align: middle;
   margin-right: 15px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  display: inline-block;
 }
 
 .checklist-item {
@@ -112,22 +113,6 @@ hr {
 
 .doxbin-link:hover {
   text-shadow: 0 0 10px gold;
-}
-
-.telegram-button {
-  background-color: #400106;
-  color: #ffffff;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.telegram-button:hover {
-  background-color: #4d010f;
 }
 
 .angel {
