@@ -64,14 +64,15 @@
   </div>
 
   <audio id="background-music" src="audio3.mp3" loop></audio>
-  <script>
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-      this.classList.add('fade-out');
-      var audio = document.getElementById('background-music');
-      audio.play();
-      setTimeout(() => {
-        this.remove();
-      }, 1000);
-    });
+    <script>
+        document.getElementById('enter-overlay').addEventListener('click', function() {
+            this.classList.add('fade-out');
+            var audio = document.getElementById('background-music');
+            audio.play();
+            setTimeout(() => {
+                this.remove();
+            }, 1000);
+        });
+    </script>
 
   </html>
