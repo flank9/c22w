@@ -120,11 +120,13 @@ h2 {
 }
 
 hr {
+hr {
   border: none;
-  height: 2px; 
-  background-color: #ffffff; 
-  width: 100%; 
-  margin: 20px 0; 
+  height: 2px; /* Thickness */
+  background-color: #ffffff; /* White color */
+  width: 100vw; /* Full viewport width */
+  margin: 20px 0; /* Spacing */
+}
 }
 
 .angel {
