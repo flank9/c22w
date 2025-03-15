@@ -168,3 +168,12 @@ audio {
     text-align: center;
   }
 }
+
+a {
+  color: #fff; 
+  text-decoration: none; 
+}
+
+a:visited {
+  color: #fff; 
+}
