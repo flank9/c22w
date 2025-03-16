@@ -1,18 +1,14 @@
- /* Resetting some default styles */
+/* Resetting some default styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: black;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-}
-body { 
-  font-family: 'Montserrat', sans-serif;
-  background-color: rgb(6,6,6);
+  background-color: rgb(6, 6, 6);
   color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -22,7 +18,6 @@ body {
 a { 
   text-decoration: none;
 }
-
 
 .container {
   max-width: 700px;
@@ -40,7 +35,8 @@ header {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px; 
+  width: 500px; /* Increased width */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .checklist-item {
@@ -69,7 +65,7 @@ header {
 }
 
 .doxbin-link:hover {
-  color: #ffcc00; 
+  color: #ffcc00;
   text-decoration: underline;
 }
 
@@ -103,12 +99,12 @@ hr {
   border: none;
   border-top: 1px solid #333;
   margin: 2rem 0;
-  width:  100px;
+  width: 100px;
 }
 
 .first-line, .second-line, .third-line {
   border-color: #fff;
-  width:  100px;
+  width: 100px;
   margin: 10px auto;
 }
 
@@ -119,7 +115,6 @@ footer {
   color: #888;
   padding-bottom: 1rem;
 }
-
 
 #enter-overlay {
   position: fixed;
@@ -156,7 +151,7 @@ audio {
   }
 
   .angel {
-    width: 350px;
+    width: 400px; /* Adjusted width for smaller screens */
   }
 
   .member-img {
@@ -177,57 +172,61 @@ a {
 a:visited {
   color: #fff; 
 }
+
 .development-checklist {
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-   }
-    @-webkit-keyframes swing {
-      0% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        -webkit-transform: translateX(-50%) rotate(-6deg);
-                transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    @keyframes swing {
-      0% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    .swing {
-      transform-origin: top center;
-      -webkit-animation-name: swing;
-              animation-name: swing;
-      -webkit-animation-duration: 4s;
-              animation-duration: 4s;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite;
-      -webkit-animation-timing-function: ease-in-out;
-              animation-timing-function: ease-in-out;
-    }
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: translateX(-50%) rotate(0deg);
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translateX(-50%) rotate(6deg);
+    transform: translateX(-50%) rotate(6deg);
+  }
+  50% {
+    -webkit-transform: translateX(-50%) rotate(-6deg);
+    transform: translateX(-50%) rotate(-6deg);
+  }
+  75% {
+    -webkit-transform: translateX(-50%) rotate(6deg);
+    transform: translateX(-50%) rotate(6deg);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) rotate(0deg);
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(6deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(6deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+.swing {
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
