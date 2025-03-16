@@ -1,60 +1,59 @@
-document.getElementById('enter-overlay').addEventListener('click', function () {
-    this.classList.add('fade-out');
-
+document.addEventListener('DOMContentLoaded', () => {
+    // Autoplay and set random song on page load
     var songs = ["audio.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3"];
-
     var randomSong = songs[Math.floor(Math.random() * songs.length)];
 
     var audio = document.getElementById('background-music');
     audio.src = randomSong;
+    audio.autoplay = true;
     audio.play();
 
-    setTimeout(() => {
-        this.remove();
-    }, 1000);
-});
+    // Play/Pause button functionality
+    const playPauseButton = document.getElementById('play-pause-btn');
+    playPauseButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playPauseButton.textContent = 'Pause';
+        } else {
+            audio.pause();
+            playPauseButton.textContent = 'Play';
+        }
+    });
 
-// Play/Pause button logic
-const playPauseButton = document.getElementById('play-pause-btn');
-const audio = document.getElementById('background-music');
-
-playPauseButton.addEventListener('click', () => {
-    if (audio.paused) {
+    // Skip button functionality
+    const skipButton = document.getElementById('skip-btn');
+    skipButton.addEventListener('click', () => {
+        let randomSong = songs[Math.floor(Math.random() * songs.length)];
+        audio.src = randomSong;
         audio.play();
-        playPauseButton.textContent = 'Pause';
-    } else {
-        audio.pause();
-        playPauseButton.textContent = 'Play';
-    }
-});
+        playPauseButton.textContent = 'Pause'; 
+    });
 
-// Skip button logic
-const skipButton = document.getElementById('skip-btn');
+    // Volume control functionality
+    const volumeControl = document.getElementById('volume-control');
+    volumeControl.addEventListener('input', () => {
+        audio.volume = volumeControl.value;
+        document.getElementById('volume-label').textContent = `Volume: ${(volumeControl.value * 100).toFixed(0)}%`;
+    });
 
-skipButton.addEventListener('click', () => {
-    let songs = ["audio.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3"];
-    let randomSong = songs[Math.floor(Math.random() * songs.length)];
-    audio.src = randomSong;
-    audio.play();
-});
+    // Make sure the overlay click works
+    document.getElementById('enter-overlay').addEventListener('click', function () {
+        this.classList.add('fade-out');
+        setTimeout(() => {
+            this.remove();
+        }, 1000);
+    });
 
-// Volume control logic
-const volumeControl = document.getElementById('volume-control');
+    // Disable right-click functionality
+    document.addEventListener("contextmenu", function (event) {
+        event.preventDefault(); // Disable right-click
+        alert(" error 203: lmfao.");
+    });
 
-volumeControl.addEventListener('input', () => {
-    audio.volume = volumeControl.value;
-});
-
-// Display the current volume label
-const volumeLabel = document.getElementById('volume-label');
-volumeControl.addEventListener('input', () => {
-    volumeLabel.textContent = `Volume: ${(volumeControl.value * 100).toFixed(0)}%`;
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Fade in the members list
     let membersList = document.querySelector(".development-checklist");
-    membersList.style.opacity = "0"; // Start hidden
-    membersList.style.transition = "opacity 2s"; // Smooth fade-in effect
+    membersList.style.opacity = "0"; 
+    membersList.style.transition = "opacity 4s"; // Smooth fade-in effect
 
     setTimeout(() => {
         membersList.style.opacity = "1"; // Slowly fade in after page loads
