@@ -13,10 +13,16 @@
     <h1>Power up</h1>
   </div>
 
-  <!-- Center the angel image at the top -->
   <header>
     <img class="angel" src="instakill.png" alt="Angel Symbol (rope at top)" />
-  </header>
+</header>
+
+<div class="audio-player">
+    <button id="play-pause-btn" class="audio-btn">Pause</button>
+    <button id="skip-btn" class="audio-btn">Skip</button>
+    <input type="range" id="volume-control" class="audio-range" min="0" max="1" step="0.01" value="1" />
+    <span id="volume-label">Volume: 100%</span>
+</div>
 
   <div class="container">
     <h1></h1>
@@ -24,7 +30,6 @@
     
     <h5>???</h5>
 
-    <!-- Second Line -->
     <hr class="second-line">
 
     <div class="development-checklist">
@@ -63,12 +68,6 @@
       <p>&copy; 2025 INSTAKILLED. All rights reserved.</p>
     </footer>
   </div>
- <div class="audio-player">
-    <button id="play-pause-btn" class="audio-btn">Play</button>
-    <button id="skip-btn" class="audio-btn">Skip</button>
-    <input type="range" id="volume-control" class="audio-range" min="0" max="1" step="0.01" value="1" />
-    <span id="volume-label">Volume</span>
-</div>
     </script>
 <script src="script.js"></script>
   </html>
