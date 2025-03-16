@@ -23,7 +23,7 @@ a {
   text-decoration: none;
 }
 
-/* Centering everything */
+
 .container {
   max-width: 700px;
   margin: 0 auto;
@@ -40,7 +40,7 @@ header {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px; /* Fixed size for the instakill image */
+  width: 200px; 
 }
 
 .checklist-item {
@@ -51,7 +51,7 @@ header {
 }
 
 .member-img {
-  width: 50px; /* Resize the member images */
+  width: 50px; 
   height: auto;
   margin-right: 10px;
 }
@@ -69,11 +69,10 @@ header {
 }
 
 .doxbin-link:hover {
-  color: #ffcc00; /* Bright gold on hover */
+  color: #ffcc00; 
   text-decoration: underline;
 }
 
-/* Sparkle animation */
 @keyframes sparkle {
   0% {
     text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold;
@@ -86,7 +85,6 @@ header {
   }
 }
 
-/* Styling for the Telegram button */
 .telegram-button {
   background-color: #ffffff;
   color: #000000;
@@ -101,7 +99,6 @@ header {
   background-color: #f1f1f1;
 }
 
-/* Styling for the first, second, and third lines */
 hr {
   border: none;
   border-top: 1px solid #333;
@@ -123,7 +120,7 @@ footer {
   padding-bottom: 1rem;
 }
 
-/* The Enter Overlay */
+
 #enter-overlay {
   position: fixed;
   top: 0;
@@ -153,7 +150,6 @@ audio {
   display: none;
 }
 
-/* Adding some additional responsive design if needed */
 @media (max-width: 768px) {
   .container {
     padding: 0.5rem;
