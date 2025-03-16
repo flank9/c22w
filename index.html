@@ -71,5 +71,20 @@
             }, 1000);
         });
     </script>
+    <script>
+
+      
+      const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
+      let index = 0;
+
+      function changeTitle() {
+          document.title = titles[index];
+          index = (index + 1) % titles.length;
+          setTimeout(changeTitle, 200); 
+      }
+
+      
+      changeTitle();
+        
 <script src="script.js"></script>
   </html>
