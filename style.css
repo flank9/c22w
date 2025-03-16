@@ -231,3 +231,34 @@ a:visited {
       -webkit-animation-timing-function: ease-in-out;
               animation-timing-function: ease-in-out;
     }
+.audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.audio-btn {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.audio-btn:hover {
+    background-color: #555;
+}
+
+.audio-range {
+    width: 150px;
+    margin: 0 10px;
+}
+
+#volume-label {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
