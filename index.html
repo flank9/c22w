@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-  <body>
+<body>
   <div id="enter-overlay">
     <h1>Power up</h1>
   </div>
 
   <header>
     <img class="angel" src="instakill.png" alt="Angel Symbol (rope at top)" />
-</header>
+  </header>
+
   <div class="container">
     <h1></h1>
     <h5>𝙸𝙽$𝚃𝙰𝙺𝙸𝙻𝙻𝙴𝙳 𝙱𝚈 𝙸𝙽𝚂𝚃𝙰𝙺𝙸𝙻𝙻</h5>
-    
     <h5>???</h5>
 
     <hr class="second-line">
@@ -61,20 +61,19 @@
       <p>&copy; 2025 INSTAKILLED. All rights reserved.</p>
     </footer>
   </div>
-  
-    <audio id="background-music" src="audio4.mp3" loop></audio>
-    <script>
-        document.getElementById('enter-overlay').addEventListener('click', function() {
-            this.classList.add('fade-out');
-            var audio = document.getElementById('background-music');
-            audio.play();
-            setTimeout(() => {
-                this.remove();
-            }, 1000);
-        });
-    </script>
-  
+
+  <audio id="background-music" src="audio4.mp3" loop></audio>
+  <script>
+    document.getElementById('enter-overlay').addEventListener('click', function() {
+        this.classList.add('fade-out');
+        var audio = document.getElementById('background-music');
+        audio.play();
+        setTimeout(() => {
+            this.remove();
+        }, 1000);
+    });
+  </script>
 
   <script src="script.js"></script>
-  </html>
-
+</body>
+</html>
