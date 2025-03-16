@@ -184,3 +184,54 @@ a:visited {
 .development-checklist {
     opacity: 0;
     transition: opacity 2s ease-in-out;
+   }
+    @-webkit-keyframes swing {
+      0% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        -webkit-transform: translateX(-50%) rotate(-6deg);
+                transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    @keyframes swing {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    .swing {
+      transform-origin: top center;
+      -webkit-animation-name: swing;
+              animation-name: swing;
+      -webkit-animation-duration: 4s;
+              animation-duration: 4s;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+    }
