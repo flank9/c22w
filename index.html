@@ -63,17 +63,12 @@
       <p>&copy; 2025 INSTAKILLED. All rights reserved.</p>
     </footer>
   </div>
-
-  <audio id="background-music" src="audio4.mp3" loop></audio>
-    <script>
-        document.getElementById('enter-overlay').addEventListener('click', function() {
-            this.classList.add('fade-out');
-            var audio = document.getElementById('background-music');
-            audio.play();
-            setTimeout(() => {
-                this.remove();
-            }, 1000);
-        });
+ <div class="audio-player">
+    <button id="play-pause-btn" class="audio-btn">Play</button>
+    <button id="skip-btn" class="audio-btn">Skip</button>
+    <input type="range" id="volume-control" class="audio-range" min="0" max="1" step="0.01" value="1" />
+    <span id="volume-label">Volume</span>
+</div>
     </script>
 <script src="script.js"></script>
   </html>
