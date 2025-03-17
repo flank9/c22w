@@ -1,29 +1,32 @@
-document.getElementById('enter-overlay').addEventListener('click', function() {
-    this.classList.add('fade-out');
+// Function to play audio
+function playAudio(audioFile) {
+  var audio = document.getElementById("member-audio");
+  audio.src = audioFile;
+  audio.play();
+}
 
-    var songs = ["audio.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3"];
-
-    var randomSong = songs[Math.floor(Math.random() * songs.length)];
-
-    var audio = document.getElementById('background-music');
-    audio.src = randomSong;
-    audio.play();
-
-    setTimeout(() => {
-        this.remove();
-    }, 1000);
-});
-document.addEventListener("contextmenu", function (event) {
-    event.preventDefault(); // Disable right-click
-    alert(" error 741: dumb nigga."); // Show error message
+// Prevent right-click and display a fake error
+document.addEventListener('contextmenu', function(event) {
+  event.preventDefault();
+  if (!document.getElementById('intro-overlay').classList.contains('fade-out')) {
+    alert('Error: Right-click is disabled. Unauthorized access attempt detected.');
+  }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    let membersList = document.querySelector(".development-checklist");
-    membersList.style.opacity = "0"; // Start hidden
-    membersList.style.transition = "opacity 3s"; // Smooth fade-in effect
+// Disable F12 and other key shortcuts
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'F12' || event.ctrlKey && (event.key === 'U' || event.key === 'I' || event.key === 'S')) {
+    event.preventDefault();
+    if (!document.getElementById('intro-overlay').classList.contains('fade-out')) {
+      alert('Error: Developer tools are disabled.');
+    }
+  }
+});
 
-    setTimeout(() => {
-        membersList.style.opacity = "1"; // Slowly fade in after page loads
-    }, 500);
+// Fade out the intro overlay when clicked
+document.getElementById('intro-overlay').addEventListener('click', function() {
+  this.classList.add('fade-out');
+  setTimeout(() => {
+    this.remove();
+  }, 1000);
 });
