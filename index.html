@@ -157,15 +157,13 @@
 
   </style>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="lmfao.js"></script> <!-- External JS file link -->
 </head>
 
 <body>
 
   <!-- Intro Overlay -->
-  <div id="intro-overlay">
-    <h1>...</h1>
+  <div id="intro-overlay" onclick="removeOverlay()">
+    <h1>Click to enter</h1>
   </div>
 
   <header>
@@ -209,6 +207,34 @@
   </div>
 
   <audio id="member-audio"></audio>
+
+  <script>
+    // Function to play audio
+    function playAudio(audioFile) {
+      const audioElement = document.getElementById("member-audio");
+      audioElement.src = audioFile;
+      audioElement.play();
+    }
+
+    // Function to remove the intro overlay
+    function removeOverlay() {
+      const overlay = document.getElementById("intro-overlay");
+      overlay.classList.add("fade-out");
+      setTimeout(() => {
+        overlay.style.display = "none"; // Hide the overlay after the fade-out
+      }, 1000); // Delay for fade-out effect
+    }
+      
+      const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
+      let index = 0;
+
+      function changeTitle() {
+          document.title = titles[index];
+          index = (index + 1) % titles.length;
+          setTimeout(changeTitle, 200); 
+      }
+
+  </script>
 
 </body>
 </html>
