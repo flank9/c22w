@@ -137,6 +137,34 @@
 
   </style>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function playAudio(audioFile) {
+      var audio = document.getElementById("member-audio");
+      audio.src = audioFile;
+      audio.play();
+    }
+
+    // Prevent right-click and display a fake error
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+      alert('Error: Right-click is disabled. Unauthorized access attempt detected.');
+    });
+
+    // Disable F12 and other key shortcuts
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'F12' || event.ctrlKey && (event.key === 'U' || event.key === 'I' || event.key === 'S')) {
+        event.preventDefault();
+        alert('Error: Developer tools are disabled.');
+      }
+    });
+
+    document.getElementById('intro-overlay').addEventListener('click', function() {
+        this.classList.add('fade-out');
+        setTimeout(() => {
+            this.remove();
+        }, 1000);
+    });
+  </script>
 </head>
 <body>
   <div id="intro-overlay">
@@ -184,19 +212,5 @@
   </div>
 
   <audio id="member-audio"></audio>
-  <script>
-    function playAudio(audioFile) {
-      var audio = document.getElementById("member-audio");
-      audio.src = audioFile;
-      audio.play();
-    }
-    document.getElementById('intro-overlay').addEventListener('click', function() {
-        this.classList.add('fade-out');
-        setTimeout(() => {
-            this.remove();
-        }, 1000);
-    });
-    });
-  </script>
 </body>
 </html>
