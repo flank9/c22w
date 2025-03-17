@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta property="og:title" content="Unknown Origins">
-<meta property="og:description" content=":3">
-<meta property="og:image" content="instakill.png"> <!-- Replace with your image URL -->
-<meta property="og:url" content="https://c22w.site"> <!-- Replace with your website URL -->
-<meta property="og:type" content="website">
+  <meta property="og:title" content="Unknown Origins">
+  <meta property="og:description" content=":3">
+  <meta property="og:image" content="instakill.png"> <!-- Replace with your image URL -->
+  <meta property="og:url" content="https://c22w.site"> <!-- Replace with your website URL -->
+  <meta property="og:type" content="website">
   <meta charset="UTF-8" />
   <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
   <title>INSTAKILL</title>
@@ -31,6 +31,7 @@
       font-size: 2rem;
       cursor: pointer;
       transition: opacity 1s ease;
+      z-index: 9999; /* Ensure overlay is on top */
     }
     .fade-out {
       opacity: 0;
@@ -137,34 +138,7 @@
 
   </style>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    function playAudio(audioFile) {
-      var audio = document.getElementById("member-audio");
-      audio.src = audioFile;
-      audio.play();
-    }
-
-    // Prevent right-click and display a fake error
-    document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-      alert('Error: Right-click is disabled. Unauthorized access attempt detected.');
-    });
-
-    // Disable F12 and other key shortcuts
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'F12' || event.ctrlKey && (event.key === 'U' || event.key === 'I' || event.key === 'S')) {
-        event.preventDefault();
-        alert('Error: Developer tools are disabled.');
-      }
-    });
-
-    document.getElementById('intro-overlay').addEventListener('click', function() {
-        this.classList.add('fade-out');
-        setTimeout(() => {
-            this.remove();
-        }, 1000);
-    });
-  </script>
+  <script src="lmfao.js"></script> <!-- Link to the external JS file -->
 </head>
 <body>
   <div id="intro-overlay">
