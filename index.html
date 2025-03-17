@@ -3,8 +3,8 @@
 <head>
   <meta property="og:title" content="Unknown Origins">
   <meta property="og:description" content=":3">
-  <meta property="og:image" content="instakill.png"> <!-- Replace with your image URL -->
-  <meta property="og:url" content="https://c22w.site"> <!-- Replace with your website URL -->
+  <meta property="og:image" content="instakill.png"> 
+  <meta property="og:url" content="https://c22w.site"> 
   <meta property="og:type" content="website">
   <meta charset="UTF-8" />
   <title>INSTAKILL</title>
@@ -43,7 +43,7 @@
     header img {
       width: 300px;
       margin-top: 30px;
-      filter: drop-shadow(0 0 20px white);
+      /* Removed the glow effect */
     }
 
     .container {
@@ -91,14 +91,14 @@
     }
 
     .telegram-link {
-      color: #999; /* Gray color for Telegram link */
+      color: #999; 
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
     .telegram-link:hover {
-      color: #ddd; /* Lighter gray on hover */
+      color: #ddd; 
     }
 
     .doxbin-link {
@@ -126,16 +126,16 @@
       width: 150px;
       margin-top: 30px;
       opacity: 0.7;
+ 
+      animation: sway 6s ease-in-out infinite;
     }
 
-    header img {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+    @keyframes sway {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
     }
 
     ::-webkit-scrollbar {
@@ -207,32 +207,30 @@
   </div>
 
   <audio id="member-audio"></audio>
-
   <script>
-    // Function to play audio
+
     function playAudio(audioFile) {
       const audioElement = document.getElementById("member-audio");
       audioElement.src = audioFile;
       audioElement.play();
     }
 
-    // Function to remove the intro overlay
     function removeOverlay() {
       const overlay = document.getElementById("intro-overlay");
       overlay.classList.add("fade-out");
       setTimeout(() => {
-        overlay.style.display = "none"; // Hide the overlay after the fade-out
-      }, 1000); // Delay for fade-out effect
+        overlay.style.display = "none"; 
+      }, 1000); 
     }
       
-      const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
-      let index = 0;
+    const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
+    let index = 0;
 
-      function changeTitle() {
-          document.title = titles[index];
-          index = (index + 1) % titles.length;
-          setTimeout(changeTitle, 200); 
-      }
+    function changeTitle() {
+        document.title = titles[index];
+        index = (index + 1) % titles.length;
+        setTimeout(changeTitle, 200); 
+    }
 
   </script>
 
