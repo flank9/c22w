@@ -19,32 +19,36 @@
       margin: 0;
       padding: 0;
     }
+ #intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 1s ease;
+    z-index: 9999;
+  }
 
-    #intro-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: opacity 1s ease;
-      z-index: 9999; /* Ensures overlay is on top */
-    }
+  pre#ascii-art {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    white-space: pre;
+    line-height: 1.2;
+  }
 
-    .fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    header img {
+  .fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }    header img {
       width: 250px;
       margin-top: 30px;
-      /* Removed the glow effect */
     }
 
     .container {
@@ -160,11 +164,9 @@
 </head>
 
 <body>
-
-  <!-- Intro Overlay -->
-  <div id="intro-overlay" onclick="removeOverlay()">
-    <h1>
-
+<!-- Intro Overlay -->
+<div id="intro-overlay" onclick="removeOverlay()">
+    <pre id="ascii-art">
   /$$$$         /$$$$         /$$$$ 
  /$$  $$       /$$  $$       /$$  $$
 |__/\ $$      |__/\ $$      |__/\ $$
@@ -173,10 +175,9 @@
   |__/          |__/          |__/  
    /$$           /$$           /$$  
   |__/          |__/          |__/  
-                                    
-                                    
-                                     </h1>
-  </div>
+    </pre>
+</div>
+
   <header>
     <img class="logo" src="instakill.png" alt="Unknown Symbol" />
   </header>
@@ -227,12 +228,12 @@
     }
 
     function removeOverlay() {
-      const overlay = document.getElementById("intro-overlay");
-      overlay.classList.add("fade-out");
-      setTimeout(() => {
-        overlay.style.display = "none"; 
-      }, 1000); 
-    }
+    const overlay = document.getElementById("intro-overlay");
+    overlay.classList.add("fade-out");
+    setTimeout(() => {
+      overlay.style.display = "none"; 
+    }, 1000);
+  }
    const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
 let index = 0;
 window.onload = function () {
