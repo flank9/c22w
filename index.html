@@ -155,55 +155,6 @@
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.5);
     }
-#login-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 1rem;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-#login-box {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  width: 250px;
-}
-
-#login-box h2 {
-  margin-bottom: 15px;
-}
-
-#login-box select,
-#login-box button {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  background: black;
-  color: white;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-#login-box button:hover {
-  background: white;
-  color: black;
-}
-
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
   </style>
 
 </head>
@@ -214,17 +165,6 @@
   <div id="intro-overlay" onclick="removeOverlay()">
     <h1>? ? ?</h1>
   </div>
-<div id="login-overlay">
-  <div id="login-box">
-    <h2>Login</h2>
-    <p>Select a user to continue:</p>
-    <select id="user-select">
-      <option>INSTAKILL</option>
-    </select>
-    <button onclick="login()">Enter</button>
-  </div>
-</div>
-
   <header>
     <img class="logo" src="instakill.png" alt="Unknown Symbol" />
   </header>
@@ -283,25 +223,10 @@
     }
    const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
 let index = 0;
-
-function changeTitle() {
-    document.title = titles[index];
-    index = (index + 1) % titles.length;
-    setTimeout(changeTitle, 200);
-}
-function login() {
-  document.getElementById("login-overlay").classList.add("hidden");
-}
-
 window.onload = function () {
   document.getElementById("user-select").focus();
 };
-
-
 window.onload = changeTitle;
-
-
   </script>
-
 </body>
 </html>
