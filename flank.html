@@ -53,6 +53,32 @@
       color: #65d1ff;
     }
 
+    /* Glowing Effects */
+    .telegram-link {
+      color: #65d1ff;
+      text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff;
+      animation: glow 1.5s ease-in-out infinite;
+    }
+
+    .doxbin-link {
+      color: #f5a623;
+      text-shadow: 0 0 5px #f5a623, 0 0 10px #f5a623, 0 0 15px #f5a623, 0 0 20px #f5a623;
+      animation: glow-golden 1.5s ease-in-out infinite;
+    }
+
+    /* Keyframes for Glowing Effect */
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff; }
+      50% { text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff, 0 0 30px #65d1ff, 0 0 40px #65d1ff; }
+      100% { text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff; }
+    }
+
+    @keyframes glow-golden {
+      0% { text-shadow: 0 0 5px #f5a623, 0 0 10px #f5a623, 0 0 15px #f5a623, 0 0 20px #f5a623; }
+      50% { text-shadow: 0 0 10px #f5a623, 0 0 20px #f5a623, 0 0 30px #f5a623, 0 0 40px #f5a623; }
+      100% { text-shadow: 0 0 5px #f5a623, 0 0 10px #f5a623, 0 0 15px #f5a623, 0 0 20px #f5a623; }
+    }
+
     footer {
       margin-top: 40px;
       font-size: 0.9rem;
@@ -80,13 +106,13 @@
     </div>
 
     <div class="social-links">
-      <a href="https://t.me/flank155" target="_blank">t.me/flank155</a>
-      <a href="https://doxbin.org/user/Flank" target="_blank">Doxbin</a>
+      <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
+      <a href="https://doxbin.org/user/Flank" target="_blank" class="doxbin-link">Doxbin</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; I value myself.
+    <p>&copy; I value myself.</p>
   </footer>
 
 </body>
