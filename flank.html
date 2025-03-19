@@ -49,15 +49,11 @@
       transition: color 0.3s;
     }
 
-    .social-links a:hover {
-      color: #65d1ff;
-    }
-
     /* Glowing Effects */
     .telegram-link {
       color: #65d1ff;
       text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff;
-      animation: glow 1.5s ease-in-out infinite;
+      animation: glow-blue 1.5s ease-in-out infinite;
     }
 
     .doxbin-link {
@@ -67,7 +63,7 @@
     }
 
     /* Keyframes for Glowing Effect */
-    @keyframes glow {
+    @keyframes glow-blue {
       0% { text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff; }
       50% { text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff, 0 0 30px #65d1ff, 0 0 40px #65d1ff; }
       100% { text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff, 0 0 15px #65d1ff, 0 0 20px #65d1ff; }
