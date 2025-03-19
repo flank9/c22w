@@ -10,7 +10,7 @@
   <title>INSTAKILL</title>
 
   <style>
-   body, html {
+  body, html {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -24,13 +24,32 @@
   text-align: center;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.header-img {
+  width: 120px; /* Smaller size for hung.png */
+  opacity: 0.8;
+  animation: sway 6s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 500px; /* Keeps content from getting too wide */
-  margin-top: 20px; /* Space from the top */
 }
 
 .member-list {
@@ -88,25 +107,13 @@
 @keyframes sparkle {
   0% { text-shadow: 0 0 12px gold, 0 0 18px gold, 0 0 25px gold; }
   100% { text-shadow: 0 0 18px gold, 0 0 30px gold, 0 0 35px gold; }
-}    
-    header {
-      margin-top: 30px;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
+}
 
-    .header-img {
-      width: 150px;
-      margin-top: 30px;
-      opacity: 0.7;
-      animation: sway 6s ease-in-out infinite;
-    }
-
-    @keyframes sway {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(5deg); }
-      75% { transform: rotate(-5deg); }
-    }
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
   </style>
 </head>
 <body>
