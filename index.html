@@ -145,17 +145,15 @@
   <img class="logo" src="hung.png" alt="girl haning man" />
 </header>
 
-<div class="container">
-  <div class="member-list">
-    <div class="member" onclick="playAudio('audio4.mp3')">
-      <img src="flank.png" class="member-img" alt="instakill1" />
-      <div class="member-info">
-        <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
-        <p>#I value myself.</p>
-        <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
-      </div>
-    </div>
-
+<div class="member" onclick="redirectToFlank()">
+  <img src="flank.png" class="member-img" alt="instakill1" />
+  <div class="member-info">
+    <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
+    <p>#I value myself.</p>
+    <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
+  </div>
+</div>
+</div>
     <div class="member" onclick="playAudio('audio2.mp3')">
       <img src="cash.png" class="member-img" alt="Agent 2" />
       <div class="member-info">
@@ -194,6 +192,14 @@
     setTimeout(changeTitle, 300);
   }
   window.onload = changeTitle;
+
+  
+<script>
+  function redirectToFlank() {
+    window.location.href = "flank.html"; // Change this to the page you want
+  }
+</script>
+
 </script>
 </body>
 </html>
