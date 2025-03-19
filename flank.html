@@ -7,96 +7,95 @@
     <title>Flank</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #111;
-            color: #00ff00;
+            font-family: 'Arial', sans-serif;
+            background-color: #1f1f1f;
+            color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
             text-align: center;
-            letter-spacing: 2px;
+            overflow: hidden;
         }
 
         h1 {
             font-size: 4rem;
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         .content {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
-            width: 80%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             max-width: 500px;
+            width: 90%;
         }
 
-        .content p {
+        p {
             font-size: 1.2rem;
-            color: #aaa;
+            color: #d0d0d0;
             margin: 20px 0;
-            text-shadow: 0 0 10px #00ff00;
+            line-height: 1.6;
         }
 
         .button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 16px 35px;
             margin-top: 30px;
-            background-color: #00ff00;
-            color: #111;
-            font-size: 1.2rem;
+            background-color: #333;
+            color: #f4f4f4;
+            font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 5px;
-            border: 2px solid #00ff00;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            border: 2px solid #fff;
             transition: all 0.3s ease;
         }
 
         .button:hover {
-            background-color: #111;
-            color: #00ff00;
-            border-color: #00ff00;
-            box-shadow: 0 0 15px #00ff00;
+            background-color: #555;
+            border-color: #ddd;
         }
 
-        .matrix {
+        .background-effect {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.05;
+            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.3;
+            filter: blur(10px);
         }
 
         footer {
             position: fixed;
-            bottom: 10px;
-            font-size: 1rem;
-            color: #00ff00;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #bbb;
             letter-spacing: 1px;
-            text-shadow: 0 0 5px #00ff00;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 <body>
-    <div class="matrix"></div>
+    <div class="background-effect"></div>
     <div class="content">
         <h1>Flank</h1>
-        <p>Initiating system... Welcome to the dark network.</p>
-        <a href="#explore" class="button">Access Terminal</a>
+        <p>Experience something beyond the ordinary. Enter the unknown.</p>
+        <a href="#explore" class="button">Enter</a>
     </div>
     <footer>
-        <p>Flank | Hacker Mode: Activated</p>
+        <p>Flank | Embrace the Mystery</p>
     </footer>
 </body>
 </html>
-
