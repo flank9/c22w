@@ -49,42 +49,37 @@
     }
     
     .container {
-      margin-top: 40px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  height: 100vh; /* Makes sure it takes full screen height */
+}
 
-    .member-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+.member-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-    .member {
-      display: flex;
-      align-items: center;
-      margin: 15px 0;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 10px;
-      border-radius: 5px;
-      width: 80%;
-      max-width: 300px;
-      transition: 0.3s ease;
-      flex-direction: column;
-      text-align: center;
-      cursor: pointer;
-    }
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 5px;
+  width: 300px; /* Set a fixed width */
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-    .member:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .member-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
+.member:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
     .telegram-link, .doxbin-link {
       color: white;
       text-decoration: none;
