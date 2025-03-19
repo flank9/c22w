@@ -35,6 +35,12 @@
       height: 200px;
       border-radius: 50%;
       margin-bottom: 20px;
+      border: 4px solid #fff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.1);
     }
 
     .profile-info {
@@ -46,11 +52,37 @@
       text-decoration: none;
       margin: 0 15px;
       font-size: 1.2rem;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
     }
 
-    .social-links a:hover {
-      color: #65d1ff;
+    .social-links a:first-child {
+      animation: glow-blue 1.5s infinite alternate;
+    }
+
+    @keyframes glow-blue {
+      0% {
+        color: #65d1ff;
+        text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff;
+      }
+      100% {
+        color: #65d1ff;
+        text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff;
+      }
+    }
+
+    .social-links a:nth-child(2) {
+      animation: glow-golden 1.5s infinite alternate;
+    }
+
+    @keyframes glow-golden {
+      0% {
+        color: #f5a623;
+        text-shadow: 0 0 10px #f5a623, 0 0 20px #f5a623;
+      }
+      100% {
+        color: #f5a623;
+        text-shadow: 0 0 15px #f5a623, 0 0 30px #f5a623;
+      }
     }
 
     footer {
@@ -68,6 +100,7 @@
     footer a:hover {
       color: #fff;
     }
+
   </style>
 </head>
 <body>
@@ -78,7 +111,6 @@
       <h1>Decoy.</h1>
       <p>Socials are linked below.</p>
     </div>
-
     <div class="social-links">
       <a href="https://t.me/decoy95" target="_blank">t.me/decoy95</a>
       <a href="https://doxbin.org/user/instakiII" target="_blank">Doxbin</a>
@@ -86,8 +118,7 @@
   </div>
 
   <footer>
-    <p>&copy; CRIP WALKIN ON YOUR INTERNET PRESENCE.
+    <p>&copy; CRIP WALKIN ON YOUR INTERNET PRESENCE.</p>
   </footer>
-
 </body>
 </html>
