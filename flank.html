@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@t.me/flank155</title>
-    <meta property="og:description" content=":3">
-    <link rel="icon" href="https://cant.rest/assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <title>「Valhalla」</title>
+    <meta name="theme-color" content="#000">
+
+    <!-- Social Meta Tags -->
+    <meta property="og:title" content="「Valhalla」"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="$VLH$"/>
+
+    <!-- Internal Styles -->
     <style>
         * {
             margin: 0;
@@ -16,124 +26,132 @@
 
         body, html {
             height: 100%;
-            overflow: hidden;
             font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #000;
+            color: white;
         }
 
-        .background {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            background-color: #0f0f0f;
-            z-index: -1;
-        }
-
-        .ascii-image {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: -1;
-            color: #fff;
-            font-size: 40px;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-
-        .full-page-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            transition: opacity 1s ease-in-out;
-            z-index: 1;
-        }
-
-        .overlay-content {
+        .load {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #fff;
             text-align: center;
-            font-size: 24px;
-            letter-spacing: 2px;
+            width: 100%;
         }
 
-        .overlay-content h1 {
-            font-size: 3rem;
+        .ichi {
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            letter-spacing: 5px;
         }
 
-        .overlay-content p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+        p {
+            font-size: 1.3rem;
+            margin: 10px 0;
         }
 
-        .overlay-content a {
+        .anim-typewriter {
             display: inline-block;
-            padding: 12px 25px;
-            margin-top: 30px;
-            background-color: #ffd4f4;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            font-size: 1.3rem;
+            animation: typewriter 3s steps(40) 1s 1 normal both;
         }
 
-        .overlay-content a:hover {
-            background-color: #e6a9d1;
+        .green {
+            color: #00FF00;
+        }
+
+        .red {
+            color: red;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .anim {
+            margin-top: 20px;
+            font-size: 1.3rem;
+        }
+
+        .anim2 {
+            margin-top: 20px;
+            font-size: 1.3rem;
+        }
+
+        .logo p {
+            margin: 5px 0;
+        }
+
+        .logo .top {
+            font-size: 1.5rem;
+        }
+
+        .logo .mid {
+            font-size: 2.5rem;
+        }
+
+        .logo .mid span {
+            color: #FFD700;
+        }
+
+        .logo .bottom {
+            font-size: 1rem;
         }
     </style>
+
 </head>
 <body>
-    <div class="background"></div>
-    <div class="ascii-image">
-        <pre>
-            ______________________
-(0RGSDOFCJftli;:.:. .  )
- T""""""""""""""""""""T
- |.;....,..........;..|
- |;;:: .  .    .      |
- l;;;:. :   .     ..  ;
- `;;:::.: .    .     .'
-  l;;:. ..  .     .: ;
-  `;;::.. .    .  ; .'
-   l;;:: .  .    /  ;
-    \;;:. .   .,'  /
-     `\;:.. ..'  .'
-       `\;:.. ..'
-         \;:. /
-          l; f
-          `;f'
-           ||
-           ;l.
-          ;: l
-         / ;  \
-       ,/  :   `.
-     ./' . :     `.
-    /' ,'  :       \
-   f  /  . :        i
-  ,' ;  .  :        `.
-  f ;  .   :      .  i
- .'    :   :       . `.
- f ,  .    ;       :  i
- |    :  ,/`.       : |
- |    ;,/;:. `.     . |
- |___,/;;:. . .`._____|
-(QB0ZDOLC7itz!;:.:. .  )
-        </pre>
+
+    <!-- Main Loading Page -->
+    <div class="load">
+        <div class="ichi">
+            <h1>Valhalla<br>Trends</h1>
+            <img src="images/cock.gif" alt="Monkey" style="height: 128px; float: right; padding: 1em;">
+            <p>Valhalla (C)2015-2025 RSY & Associates. All Rights Reserved.</p>
+            <p>Till Valhalla, brother</p>
+
+            <!-- Typewriter Animation -->
+            <div class="anim-typewriter">
+                <p>[ <em class="green">OK</em> ] Loading Random Services...</p>
+            </div>
+
+            <div class="anim">
+                <p>[ <em class="green">OK</em> ] Starting NetworkManager...</p>
+            </div>
+
+            <div class="anim2">
+                <p>[ <em class="red">FAILED</em> ] Failed to start: Brain...</p>
+            </div>
+
+            <p style="color: red;">Something weird is happening ...<br>Is there a new change coming soon?</p>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="logo">
+            <p class="top">valhal.la</p>
+            <p class="mid">Valhalla<span>OS</span></p>
+            <p class="bottom">Reborn</p>
+        </div>
     </div>
 
-    <div class="full-page-overlay"></div>
-    <div class="overlay-content">
-        <h1>@flank</h1>
-        <p>loveley.</p>
-        <a href="#">Enter</a>
-    </div>
+    <!-- Redirect After 5 seconds -->
+    <meta http-equiv="refresh" content="5; URL=desktop.html" />
+
+    <!-- Optional JavaScript -->
+    <script>
+        // Any additional scripts you may want to add can go here
+        // Example: console.log('Welcome to Valhalla!');
+    </script>
+
 </body>
 </html>
