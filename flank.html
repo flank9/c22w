@@ -3,99 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flank</title>
+    <title>@mp</title>
+    <meta property="og:description" content=":3">
+    <link rel="icon" href="https://cant.rest/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1f1f1f;
-            color: #f4f4f4;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
             overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            font-weight: bold;
-            letter-spacing: 5px;
+        .background {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-color: #0f0f0f;
+            z-index: -1;
+        }
+
+        .ascii-image {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: -1;
             color: #fff;
-            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            font-size: 40px;
+            text-align: center;
+            letter-spacing: 2px;
         }
 
-        .content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            max-width: 500px;
-            width: 90%;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #d0d0d0;
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 16px 35px;
-            margin-top: 30px;
-            background-color: #333;
-            color: #f4f4f4;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid #fff;
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #555;
-            border-color: #ddd;
-        }
-
-        .background-effect {
+        .full-page-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center fixed;
-            background-size: cover;
-            opacity: 0.3;
-            filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
         }
 
-        footer {
-            position: fixed;
-            bottom: 20px;
-            font-size: 0.9rem;
-            color: #bbb;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        .overlay-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .overlay-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+
+        .overlay-content p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .overlay-content a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 30px;
+            background-color: #ffd4f4;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .overlay-content a:hover {
+            background-color: #e6a9d1;
         }
     </style>
 </head>
 <body>
-    <div class="background-effect"></div>
-    <div class="content">
-        <h1>Flank</h1>
-        <p>Experience something beyond the ordinary. Enter the unknown.</p>
-        <a href="#explore" class="button">Enter</a>
+    <div class="background"></div>
+    <div class="ascii-image">
+        <!-- You can put ASCII art or any text here -->
+        <pre>
+            /\_/\
+           ( o.o )
+            > ^ <
+        </pre>
     </div>
-    <footer>
-        <p>Flank | Embrace the Mystery</p>
-    </footer>
+
+    <div class="full-page-overlay"></div>
+    <div class="overlay-content">
+        <h1>@mp</h1>
+        <p>Exploring the unknown.</p>
+        <a href="#">Enter</a>
+    </div>
 </body>
 </html>
