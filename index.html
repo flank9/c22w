@@ -1,152 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta property="og:title" content="Unknown Origins">
-  <meta property="og:description" content="Welcome to the new world of Instakill!">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Instakill World">
+  <meta property="og:description" content="Explore the World of Instakill, Connect with Members, and Stay Updated.">
   <meta property="og:image" content="https://yournewimage.com/new-image.png">
   <meta property="og:url" content="https://newsite.com">
   <meta property="og:type" content="website">
-  <meta charset="UTF-8" />
-  <title>INSTAKILL - New World</title>
+  <title>Instakill World</title>
 
   <style>
+    /* Global Styles */
     body, html {
-      height: 100%;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #0c0c0c;
-      color: #ffffff;
       font-family: 'Arial', sans-serif;
-      text-align: center;
-    }
-
-    header {
-      margin-bottom: 30px;
-    }
-
-    .logo {
-      width: 80px;
-      height: 80px;
-      opacity: 0.85;
-      animation: bounce 5s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .container {
+      color: #fff;
+      background-color: #0d1117;
+      height: 100%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 500px;
-      margin-bottom: 50px;
-    }
-
-    .member-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .member {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 20px;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 320px;
+      align-items: center;
+      flex-direction: column;
       text-align: center;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
     }
 
-    .member:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.1);
-    }
-
-    .member-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    .telegram-link, .doxbin-link {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
-
-    .telegram-link:hover {
-      color: #ddd;
-    }
-
-    .doxbin-link {
-      color: #ffcc00;
-      text-shadow: 0 0 12px #ffcc00, 0 0 18px #ffcc00;
-      animation: glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow {
-      0% { text-shadow: 0 0 12px #ffcc00, 0 0 18px #ffcc00; }
-      100% { text-shadow: 0 0 18px #ffcc00, 0 0 30px #ffcc00; }
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 1rem;
-      opacity: 0.8;
-    }
-
-    footer a {
-      color: #bbb;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    .bottom-img {
-      width: 100%;
-      max-width: 300px;
-      margin-top: 20px;
-      animation: slideUp 2s ease-in-out;
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
+    /* Preloader */
     .intro-overlay {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
+      font-size: 1.8rem;
       font-family: 'Courier New', monospace;
-      font-size: 1.5rem;
-      opacity: 1;
-      animation: fadeIn 2s ease-out forwards;
+      z-index: 1000;
+      animation: fadeIn 1s ease-out forwards;
     }
 
     @keyframes fadeIn {
@@ -154,61 +49,180 @@
       to { opacity: 1; }
     }
 
-    #ascii-art {
-      text-align: center;
-      margin: 0;
+    /* Logo & Header */
+    header {
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-out;
     }
 
+    .logo {
+      width: 120px;
+      opacity: 0.9;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Member Cards */
+    .member-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .member {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .member-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 4px solid #fff;
+    }
+
+    .member-info {
+      margin-top: 15px;
+    }
+
+    .telegram-link, .doxbin-link {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .telegram-link:hover {
+      color: #65d1ff;
+    }
+
+    .doxbin-link {
+      color: #f5a623;
+      text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623;
+      animation: sparkle 1.5s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623; }
+      100% { text-shadow: 0 0 18px #f5a623, 0 0 30px #f5a623; }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      font-size: 1rem;
+      opacity: 0.8;
+      color: #bbb;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+
+    footer a {
+      color: #bbb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Bottom Image */
+    .bottom-img {
+      width: 90%;
+      max-width: 300px;
+      margin-top: 30px;
+      animation: fadeIn 3s ease-out;
+    }
+
+    /* Audio Player */
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Intro Overlay -->
   <div class="intro-overlay" id="intro-overlay" onclick="removeOverlay()">
-    <pre id="ascii-art">
-    /$$$$$$$$         /$$$$$$$$         /$$$$$$$$ 
-   /$$__$$__/        /$$__$$__/        /$$__$$__/ 
-  | $$  $$ $$       | $$  $$ $$       | $$  $$ $$ 
-  | $$  $$ $$       | $$  $$ $$       | $$  $$ $$ 
-   $$$$$$ $$        $$$$$$ $$        $$$$$$ $$  
-    /$$ $$ $$         /$$ $$ $$         /$$ $$ $$ 
-   /$$ $$ $$ $$      /$$ $$ $$ $$      /$$ $$ $$ $$ 
-   $$$$$$ $$ $$       $$$$$$ $$ $$      $$$$$$ $$ 
-   $$__$$ $$__$$       $$__$$ $$__$$      $$__$$ $$__$$ 
-      " "                " "                  " " 
+    <pre id="ascii-art"
     </pre>
     <p>Click anywhere to enter...</p>
   </div>
 
+  <!-- Header Section -->
   <header>
-    <img src="new-logo.png" alt="New Logo" class="logo" />
+    <img class="logo" src="hung.png" alt="New Logo" />
   </header>
 
+  <!-- Main Content -->
   <div class="container">
-    <div class="member" onclick="redirectToFlank()">
-      <img src="flank.png" class="member-img" alt="Flank Member" />
-      <div class="member-info">
-        <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
-        <p>#This is Flank.</p>
-        <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
-      </div>
-    </div>
+    <div class="member-list">
 
-    <div class="member" onclick="playAudio('audio2.mp3')">
-      <img src="cash.png" class="member-img" alt="Agent 2" />
-      <div class="member-info">
-        <a href="https://t.me/decoy95" target="_blank" class="telegram-link">t.me/decoy95</a>
-        <p>#1 Fed Dodger.</p>
-        <a href="https://doxbin.org/user/instakill" target="_blank" class="doxbin-link">Doxbin</a>
+      <!-- Flank Member Card -->
+      <div class="member" onclick="redirectToFlank()">
+        <img src="flank.png" class="member-img" alt="Flank Member" />
+        <div class="member-info">
+          <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
+          <p>#This is Flank.</p>
+          <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
+        </div>
       </div>
+
+      <!-- Another Member Card -->
+      <div class="member" onclick="playAudio('audio2.mp3')">
+        <img src="cash.png" class="member-img" alt="Cash Member" />
+        <div class="member-info">
+          <a href="https://t.me/decoy95" target="_blank" class="telegram-link">t.me/decoy95</a>
+          <p>#1 Fed Dodger.</p>
+          <a href="https://doxbin.org/user/instakill" target="_blank" class="doxbin-link">Doxbin</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- Footer Section -->
   <footer>
-    <p>&copy; 2025 New Instakill World. All rights reserved. <a href="https://newsite.com">Visit our site</a></p>
+    <p>&copy; 2025 Instakill. All rights reserved. <a href="https://instakill.cc" target="_blank">instakill.cc</a></p>
   </footer>
 
-  <img src="new-image.gif" class="bottom-img" alt="Instakill Image" />
+  <!-- Bottom Image -->
+  <img src="instakill.gif" class="bottom-img" alt="Instakill World Image" />
 
+  <!-- Audio Element -->
   <audio id="member-audio"></audio>
+
+  <!-- JavaScript -->
   <script>
     function playAudio(audioFile) {
       const audioElement = document.getElementById("member-audio");
