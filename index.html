@@ -2,192 +2,229 @@
 <html lang="en">
 <head>
   <meta property="og:title" content="Unknown Origins">
-  <meta property="og:description" content=":3">
-  <meta property="og:image" content="https://c22w.site/instakill.png"> 
-  <meta property="og:url" content="https://c22w.site"> 
+  <meta property="og:description" content="Welcome to the new world of Instakill!">
+  <meta property="og:image" content="https://yournewimage.com/new-image.png">
+  <meta property="og:url" content="https://newsite.com">
   <meta property="og:type" content="website">
   <meta charset="UTF-8" />
-  <title>INSTAKILL</title>
+  <title>INSTAKILL - New World</title>
 
   <style>
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers vertically */
-  align-items: center; /* Centers horizontally */
-  background-color: black;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0c0c0c;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px; /* Space below the header */
-}
+    header {
+      margin-bottom: 30px;
+    }
 
-.header-img {
-  width: 60px; /* Smaller size for hung.png */
-  opacity: 0.8;
-  animation: sway 6s ease-in-out infinite;
-}
+    .logo {
+      width: 80px;
+      height: 80px;
+      opacity: 0.85;
+      animation: bounce 5s ease-in-out infinite;
+    }
 
-@keyframes sway {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(3deg); }
-  75% { transform: rotate(-3deg); }
-}
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 500px; /* Keeps content from getting too wide */
-}
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 50px;
+    }
 
-.member-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px; /* Increased gap between members */
-  width: 100%;
-}
+    .member-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
 
-.member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 320px; /* Keeps it proportional */
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+    .member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-.member:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
+    .member:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
 
-.member-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 8px;
-}
+    .member-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
 
-.telegram-link, .doxbin-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
+    .telegram-link, .doxbin-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
 
-.telegram-link:hover {
-  color: #ddd;
-}
+    .telegram-link:hover {
+      color: #ddd;
+    }
 
-.doxbin-link {
-  color: gold;
-  text-shadow: 0 0 12px gold, 0 0 18px gold, 0 0 25px gold;
-  animation: sparkle 1.5s infinite alternate;
-}
+    .doxbin-link {
+      color: #ffcc00;
+      text-shadow: 0 0 12px #ffcc00, 0 0 18px #ffcc00;
+      animation: glow 1.5s infinite alternate;
+    }
 
-@keyframes sparkle {
-  0% { text-shadow: 0 0 12px gold, 0 0 18px gold, 0 0 25px gold; }
-  100% { text-shadow: 0 0 18px gold, 0 0 30px gold, 0 0 35px gold; }
-}
+    @keyframes glow {
+      0% { text-shadow: 0 0 12px #ffcc00, 0 0 18px #ffcc00; }
+      100% { text-shadow: 0 0 18px #ffcc00, 0 0 30px #ffcc00; }
+    }
 
-footer {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
+    footer {
+      margin-top: 40px;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    footer a {
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .bottom-img {
+      width: 100%;
+      max-width: 300px;
+      margin-top: 20px;
+      animation: slideUp 2s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .intro-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 1.5rem;
+      opacity: 1;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #ascii-art {
+      text-align: center;
+      margin: 0;
+    }
 
   </style>
 </head>
 <body>
-<div id="intro-overlay" onclick="removeOverlay()">
-  <pre id="ascii-art">
-  /$$$$         /$$$$         /$$$$ 
- /$$  $$       /$$  $$       /$$  $$
-|__/\ $$      |__/\ $$      |__/\ $$
-    /$$/          /$$/          /$$/
-   /$$/          /$$/          /$$/ 
-  |__/          |__/          |__/  
-   /$$           /$$           /$$  
-  |__/          |__/          |__/  
-   Hint click anywhere to enter... </pre>
-</div>
-
-<header>
-  <img class="logo" src="hung.png" alt="girl haning man" />
-</header>
-
-<div class="member" onclick="redirectToFlank()">
-  <img src="flank.png" class="member-img" alt="instakill1" />
-  <div class="member-info">
-    <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
-    <p>#I value myself.</p>
-    <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
+  <div class="intro-overlay" id="intro-overlay" onclick="removeOverlay()">
+    <pre id="ascii-art">
+    /$$$$$$$$         /$$$$$$$$         /$$$$$$$$ 
+   /$$__$$__/        /$$__$$__/        /$$__$$__/ 
+  | $$  $$ $$       | $$  $$ $$       | $$  $$ $$ 
+  | $$  $$ $$       | $$  $$ $$       | $$  $$ $$ 
+   $$$$$$ $$        $$$$$$ $$        $$$$$$ $$  
+    /$$ $$ $$         /$$ $$ $$         /$$ $$ $$ 
+   /$$ $$ $$ $$      /$$ $$ $$ $$      /$$ $$ $$ $$ 
+   $$$$$$ $$ $$       $$$$$$ $$ $$      $$$$$$ $$ 
+   $$__$$ $$__$$       $$__$$ $$__$$      $$__$$ $$__$$ 
+      " "                " "                  " " 
+    </pre>
+    <p>Click anywhere to enter...</p>
   </div>
-</div>
-</div>
+
+  <header>
+    <img src="new-logo.png" alt="New Logo" class="logo" />
+  </header>
+
+  <div class="container">
+    <div class="member" onclick="redirectToFlank()">
+      <img src="flank.png" class="member-img" alt="Flank Member" />
+      <div class="member-info">
+        <a href="https://t.me/flank155" target="_blank" class="telegram-link">t.me/flank155</a>
+        <p>#This is Flank.</p>
+        <a href="https://doxbin.org/user/Cxxz" target="_blank" class="doxbin-link">Doxbin</a>
+      </div>
+    </div>
+
     <div class="member" onclick="playAudio('audio2.mp3')">
       <img src="cash.png" class="member-img" alt="Agent 2" />
       <div class="member-info">
         <a href="https://t.me/decoy95" target="_blank" class="telegram-link">t.me/decoy95</a>
-        <p>#1 Fed dodger.</p>
+        <p>#1 Fed Dodger.</p>
         <a href="https://doxbin.org/user/instakill" target="_blank" class="doxbin-link">Doxbin</a>
       </div>
     </div>
   </div>
-  
+
   <footer>
-    <p>&copy; 2025 Instakill.cc. All rights reserved.</p>
+    <p>&copy; 2025 New Instakill World. All rights reserved. <a href="https://newsite.com">Visit our site</a></p>
   </footer>
-  <img src="instakill.gif" class="bottom-img" alt="girl" />
-</div>
 
-<audio id="member-audio"></audio>
-<script>
-  function playAudio(audioFile) {
-    const audioElement = document.getElementById("member-audio");
-    audioElement.src = audioFile;
-    audioElement.play().catch(error => console.log("Audio playback blocked."));
-  }
+  <img src="new-image.gif" class="bottom-img" alt="Instakill Image" />
 
-  function removeOverlay() {
-    const overlay = document.getElementById("intro-overlay");
-    overlay.classList.add("fade-out");
-    setTimeout(() => overlay.style.display = "none", 1000);
-  }
+  <audio id="member-audio"></audio>
+  <script>
+    function playAudio(audioFile) {
+      const audioElement = document.getElementById("member-audio");
+      audioElement.src = audioFile;
+      audioElement.play().catch(error => console.log("Audio playback blocked."));
+    }
 
-  const titles = ['I', 'IN', 'IN$', 'IN$T', 'IN$TA', 'IN$TAK', 'IN$TAKI', 'IN$TAKIL', 'IN$TAKILL', 'IN$TAKILL', 'IN$TAKIL', 'IN$TAKI', 'IN$TAK', 'IN$TA', 'IN$T', 'IN$', 'IN', 'I'];
-  let index = 0;
-  function changeTitle() {
-    document.title = titles[index];
-    index = (index + 1) % titles.length;
-    setTimeout(changeTitle, 300);
-  }
-  window.onload = changeTitle;
+    function removeOverlay() {
+      const overlay = document.getElementById("intro-overlay");
+      overlay.style.opacity = 0;
+      setTimeout(() => overlay.style.display = "none", 1000);
+    }
 
-  function redirectToFlank() {
-    window.location.href = "flank.html"; // Change this to the page you want
-  }
-</script>
-
-</script>
+    function redirectToFlank() {
+      window.location.href = "flank.html";
+    }
+  </script>
 </body>
 </html>
