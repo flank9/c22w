@@ -53,7 +53,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Continuous glowing effect for Telegram */
     .social-links a:first-child {
       animation: glow-blue 1.5s infinite alternate;
     }
@@ -69,19 +68,18 @@
       }
     }
 
-    /* Continuous glowing effect for Doxbin */
     .social-links a:nth-child(2) {
       animation: glow-golden 1.5s infinite alternate;
     }
 
     @keyframes glow-golden {
       0% {
-        color: #f5a623;
-        text-shadow: 0 0 12px #f5a623, 0 0 25px #f5a623;
+        color: #ffd700; /* Classic gold color */
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
       }
       100% {
-        color: #f5a623;
-        text-shadow: 0 0 18px #f5a623, 0 0 35px #f5a623;
+        color: #ffd700;
+        text-shadow: 0 0 15px #ffd700, 0 0 35px #ffd700, 0 0 50px #ffd700;
       }
     }
 
