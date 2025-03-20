@@ -130,18 +130,18 @@
   document.addEventListener("DOMContentLoaded", function() {
     const audio = document.getElementById("bg-music");
 
-    // Try to play audio when page loads
+
     const playAudio = () => {
-      audio.volume = 0.5; // Set volume (0.0 - 1.0)
+      audio.volume = 0.5; 
       audio.play().catch(err => console.log("Autoplay blocked, waiting for user interaction."));
     };
 
-    playAudio(); // Attempt to autoplay
+    playAudio(); 
 
-    // If autoplay is blocked, wait for user click
+
     document.addEventListener("click", function() {
       playAudio();
-    }, { once: true }); // Run only once
+    }, { once: true }); 
   });
 </script>
 </html>
