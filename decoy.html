@@ -48,11 +48,12 @@
 
     .profile-info h1 {
       font-size: 2.5rem;
-      color: #65d1ff;
+      color: #fff; /* Changed to white */
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #65d1ff;
+      border-right: 2px solid #fff;
+      transition: color 0.3s ease-in-out;
     }
 
     /* Flicker Effect */
@@ -116,7 +117,7 @@
   <div class="container">
     <img class="profile-img" src="instakill.png" alt="Decoy Profile">
     <div class="profile-info">
-      <h1 id="typewriter"></h1>
+      <h1 id="typewriter" onmouseover="revealName()" onmouseout="hideName()"></h1>
       <p>Socials are linked below.</p>
     </div>
 
@@ -138,25 +139,37 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const audio = document.getElementById("bg-music");
-      const title = "Decoy.";
-      let index = 0;
       const typewriter = document.getElementById("typewriter");
+      const hiddenText = "? ? ?";
+      const realName = "Decoy."; // Change this to the real name
+      let index = 0;
 
+      // Typewriter Effect
       function typeText() {
-        if (index < title.length) {
-          typewriter.innerHTML += title.charAt(index);
+        if (index < hiddenText.length) {
+          typewriter.innerHTML += hiddenText.charAt(index);
           index++;
           setTimeout(typeText, 100);
         } else {
-          typewriter.classList.remove("flicker");
+          typewriter.classList.add("flicker");
         }
       }
 
-      setTimeout(() => {
-        typewriter.classList.add("flicker");
-      }, 500);
-
       typeText();
+
+      // Reveal Name on Hover
+      function revealName() {
+        typewriter.innerHTML = realName;
+        typewriter.classList.remove("flicker");
+      }
+
+      function hideName() {
+        typewriter.innerHTML = hiddenText;
+        typewriter.classList.add("flicker");
+      }
+
+      window.revealName = revealName;
+      window.hideName = hideName;
 
       const playAudio = () => {
         audio.volume = 0.5; 
