@@ -99,6 +99,19 @@
       color: #fff;
     }
 
+    .profile-info h1 {
+  font-size: 2.5rem;
+  color: #65d1ff;
+  text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff; }
+  50% { opacity: 0.8; text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff; }
+  100% { opacity: 1; text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff; }
+}
+
   </style>
 </head>
 <body>
