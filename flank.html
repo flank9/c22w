@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Flank is good looking.">
-  <meta property="og:description" content="Lmfao..">
-  <meta property="og:image" content="https://yournewimage.com/hung.png">
-  <meta property="og:url" content="https://c22w.site">
+  <meta property="og:title" content="Flank Profile">
+  <meta property="og:description" content="Welcome to the Flank profile page">
+  <meta property="og:image" content="https://yournewimage.com/profile-image.png">
+  <meta property="og:url" content="https://flankprofile.com">
   <meta property="og:type" content="website">
   <title>@flank155</title>
   <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
@@ -48,11 +48,12 @@
 
     .profile-info h1 {
       font-size: 2.5rem;
-      color: #65d1ff;
+      color: #fff; /* Changed back to white */
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #65d1ff;
+      border-right: 2px solid #fff;
+      transition: color 0.3s ease-in-out;
     }
 
     /* Flicker Effect */
@@ -116,7 +117,7 @@
   <div class="container">
     <img class="profile-img" src="hung.png" alt="Flank Profile">
     <div class="profile-info">
-      <h1 id="typewriter"></h1>
+      <h1 id="typewriter" onmouseover="revealName()" onmouseout="hideName()"></h1>
       <p>Socials are linked below.</p>
     </div>
     <div class="social-links">
@@ -137,25 +138,37 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const audio = document.getElementById("bg-music");
-      const title = "? ? ?";
-      let index = 0;
       const typewriter = document.getElementById("typewriter");
+      const hiddenText = "? ? ?";
+      const realName = "FLANK";  // Change this to the real name
+      let index = 0;
 
+      // Typewriter Effect
       function typeText() {
-        if (index < title.length) {
-          typewriter.innerHTML += title.charAt(index);
+        if (index < hiddenText.length) {
+          typewriter.innerHTML += hiddenText.charAt(index);
           index++;
           setTimeout(typeText, 100);
         } else {
-          typewriter.classList.remove("flicker");
+          typewriter.classList.add("flicker");
         }
       }
 
-      setTimeout(() => {
-        typewriter.classList.add("flicker");
-      }, 500);
-
       typeText();
+
+      // Reveal Name on Hover
+      function revealName() {
+        typewriter.innerHTML = realName;
+        typewriter.classList.remove("flicker");
+      }
+
+      function hideName() {
+        typewriter.innerHTML = hiddenText;
+        typewriter.classList.add("flicker");
+      }
+
+      window.revealName = revealName;
+      window.hideName = hideName;
 
       const playAudio = () => {
         audio.volume = 0.7;
