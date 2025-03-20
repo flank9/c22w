@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Flank Profile">
-  <meta property="og:description" content="Welcome to the Flank profile page">
-  <meta property="og:image" content="https://yournewimage.com/profile-image.png">
-  <meta property="og:url" content="https://flankprofile.com">
+  <meta property="og:title" content="Flank is good looking.">
+  <meta property="og:description" content="Lmfao..">
+  <meta property="og:image" content="https://yournewimage.com/hung.png">
+  <meta property="og:url" content="https://c22w.site">
   <meta property="og:type" content="website">
   <title>@flank155</title>
-<link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
 
   <style>
     body, html {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Tektur', sans-serif;
       background-color: #000;
       color: #fff;
       display: flex;
@@ -46,6 +46,28 @@
       margin-bottom: 20px;
     }
 
+    .profile-info h1 {
+      font-size: 2.5rem;
+      color: #65d1ff;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #65d1ff;
+    }
+
+    /* Flicker Effect */
+    @keyframes flicker {
+      0% { opacity: 1; }
+      25% { opacity: 0.6; }
+      50% { opacity: 0.2; }
+      75% { opacity: 0.8; }
+      100% { opacity: 1; }
+    }
+
+    .flicker {
+      animation: flicker 0.1s infinite alternate;
+    }
+
     .social-links a {
       color: #fff;
       text-decoration: none;
@@ -59,14 +81,8 @@
     }
 
     @keyframes glow-blue {
-      0% {
-        color: #65d1ff;
-        text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff;
-      }
-      100% {
-        color: #65d1ff;
-        text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff;
-      }
+      0% { color: #65d1ff; text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff; }
+      100% { color: #65d1ff; text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff; }
     }
 
     .social-links a:nth-child(2) {
@@ -74,14 +90,8 @@
     }
 
     @keyframes glow-golden {
-      0% {
-        color: #ffd700; 
-        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
-      }
-      100% {
-        color: #ffd700;
-        text-shadow: 0 0 15px #ffd700, 0 0 35px #ffd700, 0 0 50px #ffd700;
-      }
+      0% { color: #ffd700; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+      100% { color: #ffd700; text-shadow: 0 0 15px #ffd700, 0 0 35px #ffd700; }
     }
 
     footer {
@@ -106,7 +116,7 @@
   <div class="container">
     <img class="profile-img" src="hung.png" alt="Flank Profile">
     <div class="profile-info">
-      <h1>? ? ?</h1>
+      <h1 id="typewriter"></h1>
       <p>Socials are linked below.</p>
     </div>
     <div class="social-links">
@@ -119,27 +129,46 @@
     <p>&copy; I value myself.</p>
   </footer>
 
-</body>
   <audio id="bg-music" loop autoplay>
-  <source src="audio4.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
+    <source src="audio4.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const audio = document.getElementById("bg-music");
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const audio = document.getElementById("bg-music");
+      const title = "? ? ?";
+      let index = 0;
+      const typewriter = document.getElementById("typewriter");
 
-    const playAudio = () => {
-      audio.volume = 0.7;
-      audio.play().catch(err => console.log("Autoplay blocked, waiting for user interaction."));
-    };
+      function typeText() {
+        if (index < title.length) {
+          typewriter.innerHTML += title.charAt(index);
+          index++;
+          setTimeout(typeText, 100);
+        } else {
+          typewriter.classList.remove("flicker");
+        }
+      }
 
-    playAudio(); 
+      setTimeout(() => {
+        typewriter.classList.add("flicker");
+      }, 500);
 
-    document.addEventListener("click", function() {
+      typeText();
+
+      const playAudio = () => {
+        audio.volume = 0.7;
+        audio.play().catch(err => console.log("Autoplay blocked, waiting for user interaction."));
+      };
+
       playAudio();
-    }, { once: true }); 
-  });
-</script>
 
+      document.addEventListener("click", function() {
+        playAudio();
+      }, { once: true });
+    });
+  </script>
+
+</body>
 </html>
