@@ -9,7 +9,8 @@
   <meta property="og:url" content="https://c22w.site/decoy.html">
   <meta property="og:type" content="website">
   <title>@Decoy95</title>
-<link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+  
   <style>
     body, html {
       margin: 0;
@@ -45,6 +46,28 @@
       margin-bottom: 20px;
     }
 
+    .profile-info h1 {
+      font-size: 2.5rem;
+      color: #65d1ff;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #65d1ff;
+    }
+
+    /* Flicker Effect */
+    @keyframes flicker {
+      0% { opacity: 1; }
+      25% { opacity: 0.6; }
+      50% { opacity: 0.2; }
+      75% { opacity: 0.8; }
+      100% { opacity: 1; }
+    }
+
+    .flicker {
+      animation: flicker 0.1s infinite alternate;
+    }
+
     .social-links a {
       color: #fff;
       text-decoration: none;
@@ -58,14 +81,8 @@
     }
 
     @keyframes glow-blue {
-      0% {
-        color: #65d1ff;
-        text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff;
-      }
-      100% {
-        color: #65d1ff;
-        text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff;
-      }
+      0% { color: #65d1ff; text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff; }
+      100% { color: #65d1ff; text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff; }
     }
 
     .social-links a:nth-child(2) {
@@ -73,14 +90,8 @@
     }
 
     @keyframes glow-golden {
-      0% {
-        color: #ffd700; /* Classic gold color */
-        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
-      }
-      100% {
-        color: #ffd700;
-        text-shadow: 0 0 15px #ffd700, 0 0 35px #ffd700, 0 0 50px #ffd700;
-      }
+      0% { color: #ffd700; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+      100% { color: #ffd700; text-shadow: 0 0 15px #ffd700, 0 0 35px #ffd700; }
     }
 
     footer {
@@ -98,20 +109,6 @@
     footer a:hover {
       color: #fff;
     }
-
-    .profile-info h1 {
-  font-size: 2.5rem;
-  color: #65d1ff;
-  text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff;
-  animation: flicker 1.5s infinite alternate;
-}
-
-@keyframes flicker {
-  0% { opacity: 1; text-shadow: 0 0 10px #65d1ff, 0 0 20px #65d1ff; }
-  50% { opacity: 0.8; text-shadow: 0 0 5px #65d1ff, 0 0 10px #65d1ff; }
-  100% { opacity: 1; text-shadow: 0 0 15px #65d1ff, 0 0 30px #65d1ff; }
-}
-
   </style>
 </head>
 <body>
@@ -119,7 +116,7 @@
   <div class="container">
     <img class="profile-img" src="instakill.png" alt="Decoy Profile">
     <div class="profile-info">
-      <h1>Decoy.</h1>
+      <h1 id="typewriter"></h1>
       <p>Socials are linked below.</p>
     </div>
 
@@ -133,28 +130,46 @@
     <p>&copy; CRIP WALKIN ON YOUR INTERNET PRESENCE.</p>
   </footer>
 
-</body>
   <audio id="bg-music" loop autoplay>
-  <source src="audio3.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
+    <source src="audio3.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const audio = document.getElementById("bg-music");
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const audio = document.getElementById("bg-music");
+      const title = "Decoy.";
+      let index = 0;
+      const typewriter = document.getElementById("typewriter");
 
+      function typeText() {
+        if (index < title.length) {
+          typewriter.innerHTML += title.charAt(index);
+          index++;
+          setTimeout(typeText, 100);
+        } else {
+          typewriter.classList.remove("flicker");
+        }
+      }
 
-    const playAudio = () => {
-      audio.volume = 0.5; 
-      audio.play().catch(err => console.log("Autoplay blocked, waiting for user interaction."));
-    };
+      setTimeout(() => {
+        typewriter.classList.add("flicker");
+      }, 500);
 
-    playAudio(); 
+      typeText();
 
+      const playAudio = () => {
+        audio.volume = 0.5; 
+        audio.play().catch(err => console.log("Autoplay blocked, waiting for user interaction."));
+      };
 
-    document.addEventListener("click", function() {
       playAudio();
-    }, { once: true }); 
-  });
-</script>
+
+      document.addEventListener("click", function() {
+        playAudio();
+      }, { once: true });
+    });
+  </script>
+
+</body>
 </html>
