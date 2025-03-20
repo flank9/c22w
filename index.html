@@ -230,19 +230,13 @@
       audioElement.play().catch(error => console.log("Audio playback blocked."));
     }
 
-    function removeOverlay() {
-      const overlay = document.getElementById("intro-overlay");
-      overlay.style.opacity = 0;
-      setTimeout(() => overlay.style.display = "none", 1000);
-    }
-
     function redirectToFlank() {
       window.location.href = "flank.html";
     }
      function redirectTodecoy() {
       window.location.href = "decoy.html";
     }
-    script>
+   <script>
   function removeOverlay() {
     const overlay = document.getElementById("intro-overlay");
     overlay.style.opacity = 0;
@@ -253,7 +247,7 @@
 
   document.addEventListener("keydown", (event) => {
     if (
-      event.ctrlKey && ["u", "s", "i", "j", "c"].includes(event.key) || 
+      (event.ctrlKey && ["u", "s", "i", "j", "c"].includes(event.key)) || 
       event.key === "F12"
     ) {
       event.preventDefault();
@@ -262,16 +256,16 @@
   });
 
   setInterval(() => {
-    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+    console.clear(); 
+    if (
+      (window.outerHeight - window.innerHeight > 250) || 
+      (window.outerWidth - window.innerWidth > 250)
+    ) {
       document.body.innerHTML = "";
       alert("blocked lol...");
-      window.location.replace("https://google.com"); // Redirect to a normal page
+      window.location.replace("https://google.com");
     }
   }, 500);
 </script>
-</script>
-
-</script>
-  </script>
 </body>
 </html>
