@@ -242,26 +242,33 @@
      function redirectTodecoy() {
       window.location.href = "decoy.html";
     }
-    <script>
+    script>
+  function removeOverlay() {
+    const overlay = document.getElementById("intro-overlay");
+    overlay.style.opacity = 0;
+    setTimeout(() => overlay.style.display = "none", 1000);
+  }
+
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
   document.addEventListener("keydown", (event) => {
     if (
-      event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "i" || event.key === "j" || event.key === "c") ||
+      event.ctrlKey && ["u", "s", "i", "j", "c"].includes(event.key) || 
       event.key === "F12"
     ) {
       event.preventDefault();
       alert("SKID ALERT!!!!!.");
     }
   });
-    <script>
+
   setInterval(() => {
     if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
       document.body.innerHTML = "";
       alert("blocked lol...");
-      window.location.replace("what do i do if i get caught with childpizza?"); // Redirect if needed
+      window.location.replace("https://google.com"); // Redirect to a normal page
     }
   }, 500);
+</script>
 </script>
 
 </script>
