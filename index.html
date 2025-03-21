@@ -248,7 +248,19 @@
         window.location.replace("https://google.com");
       }
     }, 500);
-  </script>
 
+    const text = "Welcome to IN$TAKILL...";
+    let index = 0;
+    
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById("ascii-art").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    window.onload = typeWriter;
+    
+  </script>
 </body>
 </html>
