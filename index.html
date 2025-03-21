@@ -211,6 +211,23 @@
   <audio id="member-audio"></audio>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = "Welcome to IN$TAKILL...";
+        let index = 0;
+        const speed = 100; 
+        const typewriterElement = document.getElementById("typewriter-text");
+
+        function typeWriter() {
+            if (index < text.length) {
+                typewriterElement.innerText += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        setTimeout(typeWriter, 500); 
+    });
+
     function removeOverlay() {
       const overlay = document.getElementById("intro-overlay");
       overlay.style.opacity = 0;
@@ -247,20 +264,8 @@
         alert("blocked lol...");
         window.location.replace("https://google.com");
       }
-    }, 500);
-
-    const text = "Welcome to IN$TAKILL...";
-    let index = 0;
-    
-    function typeWriter() {
-        if (index < text.length) {
-            document.getElementById("ascii-art").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-    window.onload = typeWriter;
-    
+    }, 500); 
   </script>
+  
 </body>
 </html>
