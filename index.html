@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en"> 
 <head>
   <meta charset="UTF-8">
@@ -8,8 +8,8 @@
   <meta property="og:image" content="https://c22w.site.com/instakill.png">
   <meta property="og:url" content="https://c22w.site">
   <meta property="og:type" content="website">
-  <title>IN$TAKILL </title>
- 
+  <title>IN$TAKILL</title>
+
   <style>
     /* Global Styles */
     body, html {
@@ -28,12 +28,12 @@
 
     /* Preloader */
     .intro-overlay {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: #000; /* Fully black overlay */
+      width: 100%;
+      height: 100%;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -45,14 +45,8 @@
       transition: opacity 1s ease-out;
     }
 
-    /* Logo & Header */
-    header {
-      margin-bottom: 40px;
-      animation: fadeIn 2s ease-out;
-    }
-
     .logo {
-      width: 200px; /* Increased size of the hung.png */
+      width: 200px;
       opacity: 0.9;
       animation: bounce 1.5s ease-in-out infinite;
     }
@@ -62,29 +56,6 @@
       50% { transform: translateY(-15px); }
     }
 
-    /* Swaying Effect for the Image */
-    .logo.sway {
-      animation: sway 3s ease-in-out infinite;
-    }
-
-    @keyframes sway {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      75% { transform: rotate(-3deg); }
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 800px;
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Member Cards */
     .member-list {
       display: flex;
       flex-wrap: wrap;
@@ -99,81 +70,25 @@
       padding: 20px;
       text-align: center;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
     }
 
     .member:hover {
       transform: translateY(-10px);
       background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .member-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 4px solid #fff;
-    }
-
-    .member-info {
-      margin-top: 15px;
-    }
-
-    .telegram-link, .doxbin-link {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    .telegram-link:hover {
-      color: #65d1ff;
-    }
-
-    .doxbin-link {
-      color: #f5a623;
-      text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623;
-      animation: sparkle 1.5s infinite alternate;
-    }
-
-    @keyframes sparkle {
-      0% { text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623; }
-      100% { text-shadow: 0 0 18px #f5a623, 0 0 30px #f5a623; }
-    }
-
-    /* Footer */
     footer {
       margin-top: 30px;
       font-size: 1rem;
       opacity: 0.8;
       color: #bbb;
-      text-align: center;
-      animation: fadeIn 2s ease-out;
     }
 
-    footer a {
-      color: #bbb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    /* Bottom Image */
     .bottom-img {
       width: 90%;
       max-width: 300px;
       margin-top: 30px;
-      animation: fadeIn 3s ease-out;
-    }
-
-    /* Audio Player */
-    audio {
-      display: none;
     }
   </style>
 </head>
@@ -181,8 +96,6 @@
 
   <!-- Intro Overlay -->
   <div class="intro-overlay" id="intro-overlay" onclick="removeOverlay()">
-    <pre id="ascii-art">
-    </pre>
     <p>Click anywhere to enter...</p>
   </div>
 
@@ -192,56 +105,71 @@
 
   <div class="container">
     <div class="member-list">
-
       <div class="member" onclick="redirectToFlank()">
         <img src="flank.png" class="member-img" alt="Flank Member" />
         <div class="member-info">
-           <p>Click me.</p>
-          <p>#This is Flank.</p>
+          <p>Click me.</p>
+          <p>#I Value myself.</p>
         </div>
       </div>
 
-       <div class="member" onclick="redirectTodecoy()">
+      <div class="member" onclick="redirectTodecoy()">
         <img src="cash.png" class="member-img" alt="Cash Member" />
         <div class="member-info">
-           <p>Click me.</p>
+          <p>Click me.</p>
           <p>#1 Fed Dodger.</p>
         </div>
       </div>
-
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Instakill All rights reserved. <a href="https://instakill.cc" target="_blank">Instakill.cc</a></p>
+    <p>&copy; 2025 Instakill. All rights reserved.</p>
   </footer>
 
-  <!-- Bottom Image -->
   <img src="instakill.gif" class="bottom-img" alt="Instakill World Image" />
 
-  <!-- Audio Element -->
   <audio id="member-audio"></audio>
 
-  <!-- JavaScript -->
   <script>
-    function playAudio(audioFile) {
-      const audioElement = document.getElementById("member-audio");
-      audioElement.src = audioFile;
-      audioElement.play().catch(error => console.log("Audio playback blocked."));
+    function removeOverlay() {
+      const overlay = document.getElementById("intro-overlay");
+      overlay.style.opacity = 0;
+      setTimeout(() => overlay.style.display = "none", 1000);
     }
- 
+
     function redirectToFlank() {
       window.location.href = "flank.html";
     }
-     function redirectTodecoy() {
+
+    function redirectTodecoy() {
       window.location.href = "decoy.html";
     }
-   <script>
-  function removeOverlay() {
-    const overlay = document.getElementById("intro-overlay");
-    overlay.style.opacity = 0;
-    setTimeout(() => overlay.style.display = "none", 1000);
-  }
-</script>
+
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        (event.ctrlKey && ["u", "s", "i", "j", "c"].includes(event.key.toLowerCase())) || 
+        event.key === "F12"
+      ) {
+        event.preventDefault();
+        alert("SKID ALERT!!!!!.");
+      }
+    });
+
+    setInterval(() => {
+      console.clear();
+      if (
+        (window.outerHeight - window.innerHeight > 250) || 
+        (window.outerWidth - window.innerWidth > 250)
+      ) {
+        document.body.innerHTML = "";
+        alert("blocked lol...");
+        window.location.replace("https://google.com");
+      }
+    }, 500);
+  </script>
+
 </body>
 </html>
