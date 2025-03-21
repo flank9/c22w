@@ -11,13 +11,12 @@
   <title>IN$TAKILL</title>
 
   <style>
-    /* Global Styles */
     body, html {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
       color: #fff;
-      background-color: #000; /* Black background */
+      background-color: #000; 
       height: 100%;
       display: flex;
       justify-content: center;
@@ -26,14 +25,14 @@
       text-align: center;
     }
 
-    /* Preloader */
+
     .intro-overlay {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
+      right: 0;
+      bottom: 0;
+      background: #000; 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -45,8 +44,13 @@
       transition: opacity 1s ease-out;
     }
 
+    header {
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-out;
+    }
+
     .logo {
-      width: 200px;
+      width: 200px; 
       opacity: 0.9;
       animation: bounce 1.5s ease-in-out infinite;
     }
@@ -55,6 +59,27 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
+
+    .logo.sway {
+      animation: sway 3s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
 
     .member-list {
       display: flex;
@@ -70,12 +95,48 @@
       padding: 20px;
       text-align: center;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
     }
 
     .member:hover {
       transform: translateY(-10px);
       background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .member-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 4px solid #fff;
+    }
+
+    .member-info {
+      margin-top: 15px;
+    }
+
+    .telegram-link, .doxbin-link {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .telegram-link:hover {
+      color: #65d1ff;
+    }
+
+    .doxbin-link {
+      color: #f5a623;
+      text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623;
+      animation: sparkle 1.5s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623; }
+      100% { text-shadow: 0 0 18px #f5a623, 0 0 30px #f5a623; }
     }
 
     footer {
@@ -83,12 +144,30 @@
       font-size: 1rem;
       opacity: 0.8;
       color: #bbb;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
     }
 
+    footer a {
+      color: #bbb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Bottom Image */
     .bottom-img {
       width: 90%;
       max-width: 300px;
       margin-top: 30px;
+      animation: fadeIn 3s ease-out;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
