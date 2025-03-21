@@ -181,6 +181,29 @@
         playAudio();
       }, { once: true });
     });
+     document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        (event.ctrlKey && ["u", "s", "i", "j", "c"].includes(event.key.toLowerCase())) || 
+        event.key === "F12"
+      ) {
+        event.preventDefault();
+        alert("stop skid.");
+      }
+    });
+
+    setInterval(() => {
+      console.clear();
+      if (
+        (window.outerHeight - window.innerHeight > 250) || 
+        (window.outerWidth - window.innerWidth > 250)
+      ) {
+        document.body.innerHTML = "";
+        alert("skid lmfao...");
+        window.location.replace("https://google.com");
+      }
+    }, 500); 
   </script>
 
 </body>
