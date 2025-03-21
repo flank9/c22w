@@ -211,24 +211,7 @@
   <audio id="member-audio"></audio>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const text = "Welcome to IN$TAKILL...";
-        let index = 0;
-        const speed = 100; 
-        const typewriterElement = document.getElementById("typewriter-text");
-
-        function typeWriter() {
-            if (index < text.length) {
-                typewriterElement.innerText += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-
-        setTimeout(typeWriter, 500); 
-    });
-
-    function removeOverlay() {
+      function removeOverlay() {
       const overlay = document.getElementById("intro-overlay");
       overlay.style.opacity = 0;
       setTimeout(() => overlay.style.display = "none", 1000);
@@ -250,7 +233,7 @@
         event.key === "F12"
       ) {
         event.preventDefault();
-        alert("SKID ALERT!!!!!.");
+        alert("stop skid.");
       }
     });
 
@@ -261,7 +244,7 @@
         (window.outerWidth - window.innerWidth > 250)
       ) {
         document.body.innerHTML = "";
-        alert("blocked lol...");
+        alert("skid lmfao...");
         window.location.replace("https://google.com");
       }
     }, 500); 
