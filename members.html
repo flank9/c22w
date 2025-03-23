@@ -242,60 +242,63 @@
     </div>
 
     <script>
-        var audio = document.getElementById("audio");
-        var playPauseButton = document.getElementById("playPauseButton");
-        var prevButton = document.getElementById("prevButton");
-        var nextButton = document.getElementById("nextButton");
-        var artist = document.getElementById("artist");
-        var songTitle = document.getElementById("songTitle");
+       var audio = document.getElementById("audio");
+var playPauseButton = document.getElementById("playPauseButton");
+var prevButton = document.getElementById("prevButton");
+var nextButton = document.getElementById("nextButton");
+var artist = document.getElementById("artist");
+var songTitle = document.getElementById("songTitle");
 
-        var audioFiles = [
-            { src: "music/audio.mp3", artist: "?", song: "Headshot" },
-            { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
-            { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
-            { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
-        ];
+var audioFiles = [
+    { src: "music/audio.mp3", artist: "?", song: "Headshot" },
+    { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
+    { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
+    { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
+];
 
-        var shuffledAudioFiles = shuffleArray(audioFiles);
-        var currentAudioIndex = 0;
-        loadAudio(currentAudioIndex);
+var shuffledAudioFiles = shuffleArray(audioFiles);
+var currentAudioIndex = 0;
+loadAudio(currentAudioIndex);
 
-        audio.addEventListener("ended", nextAudio);
-        playPauseButton.addEventListener("click", togglePlayPause);
-        nextButton.addEventListener("click", nextAudio);
-        prevButton.addEventListener("click", previousAudio);
+audio.addEventListener("ended", nextAudio);
+playPauseButton.addEventListener("click", togglePlayPause);
+nextButton.addEventListener("click", nextAudio);
+prevButton.addEventListener("click", previousAudio);
 
-        function togglePlayPause() {
-            if (audio.paused) {
-                audio.play();
-                playPauseButton.innerHTML = "<img src='img/pause.png'>";
-            } else {
-                audio.pause();
-                playPauseButton.innerHTML = "<img src='img/play.png'>";
-            }
-        }
+// This function will trigger the play of audio only after the user clicks play
+function togglePlayPause() {
+    if (audio.paused) {
+        audio.play().catch((error) => {
+            console.error("Autoplay blocked: ", error);
+            alert("Please click to enable audio playback.");
+        });
+        playPauseButton.innerHTML = "<img src='img/pause.png'>";
+    } else {
+        audio.pause();
+        playPauseButton.innerHTML = "<img src='img/play.png'>";
+    }
+}
 
-        function nextAudio() {
-            currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-            loadAudio(currentAudioIndex);
-        }
+function nextAudio() {
+    currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
+    loadAudio(currentAudioIndex);
+}
 
-        function previousAudio() {
-            if (audio.currentTime <= 3) {
-                currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-            } else {
-                audio.currentTime = 0;
-            }
-            loadAudio(currentAudioIndex);
-        }
+function previousAudio() {
+    if (audio.currentTime <= 3) {
+        currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
+    } else {
+        audio.currentTime = 0;
+    }
+    loadAudio(currentAudioIndex);
+}
 
-        function loadAudio(index) {
-            var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
-            audio.src = src;
-            artist.textContent = artistName;
-            songTitle.textContent = songTitleText;
-            audio.play();
-        }
+function loadAudio(index) {
+    var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
+    audio.src = src;
+    artist.textContent = artistName;
+    songTitle.textContent = songTitleText;
+}
     </script>
 
 </body>
