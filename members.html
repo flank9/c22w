@@ -7,11 +7,12 @@
     <title>IN$TAKILL</title>
     <script src="sparkle.js"></script>
     <script src="audio.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #121212;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -92,37 +93,31 @@
             align-items: center;
         }
 
-        .audio-player button {
-            background-color: #1f75fe;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px;
+        .audio-player .controls {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 20px;
         }
 
-        .audio-player button:hover {
-            background-color: #0056b3;
+        .audio-player button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
         }
 
         .audio-player button img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
+            width: 40px;
+            height: 40px;
         }
 
         .audio-info {
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .audio-info p {
-            font-size: 18px;
-            margin: 5px 0;
+            font-size: 14px;
+            color: #fff;
         }
     </style>
 </head>
@@ -131,6 +126,7 @@
     <script>
         window.onload = function() {
             Sparkle.init();
+            document.getElementById("audio").play();
         };
     </script>
 
@@ -164,14 +160,17 @@
 
     <!-- Audio Player -->
     <div class="audio-player">
-        <audio id="audio" controls>
-            <source src="/music/audio.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-
-        <button id="playPauseButton">
-            <img src="img/play.png" alt="Play"> Play
-        </button>
+        <div class="controls">
+            <button id="prevButton">
+                <img src="img/back.png" alt="Previous">
+            </button>
+            <button id="playPauseButton">
+                <img src="img/play.png" alt="Play">
+            </button>
+            <button id="nextButton">
+                <img src="img/next.png" alt="Next">
+            </button>
+        </div>
 
         <div class="audio-info">
             <p id="artist">Artist</p>
@@ -183,15 +182,17 @@
         // Get DOM elements
         var audio = document.getElementById("audio");
         var playPauseButton = document.getElementById("playPauseButton");
+        var prevButton = document.getElementById("prevButton");
+        var nextButton = document.getElementById("nextButton");
         var artist = document.getElementById("artist");
         var songTitle = document.getElementById("songTitle");
 
         // Audio file list
         var audioFiles = [
-            { src: "music/audio.mp3", artist: "Artist 1", song: "Song 1" },
-            { src: "music/audio2.mp3", artist: "Artist 2", song: "Song 2" },
-            { src: "music/audio3.mp3", artist: "Artist 3", song: "Song 3" },
-            { src: "music/audio4.mp3", artist: "Artist 4", song: "Song 4" }
+            { src: "/music/audio.mp3", artist: "Artist 1", song: "Song 1" },
+            { src: "/music/audio2.mp3", artist: "Artist 2", song: "Song 2" },
+            { src: "/music/audio3.mp3", artist: "Artist 3", song: "Song 3" },
+            { src: "/music/audio4.mp3", artist: "Artist 4", song: "Song 4" }
         ];
 
         // Shuffle and start the first track
@@ -202,11 +203,13 @@
         // Event Listeners
         audio.addEventListener("ended", nextAudio);
         playPauseButton.addEventListener("click", togglePlayPause);
+        nextButton.addEventListener("click", nextAudio);
+        prevButton.addEventListener("click", previousAudio);
 
         // Functions
         function togglePlayPause() {
             audio.paused ? audio.play() : audio.pause();
-            playPauseButton.innerHTML = audio.paused ? "<img src='img/play.png'>" : "<img src='img/pause.png'> Pause";
+            playPauseButton.innerHTML = audio.paused ? "<img src='img/play.png'>" : "<img src='img/pause.png'>";
         }
 
         function nextAudio() {
