@@ -280,24 +280,30 @@
     }
 
     document.onmousemove = (e) => { x = e.pageX; y = e.pageY; };
-    
+
     function sparkle() {
       for (let i = 0; i < sparkles; i++) {
-        if (!stars[i].style.visibility) {
+        if (stars[i].style.visibility === 'hidden') {
           stars[i].style.left = `${x + Math.random() * 5 - 2}px`;
           stars[i].style.top = `${y + Math.random() * 5 - 2}px`;
           stars[i].style.visibility = 'visible';
 
-          setTimeout(() => { stars[i].style.visibility = 'hidden'; }, 500);
-          
+          setTimeout(() => {
+            stars[i].style.visibility = 'hidden';
+          }, 500);
+
           tinyStars[i].style.left = stars[i].style.left;
           tinyStars[i].style.top = stars[i].style.top;
           tinyStars[i].style.visibility = 'visible';
-          setTimeout(() => { tinyStars[i].style.visibility = 'hidden'; }, 200);
-          
+
+          setTimeout(() => {
+            tinyStars[i].style.visibility = 'hidden';
+          }, 200);
+
           break;
         }
       }
+
       requestAnimationFrame(sparkle);
     }
 
