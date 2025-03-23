@@ -7,11 +7,11 @@
     <title>@IN$TAKILL</title>
     
     <meta property="og:title" content="Whores.net">
-  <meta property="og:description" content="Well this is IN$TAKILL Ig.">
-  <meta property="og:image" content="https:/c22w.site/hung.png">
-  <meta property="og:url" content="https://c22w.site">
-  <meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=VT323:wght@400;500&display=swap" rel="stylesheet">
+    <meta property="og:description" content="Well this is IN$TAKILL Ig.">
+    <meta property="og:image" content="https:/c22w.site/hung.png">
+    <meta property="og:url" content="https://c22w.site">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -234,7 +234,7 @@
                 <p id="songTitle">Song Title</p>
             </div>
 
-            <audio id="audio" preload="auto">
+            <audio id="audio" preload="auto" muted>
                 <source src="music/audio.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
@@ -242,90 +242,90 @@
     </div>
 
     <script>
-           // Getting DOM elements
-    var audio = document.getElementById("audio");
-    var playPauseButton = document.getElementById("playPauseButton");
-    var prevButton = document.getElementById("prevButton");
-    var nextButton = document.getElementById("nextButton");
-    var artist = document.getElementById("artist");
-    var songTitle = document.getElementById("songTitle");
+        // Getting DOM elements
+        var audio = document.getElementById("audio");
+        var playPauseButton = document.getElementById("playPauseButton");
+        var prevButton = document.getElementById("prevButton");
+        var nextButton = document.getElementById("nextButton");
+        var artist = document.getElementById("artist");
+        var songTitle = document.getElementById("songTitle");
 
-    // List of audio files
-    var audioFiles = [
-        { src: "music/audio.mp3", artist: "?", song: "Headshot" },
-        { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
-        { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
-        { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
-    ];
+        // List of audio files
+        var audioFiles = [
+            { src: "music/audio.mp3", artist: "?", song: "Headshot" },
+            { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
+            { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
+            { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
+        ];
 
-    var shuffledAudioFiles = shuffleArray(audioFiles); // Randomizing the audio files
-    var currentAudioIndex = 0;
+        var shuffledAudioFiles = shuffleArray(audioFiles); // Randomizing the audio files
+        var currentAudioIndex = 0;
 
-    loadAudio(currentAudioIndex); // Load the first audio file on page load
+        loadAudio(currentAudioIndex); // Load the first audio file on page load
 
-    // Event listeners for buttons
-    audio.addEventListener("ended", nextAudio); // Go to next audio when the current one ends
-    playPauseButton.addEventListener("click", togglePlayPause); // Play/Pause button click
-    nextButton.addEventListener("click", nextAudio); // Next button click
-    prevButton.addEventListener("click", previousAudio); // Previous button click
+        // Event listeners for buttons
+        audio.addEventListener("ended", nextAudio); // Go to next audio when the current one ends
+        playPauseButton.addEventListener("click", togglePlayPause); // Play/Pause button click
+        nextButton.addEventListener("click", nextAudio); // Next button click
+        prevButton.addEventListener("click", previousAudio); // Previous button click
 
-    // Function to shuffle the audio files
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+        // Function to shuffle the audio files
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         }
-        return array;
-    }
 
-    // Toggle play and pause of audio
-    function togglePlayPause() {
-        if (audio.paused) {
-            audio.play().then(() => {
-                // Update button to show pause
-                playPauseButton.innerHTML = "<img src='img/pause.png'>";
-            }).catch((error) => {
-                console.error("Autoplay blocked: ", error);
-                alert("Please click the play button again to enable audio playback.");
-            });
-        } else {
-            audio.pause();
-            playPauseButton.innerHTML = "<img src='img/play.png'>";
+        // Toggle play and pause of audio
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    audio.muted = false; // Unmute audio on play
+                    playPauseButton.innerHTML = "<img src='img/pause.png'>";
+                }).catch((error) => {
+                    console.error("Autoplay blocked: ", error);
+                    alert("Please click the play button again to enable audio playback.");
+                });
+            } else {
+                audio.pause();
+                playPauseButton.innerHTML = "<img src='img/play.png'>";
+            }
         }
-    }
 
-    // Load audio based on the current index
-    function loadAudio(index) {
-        var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
-        audio.src = src;
-        artist.textContent = artistName;
-        songTitle.textContent = songTitleText;
+        // Load audio based on the current index
+        function loadAudio(index) {
+            var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
+            audio.src = src;
+            artist.textContent = artistName;
+            songTitle.textContent = songTitleText;
 
-        // Make sure the audio is ready to play when user clicks play
-        audio.load();
-    }
-
-    // Play the next audio in the list
-    function nextAudio() {
-        currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-        loadAudio(currentAudioIndex);
-        if (!audio.paused) {
-            audio.play();
+            // Make sure the audio is ready to play when user clicks play
+            audio.load();
         }
-    }
 
-    // Play the previous audio in the list
-    function previousAudio() {
-        if (audio.currentTime <= 3) {
-            currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-        } else {
-            audio.currentTime = 0;
+        // Play the next audio in the list
+        function nextAudio() {
+            currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
+            loadAudio(currentAudioIndex);
+            if (!audio.paused) {
+                audio.play();
+            }
         }
-        loadAudio(currentAudioIndex);
-        if (!audio.paused) {
-            audio.play();
+
+        // Play the previous audio in the list
+        function previousAudio() {
+            if (audio.currentTime <= 3) {
+                currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
+            } else {
+                audio.currentTime = 0;
+            }
+            loadAudio(currentAudioIndex);
+            if (!audio.paused) {
+                audio.play();
+            }
         }
-    }
     </script>
 
 </body>
