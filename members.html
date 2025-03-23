@@ -41,7 +41,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 15px;
+            gap: 10px;
         }
 
         .member h2 {
@@ -50,7 +50,8 @@
         }
 
         .member a {
-            display: block;
+            display: flex;
+            align-items: center;
             color: #dcdcdc;
             font-size: 1rem;
             text-decoration: none;
@@ -62,30 +63,27 @@
         }
 
         .member .link-img {
-            width: 40px;
-            height: 40px;
+            width: 30px;  /* Slightly smaller */
+            height: 30px;  /* Slightly smaller */
             margin: 5px;
             cursor: pointer;
         }
 
         /* Member PNG Image */
         .member img {
-            width: 50px;  /* Increased size */
-            height: 50px;  /* Increased size */
+            width: 60px;  /* Increased size */
+            height: 60px;  /* Increased size */
             margin: 5px;
             border-radius: 50%;
         }
 
         /* Audio Player Styles */
         .audio-player {
-            background-color: #222;
-            border-radius: 15px;
             padding: 20px;
             width: 80%;
             max-width: 400px;
             text-align: center;
             margin-top: 50px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -117,6 +115,12 @@
             font-size: 14px;
             color: #fff;
         }
+
+        /* Remove background box from audio player */
+        .audio-player {
+            background-color: transparent;
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -136,8 +140,6 @@
             <img src="img/flank.png" alt="Flank">
             <a href="https://t.me/flank155" target="_blank">
                 <img src="img/tele.png" class="link-img" alt="Telegram">
-            </a>
-            <a href="https://doxbin/user/cxxz.org" target="_blank">
                 <img src="img/dox.png" class="link-img" alt="Doxbin">
             </a>
         </div>
@@ -146,8 +148,6 @@
             <img src="img/cash.png" alt="Decoy">
             <a href="https://t.me/decoy95" target="_blank">
                 <img src="img/tele.png" class="link-img" alt="Telegram">
-            </a>
-            <a href="https://doxbin/user/instakiII.org" target="_blank">
                 <img src="img/dox.png" class="link-img" alt="Doxbin">
             </a>
         </div>
@@ -171,6 +171,12 @@
             <p id="artist">Artist</p>
             <p id="songTitle">Song Title</p>
         </div>
+
+        <!-- Audio Element -->
+        <audio id="audio" preload="auto">
+            <source src="music/audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <script>
