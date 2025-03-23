@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IN$TAKILL</title>
- <script src="sparkle.js"></script>
-  <script src="audio.js"></script>
+    <script src="sparkle.js"></script>
+    <script src="audio.js"></script>
     <style>
         body {
             background-color: #121212;
@@ -68,6 +68,47 @@
             margin: 10px 0;
             cursor: pointer;
         }
+
+        /* Audio Player Styles */
+        .audio-player {
+            background-color: #222;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .audio-player button {
+            background-color: #1f75fe;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .audio-player button:hover {
+            background-color: #0056b3;
+        }
+
+        .audio-player img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .audio-info {
+            margin-top: 20px;
+        }
+
+        .audio-info p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -85,12 +126,12 @@
         <div class="member">
             <h2>Flank</h2>
             <a href="https://t.me/flank155" target="_blank">
-                <img src="tele.png" class="link-img" alt="Telegram">
-                Telegram Link
+                <img src="img/tele.png" class="link-img" alt="Telegram">
+        
             </a>
             <a href="https://doxbin/user/cxxz.org" target="_blank">
-                <img src="dox.png" class="link-img" alt="Doxbin">
-                Doxbin Link
+                <img src="img/dox.png" class="link-img" alt="Doxbin">
+   
             </a>
         </div>
 
@@ -98,16 +139,85 @@
         <div class="member">
             <h2>Decoy</h2>
             <a href="https://t.me/decoy95" target="_blank">
-                <img src="tele.png" class="link-img" alt="Telegram">
-            .    
+                <img src="img/tele.png" class="link-img" alt="Telegram">
             </a>
             <a href="https://doxbin/user/instakiII.org" target="_blank">
-                <img src="dox.png" class="link-img" alt="Doxbin">
-           .
+                <img src="img/dox.png" class="link-img" alt="Doxbin">
             </a>
         </div>
     </div>
 
+    <div class="audio-player">
+        <audio id="audio" controls>
+            <source src="audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button id="playPauseButton">
+            <img src="play.png" alt="Play">
+        </button>
+
+        <div class="audio-info">
+            <p id="artist">Artist</p>
+            <p id="songTitle">Song Title</p>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        var audio = document.getElementById("audio");
+        var playPauseButton = document.getElementById("playPauseButton");
+        var artist = document.getElementById("artist");
+        var songTitle = document.getElementById("songTitle");
+
+        // Audio file list
+        var audioFiles = [
+            { src: "music/audio.mp3", artist: "Artist 1", song: "Song 1" },
+            { src: "music/audio2.mp3", artist: "Artist 2", song: "Song 2" },
+            { src: "music/audio3.mp3", artist: "Artist 3", song: "Song 3" },
+            { src: "music/audio4.mp3", artist: "Artist 4", song: "Song 4" }
+        ];
+
+        // Shuffle and start the first track
+        var shuffledAudioFiles = shuffleArray(audioFiles);
+        var currentAudioIndex = 0;
+        loadAudio(currentAudioIndex);
+
+        // Event Listeners
+        audio.addEventListener("ended", nextAudio);
+        playPauseButton.addEventListener("click", togglePlayPause);
+
+        // Functions
+        function togglePlayPause() {
+            audio.paused ? audio.play() : audio.pause();
+            playPauseButton.innerHTML = audio.paused ? "<img src='play.png'>" : "<img src='pause.png'>";
+        }
+
+        function nextAudio() {
+            currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
+            loadAudio(currentAudioIndex);
+        }
+
+        function previousAudio() {
+            if (audio.currentTime <= 3) {
+                currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
+            } else {
+                audio.currentTime = 0;
+            }
+            loadAudio(currentAudioIndex);
+        }
+
+        function loadAudio(index) {
+            var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
+            audio.src = src;
+            artist.textContent = artistName;
+            songTitle.textContent = songTitleText;
+            audio.play();
+        }
+
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+    </script>
 </body>
 </html>
-
