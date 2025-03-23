@@ -78,7 +78,6 @@
             animation: flicker 0.1s infinite alternate;
         }
 
-        /* Inner content */
         .content {
             color: white;
             text-align: center;
@@ -131,7 +130,6 @@
             cursor: pointer;
         }
 
-        /* Member PNG Image */
         .member img {
             width: 60px;
             height: 60px;
@@ -139,7 +137,6 @@
             border-radius: 50%;
         }
 
-        /* Audio Player Styles */
         .audio-player {
             padding: 20px;
             width: 80%;
@@ -186,13 +183,10 @@
 </head>
 <body>
 
-    <!-- Static Noise Overlay -->
     <div class="tv-static"></div>
 
-    <!-- CRT Scanlines -->
     <div class="tv-scanlines"></div>
 
-    <!-- Main Content Inside CRT -->
     <div class="crt-container">
         <h1>? ? ?</h1>
 
@@ -215,7 +209,6 @@
             </div>
         </div>
 
-        <!-- Audio Player -->
         <div class="audio-player">
             <div class="controls">
                 <button id="prevButton">
@@ -250,7 +243,6 @@
         var artist = document.getElementById("artist");
         var songTitle = document.getElementById("songTitle");
 
-        // List of audio files
         var audioFiles = [
             { src: "music/audio.mp3", artist: "?", song: "Headshot" },
             { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
@@ -258,18 +250,16 @@
             { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
         ];
 
-        var shuffledAudioFiles = shuffleArray(audioFiles); // Randomizing the audio files
+        var shuffledAudioFiles = shuffleArray(audioFiles); 
         var currentAudioIndex = 0;
 
-        loadAudio(currentAudioIndex); // Load the first audio file on page load
+        loadAudio(currentAudioIndex); 
 
-        // Event listeners for buttons
-        audio.addEventListener("ended", nextAudio); // Go to next audio when the current one ends
-        playPauseButton.addEventListener("click", togglePlayPause); // Play/Pause button click
-        nextButton.addEventListener("click", nextAudio); // Next button click
-        prevButton.addEventListener("click", previousAudio); // Previous button click
+        audio.addEventListener("ended", nextAudio); 
+        playPauseButton.addEventListener("click", togglePlayPause); 
+        nextButton.addEventListener("click", nextAudio); 
+        prevButton.addEventListener("click", previousAudio); 
 
-        // Function to shuffle the audio files
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -278,11 +268,10 @@
             return array;
         }
 
-        // Toggle play and pause of audio
         function togglePlayPause() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    audio.muted = false; // Unmute audio on play
+                    audio.muted = false; 
                     playPauseButton.innerHTML = "<img src='img/pause.png'>";
                 }).catch((error) => {
                     console.error("Autoplay blocked: ", error);
@@ -294,18 +283,15 @@
             }
         }
 
-        // Load audio based on the current index
         function loadAudio(index) {
             var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
             audio.src = src;
             artist.textContent = artistName;
             songTitle.textContent = songTitleText;
 
-            // Make sure the audio is ready to play when user clicks play
             audio.load();
         }
 
-        // Play the next audio in the list
         function nextAudio() {
             currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
             loadAudio(currentAudioIndex);
@@ -314,7 +300,6 @@
             }
         }
 
-        // Play the previous audio in the list
         function previousAudio() {
             if (audio.currentTime <= 3) {
                 currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
