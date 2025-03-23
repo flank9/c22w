@@ -131,7 +131,7 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loading-screen">
-        <div class="loading-text">Type Login.</div>
+        <div class="loading-text">Type 'Login' to go to members area...</div>
     </div>
 
     <!-- Main Console -->
@@ -154,7 +154,7 @@
                 loadingScreen.style.display = 'none';
                 consoleContainer.style.display = 'flex';
                 promptUser();
-            }, 3000);
+            }, 5000);
 
             function promptUser() {
                 consoleOutput.innerHTML += `<p>${prompt}</p>`;
