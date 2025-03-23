@@ -19,6 +19,67 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
+            position: relative;
+        }
+
+        /* CRT Scanlines */
+        .tv-scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.5) 0px,
+                rgba(0, 0, 0, 0.5) 2px,
+                rgba(0, 0, 0, 0) 2px,
+                rgba(0, 0, 0, 0) 4px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Static Noise Overlay */
+        .tv-static {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/noise.png') repeat;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* Flicker Animation */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        /* TV Screen Style */
+        .crt-container {
+            position: relative;
+            padding: 20px;
+            border: 10px solid #000;
+            border-radius: 20px;
+            background-color: #121212;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 999;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        /* Inner content */
+        .content {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
         }
 
         h1 {
@@ -61,16 +122,16 @@
         }
 
         .member .link-img {
-            width: 30px;  /* Slightly smaller */
-            height: 30px;  /* Slightly smaller */
+            width: 30px;
+            height: 30px;
             margin: 5px;
             cursor: pointer;
         }
 
         /* Member PNG Image */
         .member img {
-            width: 60px;  /* Increased size */
-            height: 60px;  /* Increased size */
+            width: 60px;
+            height: 60px;
             margin: 5px;
             border-radius: 50%;
         }
@@ -121,59 +182,60 @@
     </style>
 </head>
 <body>
-    <!-- Sparkles Effect -->
-    <script>
-        window.onload = function() {
-            Sparkle.init();
-            document.getElementById("audio").play();
-        };
-    </script>
 
-    <h1>? ? ?</h1>
+    <!-- Static Noise Overlay -->
+    <div class="tv-static"></div>
 
-    <div class="members-container">
-        <div class="member">
-            <h2>Flank</h2>
-            <img src="img/flank.png" alt="Flank">
-            <a href="https://t.me/flank155" target="_blank">
-                <img src="img/tele.png" class="link-img" alt="Telegram">
-                <img src="img/dox.png" class="link-img" alt="Doxbin">
-            </a>
-        </div>
-        <div class="member">
-            <h2>Decoy</h2>
-            <img src="img/cash.png" alt="Decoy">
-            <a href="https://t.me/decoy95" target="_blank">
-                <img src="img/tele.png" class="link-img" alt="Telegram">
-                <img src="img/dox.png" class="link-img" alt="Doxbin">
-            </a>
-        </div>
-    </div>
+    <!-- CRT Scanlines -->
+    <div class="tv-scanlines"></div>
 
-    <!-- Audio Player -->
-    <div class="audio-player">
-        <div class="controls">
-            <button id="prevButton">
-                <img src="img/back.png" alt="Previous"> <!-- Replace with your own back button image -->
-            </button>
-            <button id="playPauseButton">
-                <img src="img/play.png" alt="Play"> <!-- Replace with your own play button image -->
-            </button>
-            <button id="nextButton">
-                <img src="img/next.png" alt="Next"> <!-- Replace with your own next button image -->
-            </button>
+    <!-- Main Content Inside CRT -->
+    <div class="crt-container">
+        <h1>? ? ?</h1>
+
+        <div class="members-container">
+            <div class="member">
+                <h2>Flank</h2>
+                <img src="img/flank.png" alt="Flank">
+                <a href="https://t.me/flank155" target="_blank">
+                    <img src="img/tele.png" class="link-img" alt="Telegram">
+                    <img src="img/dox.png" class="link-img" alt="Doxbin">
+                </a>
+            </div>
+            <div class="member">
+                <h2>Decoy</h2>
+                <img src="img/cash.png" alt="Decoy">
+                <a href="https://t.me/decoy95" target="_blank">
+                    <img src="img/tele.png" class="link-img" alt="Telegram">
+                    <img src="img/dox.png" class="link-img" alt="Doxbin">
+                </a>
+            </div>
         </div>
 
-        <div class="audio-info">
-            <p id="artist">Artist</p>
-            <p id="songTitle">Song Title</p>
-        </div>
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <div class="controls">
+                <button id="prevButton">
+                    <img src="img/back.png" alt="Previous">
+                </button>
+                <button id="playPauseButton">
+                    <img src="img/play.png" alt="Play">
+                </button>
+                <button id="nextButton">
+                    <img src="img/next.png" alt="Next">
+                </button>
+            </div>
 
-        <!-- Audio Element -->
-        <audio id="audio" preload="auto">
-            <source src="music/audio.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+            <div class="audio-info">
+                <p id="artist">Artist</p>
+                <p id="songTitle">Song Title</p>
+            </div>
+
+            <audio id="audio" preload="auto">
+                <source src="music/audio.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 
     <script>
@@ -203,10 +265,10 @@
         function togglePlayPause() {
             if (audio.paused) {
                 audio.play();
-                playPauseButton.innerHTML = "<img src='img/pause.png'>";  // Ensure you have this image
+                playPauseButton.innerHTML = "<img src='img/pause.png'>";
             } else {
                 audio.pause();
-                playPauseButton.innerHTML = "<img src='img/play.png'>";  // Ensure you have this image
+                playPauseButton.innerHTML = "<img src='img/play.png'>";
             }
         }
 
@@ -236,5 +298,6 @@
             return array.sort(() => Math.random() - 0.5);
         }
     </script>
+
 </body>
 </html>
