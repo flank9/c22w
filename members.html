@@ -33,22 +33,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
         }
 
         .member {
-            background-color: #222;
-            border-radius: 15px;
-            padding: 20px;
-            width: 80%;
-            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            gap: 15px;
         }
 
         .member h2 {
             color: #1f75fe;
-            margin-bottom: 15px;
+            margin: 0;
         }
 
         .member a {
@@ -56,7 +54,7 @@
             color: #dcdcdc;
             font-size: 1rem;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
         .member a:hover {
@@ -66,15 +64,15 @@
         .member .link-img {
             width: 40px;
             height: 40px;
-            margin: 10px 0;
+            margin: 5px;
             cursor: pointer;
         }
 
         /* Member PNG Image */
         .member img {
-            width: 30px;
-            height: 30px;
-            margin: 10px;
+            width: 50px;  /* Increased size */
+            height: 50px;  /* Increased size */
+            margin: 5px;
             border-radius: 50%;
         }
 
@@ -176,7 +174,6 @@
     </div>
 
     <script>
- 
         var audio = document.getElementById("audio");
         var playPauseButton = document.getElementById("playPauseButton");
         var prevButton = document.getElementById("prevButton");
@@ -184,7 +181,6 @@
         var artist = document.getElementById("artist");
         var songTitle = document.getElementById("songTitle");
 
-   
         var audioFiles = [
             { src: "music/audio.mp3", artist: "Artist 1", song: "Song 1" },
             { src: "music/audio2.mp3", artist: "Artist 2", song: "Song 2" },
@@ -201,7 +197,6 @@
         nextButton.addEventListener("click", nextAudio);
         prevButton.addEventListener("click", previousAudio);
 
-        // Functions
         function togglePlayPause() {
             audio.paused ? audio.play() : audio.pause();
             playPauseButton.innerHTML = audio.paused ? "<img src='img/play.png'>" : "<img src='img/pause.png'>";
