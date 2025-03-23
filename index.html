@@ -142,19 +142,6 @@
         @keyframes blink {
             50% { opacity: 0; }
         }
-
-        /* Particles background (optional effect) */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background-color: #1f75fe;
-            animation: moveParticles 10s infinite;
-        }
-
-        @keyframes moveParticles {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(100vw, 100vh); }
-        }
     </style>
 </head>
 <body>
@@ -177,50 +164,14 @@
             const consoleOutput = document.getElementById('console-output');
             const loadingBarContainer = document.getElementById('loading-bar-container');
             const prompt = 'User@hacker-zone:~$ ';
-            const particles = generateParticles(30); // Generate particles in the background
-
+            
             // Show the loading screen for 5 seconds
             setTimeout(() => {
                 loadingBarContainer.style.display = 'none';
-                startTerminal();
+                promptUser();
             }, 5000);
 
-            // Function to generate particle effects
-            function generateParticles(num) {
-                for (let i = 0; i < num; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.width = `${Math.random() * 10 + 5}px`;
-                    particle.style.height = particle.style.width;
-                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                    particle.style.top = `${Math.random() * 100}%`;
-                    particle.style.left = `${Math.random() * 100}%`;
-                    document.body.appendChild(particle);
-                }
-            }
-
             // Start terminal simulation
-            function startTerminal() {
-                let terminalCommands = [
-                    'Mounting virtual drives...',
-                    'Network protocols activated...',
-                    'Booting up mainframe...',
-                    'Hacking module loaded...'
-                ];
-
-                let currentCommand = 0;
-                let interval = setInterval(() => {
-                    if (currentCommand < terminalCommands.length) {
-                        consoleOutput.innerHTML += `<p class="glitch">${prompt}${terminalCommands[currentCommand]}</p>`;
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                        currentCommand++;
-                    } else {
-                        clearInterval(interval);
-                        promptUser();
-                    }
-                }, 2000);
-            }
-
             function promptUser() {
                 consoleOutput.innerHTML += `<p>${prompt}</p>`;
                 consoleInput.focus();
@@ -240,37 +191,22 @@
             function handleCommand(command) {
                 let response = '';
                 switch (command.toLowerCase()) {
-                    case 'ls':
-                        response = 'Documents  Downloads  Pictures  Videos  Network Logs';
-                        break;
-                    case 'ping 192.168.1.1':
-                        response = 'Pinging 192.168.1.1... Timeout';
-                        break;
-                    case 'scan network':
-                        response = 'Scanning network... Devices found: 192.168.1.2, 192.168.1.3';
-                        break;
-                    case 'crack password':
-                        response = 'Cracking password... Success! Password: 1234abcd';
-                        break;
-                    case 'hack server':
-                        response = 'Hacking server... [INFO] Brute force attack initiated';
-                        break;
-                    case 'help':
-                        response = 'Available commands: ls, ping <ip>, scan network, crack password, hack server, exit';
-                        break;
-                    case 'exit':
-                        response = 'Closing session... Goodbye';
-                        document.location.reload();
+                    case 'login':
+                        response = 'Redirecting to members area...';
+                        consoleOutput.innerHTML += `<p>${response}</p>`;
+                        setTimeout(() => {
+                            window.location.href = 'https://c22w.site/members.html';
+                        }, 2000);
                         break;
                     case 'clear':
                         consoleOutput.innerHTML = '';
                         return;
                     default:
                         response = `Command not found: ${command}`;
+                        consoleOutput.innerHTML += `<p>${response}</p>`;
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
                         break;
                 }
-                consoleOutput.innerHTML += `<p>${response}</p>`;
-                consoleOutput.scrollTop = consoleOutput.scrollHeight;
             }
         });
     </script>
