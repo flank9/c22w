@@ -116,7 +116,6 @@
             color: #fff;
         }
 
-        /* Remove background box from audio player */
         .audio-player {
             background-color: transparent;
             box-shadow: none;
@@ -157,13 +156,13 @@
     <div class="audio-player">
         <div class="controls">
             <button id="prevButton">
-                <img src="img/back.png" alt="Previous">
+                <img src="img/back.png" alt="Previous"> <!-- Replace with your own back button image -->
             </button>
             <button id="playPauseButton">
-                <img src="img/play.png" alt="Play">
+                <img src="img/play.png" alt="Play"> <!-- Replace with your own play button image -->
             </button>
             <button id="nextButton">
-                <img src="img/next.png" alt="Next">
+                <img src="img/next.png" alt="Next"> <!-- Replace with your own next button image -->
             </button>
         </div>
 
@@ -204,8 +203,13 @@
         prevButton.addEventListener("click", previousAudio);
 
         function togglePlayPause() {
-            audio.paused ? audio.play() : audio.pause();
-            playPauseButton.innerHTML = audio.paused ? "<img src='img/play.png'>" : "<img src='img/pause.png'>";
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.innerHTML = "<img src='img/pause.png'>";  // Ensure you have this image
+            } else {
+                audio.pause();
+                playPauseButton.innerHTML = "<img src='img/play.png'>";  // Ensure you have this image
+            }
         }
 
         function nextAudio() {
