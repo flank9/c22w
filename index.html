@@ -13,5 +13,67 @@
 <title>instakill</title>
    
      <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-      
-<link href="style.css" rel="stylesheet">
+          <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky blue background */
+            font-family: Arial, sans-serif;
+        }
+
+        .meatball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #8B4513;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+                left: calc(100% * var(--random-x));
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* Create random meatballs at different horizontal positions */
+        .meatball:nth-child(odd) {
+            animation-duration: 3s;
+        }
+
+        .meatball:nth-child(even) {
+            animation-duration: 4s;
+        }
+
+        .meatball:nth-child(3n) {
+            animation-duration: 5s;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Generate random meatballs falling from the top
+        function createMeatballs() {
+            const numberOfMeatballs = 20; // Number of meatballs
+            for (let i = 0; i < numberOfMeatballs; i++) {
+                const meatball = document.createElement('div');
+                meatball.classList.add('meatball');
+                meatball.style.setProperty('--random-x', Math.random());
+                document.body.appendChild(meatball);
+            }
+        }
+
+        // Initialize the raining meatballs when the page loads
+        window.onload = createMeatballs;
+    </script>
+
+</body>
+</html>
