@@ -7,12 +7,12 @@
     <title>IN$TAKILL</title>
     <script src="sparkle.js"></script>
     <script src="audio.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #121212;
             color: #fff;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'VT323', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -130,10 +130,9 @@
         };
     </script>
 
-    <h1>Our Members</h1>
+    <h1>? ? ?</h1>
 
     <div class="members-container">
-        <!-- Member 1 -->
         <div class="member">
             <h2>Flank</h2>
             <img src="img/flank.png" alt="Flank">
@@ -144,8 +143,6 @@
                 <img src="img/dox.png" class="link-img" alt="Doxbin">
             </a>
         </div>
-
-        <!-- Member 2 -->
         <div class="member">
             <h2>Decoy</h2>
             <img src="img/cash.png" alt="Decoy">
@@ -179,7 +176,7 @@
     </div>
 
     <script>
-        // Get DOM elements
+ 
         var audio = document.getElementById("audio");
         var playPauseButton = document.getElementById("playPauseButton");
         var prevButton = document.getElementById("prevButton");
@@ -187,7 +184,7 @@
         var artist = document.getElementById("artist");
         var songTitle = document.getElementById("songTitle");
 
-        // Audio file list
+   
         var audioFiles = [
             { src: "music/audio.mp3", artist: "Artist 1", song: "Song 1" },
             { src: "music/audio2.mp3", artist: "Artist 2", song: "Song 2" },
@@ -195,12 +192,10 @@
             { src: "music/audio4.mp3", artist: "Artist 4", song: "Song 4" }
         ];
 
-        // Shuffle and start the first track
         var shuffledAudioFiles = shuffleArray(audioFiles);
         var currentAudioIndex = 0;
         loadAudio(currentAudioIndex);
 
-        // Event Listeners
         audio.addEventListener("ended", nextAudio);
         playPauseButton.addEventListener("click", togglePlayPause);
         nextButton.addEventListener("click", nextAudio);
