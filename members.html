@@ -69,6 +69,14 @@
             cursor: pointer;
         }
 
+        /* Member PNG Image */
+        .member img {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
         /* Audio Player Styles */
         .audio-player {
             background-color: #222;
@@ -79,6 +87,9 @@
             text-align: center;
             margin-top: 50px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .audio-player button {
@@ -90,15 +101,19 @@
             cursor: pointer;
             font-size: 16px;
             margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .audio-player button:hover {
             background-color: #0056b3;
         }
 
-        .audio-player img {
-            width: 40px;
-            height: 40px;
+        .audio-player button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
         .audio-info {
@@ -125,19 +140,19 @@
         <!-- Member 1 -->
         <div class="member">
             <h2>Flank</h2>
+            <img src="img/flank.png" alt="Flank">
             <a href="https://t.me/flank155" target="_blank">
                 <img src="img/tele.png" class="link-img" alt="Telegram">
-        
             </a>
             <a href="https://doxbin/user/cxxz.org" target="_blank">
                 <img src="img/dox.png" class="link-img" alt="Doxbin">
-   
             </a>
         </div>
 
         <!-- Member 2 -->
         <div class="member">
             <h2>Decoy</h2>
+            <img src="img/cash.png" alt="Decoy">
             <a href="https://t.me/decoy95" target="_blank">
                 <img src="img/tele.png" class="link-img" alt="Telegram">
             </a>
@@ -147,14 +162,15 @@
         </div>
     </div>
 
+    <!-- Audio Player -->
     <div class="audio-player">
         <audio id="audio" controls>
-            <source src="audio.mp3" type="audio/mp3">
+            <source src="/music/audio.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
 
         <button id="playPauseButton">
-            <img src="play.png" alt="Play">
+            <img src="img/play.png" alt="Play"> Play
         </button>
 
         <div class="audio-info">
@@ -190,7 +206,7 @@
         // Functions
         function togglePlayPause() {
             audio.paused ? audio.play() : audio.pause();
-            playPauseButton.innerHTML = audio.paused ? "<img src='play.png'>" : "<img src='pause.png'>";
+            playPauseButton.innerHTML = audio.paused ? "<img src='img/play.png'>" : "<img src='img/pause.png'> Pause";
         }
 
         function nextAudio() {
