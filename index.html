@@ -133,11 +133,6 @@
       animation: sparkle 1.5s infinite alternate;
     }
 
-    @keyframes sparkle {
-      0% { text-shadow: 0 0 12px #f5a623, 0 0 18px #f5a623; }
-      100% { text-shadow: 0 0 18px #f5a623, 0 0 30px #f5a623; }
-    }
-
     footer {
       margin-top: 30px;
       font-size: 1rem;
@@ -165,25 +160,6 @@
       animation: fadeIn 3s ease-out;
     }
 
-    /* Star Styles */
-    .star {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: white;
-      border-radius: 50%;
-      visibility: hidden;
-    }
-
-    .tiny {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background-color: white;
-      border-radius: 50%;
-      visibility: hidden;
-    }
-    
     audio {
       display: none;
     }
@@ -265,49 +241,6 @@
         window.location.replace("https://google.com");
       }
     }, 500); 
-
-    const sparkles = 50, stars = [], tinyStars = [];
-    let x = 0, y = 0;
-
-    for (let i = 0; i < sparkles; i++) {
-      stars[i] = document.createElement('div');
-      stars[i].classList.add('star');
-      document.body.appendChild(stars[i]);
-
-      tinyStars[i] = document.createElement('div');
-      tinyStars[i].classList.add('tiny');
-      document.body.appendChild(tinyStars[i]);
-    }
-
-    document.onmousemove = (e) => { x = e.pageX; y = e.pageY; };
-
-    function sparkle() {
-      for (let i = 0; i < sparkles; i++) {
-        if (stars[i].style.visibility === 'hidden') {
-          stars[i].style.left = `${x + Math.random() * 5 - 2}px`;
-          stars[i].style.top = `${y + Math.random() * 5 - 2}px`;
-          stars[i].style.visibility = 'visible';
-
-          setTimeout(() => {
-            stars[i].style.visibility = 'hidden';
-          }, 500);
-
-          tinyStars[i].style.left = stars[i].style.left;
-          tinyStars[i].style.top = stars[i].style.top;
-          tinyStars[i].style.visibility = 'visible';
-
-          setTimeout(() => {
-            tinyStars[i].style.visibility = 'hidden';
-          }, 200);
-
-          break;
-        }
-      }
-
-      requestAnimationFrame(sparkle);
-    }
-
-    sparkle();
   </script>
   
 </body>
