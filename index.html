@@ -31,6 +31,30 @@
             100% { opacity: 1; }
         }
 
+        /* Loading Screen */
+        .loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            color: #1f75fe;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
         /* Terminal Styling */
         .console {
             position: relative;
@@ -102,57 +126,16 @@
             100% { text-shadow: 2px 0 red, -2px 0 blue; }
         }
 
-        /* Loading Animation */
-        .loading-bar-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            display: none;
-        }
-
-        .loading-bar {
-            width: 50%;
-            height: 20px;
-            background: #444;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .loading-bar > div {
-            width: 0%;
-            height: 100%;
-            background: #1f75fe;
-            animation: loadingAnimation 5s ease-in-out forwards;
-        }
-
-        @keyframes loadingAnimation {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        .loading-text {
-            font-size: 24px;
-            color: #1f75fe;
-            margin-bottom: 10px;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
     </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loading-bar-container" id="loading-bar-container">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
         <div class="loading-text">Type Login.</div>
-        <div class="loading-bar"><div></div></div>
     </div>
 
     <!-- Main Console -->
-    <div class="console" id="console">
+    <div class="console" id="console" style="display: none;">
         <div class="console-header">!IN$TAKILL</div>
         <div class="console-output" id="console-output"></div>
         <input type="text" class="console-input" id="console-input" autocomplete="off" placeholder="Enter command..." />
@@ -162,13 +145,16 @@
         window.addEventListener('load', () => {
             const consoleInput = document.getElementById('console-input');
             const consoleOutput = document.getElementById('console-output');
-            const loadingBarContainer = document.getElementById('loading-bar-container');
+            const loadingScreen = document.getElementById('loading-screen');
+            const consoleContainer = document.getElementById('console');
             const prompt = 'IN$TAKILL ';
-           
+
             setTimeout(() => {
-                loadingBarContainer.style.display = 'none';
+        
+                loadingScreen.style.display = 'none';
+                consoleContainer.style.display = 'flex';
                 promptUser();
-            }, 5000);
+            }, 3000);
 
             function promptUser() {
                 consoleOutput.innerHTML += `<p>${prompt}</p>`;
