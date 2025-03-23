@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Advanced Hacker Zone</title>
+    <title>[XI] IN$TAKILL</title>
     <style>
         /* Global Styling */
         * {
@@ -147,13 +147,13 @@
 <body>
     <!-- Loader -->
     <div class="loading-bar-container" id="loading-bar-container">
-        <div class="loading-text">Initializing...</div>
+        <div class="loading-text">Type Login.</div>
         <div class="loading-bar"><div></div></div>
     </div>
 
     <!-- Main Console -->
     <div class="console" id="console">
-        <div class="console-header">User@hacker-zone:~$</div>
+        <div class="console-header">!IN$TAKILL</div>
         <div class="console-output" id="console-output"></div>
         <input type="text" class="console-input" id="console-input" autocomplete="off" placeholder="Enter command..." />
     </div>
@@ -164,19 +164,16 @@
             const consoleOutput = document.getElementById('console-output');
             const loadingBarContainer = document.getElementById('loading-bar-container');
             const prompt = 'User@hacker-zone:~$ ';
-            
-            // Show the loading screen for 5 seconds
+           
             setTimeout(() => {
                 loadingBarContainer.style.display = 'none';
                 promptUser();
             }, 5000);
 
-            // Start terminal simulation
             function promptUser() {
                 consoleOutput.innerHTML += `<p>${prompt}</p>`;
                 consoleInput.focus();
 
-                // Handle command input
                 consoleInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
                         const command = consoleInput.value;
