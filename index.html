@@ -9,71 +9,28 @@
   <meta property="og:image" content="https://c22w.site.com//img/hung.png">
   <meta property="og:url" content="https://c22w.site">
   <meta property="og:type" content="website">
-
 <title>instakill</title>
-   
-     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-          <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #87CEEB; /* Sky blue background */
-            font-family: Arial, sans-serif;
-        }
-
-        .meatball {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #8B4513;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            animation: fall 3s linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -50px;
-                left: calc(100% * var(--random-x));
-            }
-            100% {
-                top: 100%;
-            }
-        }
-
-        /* Create random meatballs at different horizontal positions */
-        .meatball:nth-child(odd) {
-            animation-duration: 3s;
-        }
-
-        .meatball:nth-child(even) {
-            animation-duration: 4s;
-        }
-
-        .meatball:nth-child(3n) {
-            animation-duration: 5s;
-        }
-    </style>
+          
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hacker Zone</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Main Container -->
+    <div class="loader-container">
+        <div class="loading-text">SYSTEM BOOTING...</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
 
-    <script>
-        // Generate random meatballs falling from the top
-        function createMeatballs() {
-            const numberOfMeatballs = 20; // Number of meatballs
-            for (let i = 0; i < numberOfMeatballs; i++) {
-                const meatball = document.createElement('div');
-                meatball.classList.add('meatball');
-                meatball.style.setProperty('--random-x', Math.random());
-                document.body.appendChild(meatball);
-            }
-        }
-
-        // Initialize the raining meatballs when the page loads
-        window.onload = createMeatballs;
-    </script>
-
+    <!-- Terminal Section -->
+    <div class="console">
+        <div class="console-header">User@hacker-zone:~$</div>
+        <div class="console-output" id="console-output"></div>
+        <input type="text" id="console-input" class="console-input" autocomplete="off" />
+    </div>
 </body>
 </html>
