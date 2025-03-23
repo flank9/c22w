@@ -5,8 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hacker Zone</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        /* General body styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0c0f1f;
+            color: #00ff00;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Loader Screen */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            animation: glitch 1s infinite;
+        }
+
+        .progress-bar {
+            width: 50%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #00ff00;
+            animation: loading 4s linear forwards;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 0 red, -2px 0 blue;
+            }
+            100% {
+                text-shadow: -2px 0 red, 2px 0 blue;
+            }
+        }
+
+        /* Console Styling */
+        .console {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 60%;
+            background-color: #1d1f28;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            color: #00ff00;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .console-header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .console-output {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .console-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #00ff00;
+            font-size: 18px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Main Container -->
@@ -23,5 +123,65 @@
         <div class="console-output" id="console-output"></div>
         <input type="text" id="console-input" class="console-input" autocomplete="off" />
     </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const loaderContainer = document.querySelector('.loader-container');
+            const progress = document.querySelector('.progress');
+            const consoleOutput = document.getElementById('console-output');
+            const consoleInput = document.getElementById('console-input');
+
+            // Simulate loading
+            setTimeout(() => {
+                loaderContainer.style.display = 'none'; // Hide the loader
+                startTerminal();
+            }, 4000);
+
+            // Terminal functions
+            function startTerminal() {
+                const prompt = 'User@hacker-zone:~$ ';
+                const terminalCommands = [
+                    'Initializing terminal...',
+                    'Accessing root...',
+                    'Decrypting files...',
+                    'Connection established...'
+                ];
+
+                let currentCommand = 0;
+                const interval = setInterval(() => {
+                    if (currentCommand < terminalCommands.length) {
+                        consoleOutput.innerHTML += `<p>${prompt}${terminalCommands[currentCommand]}</p>`;
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                        currentCommand++;
+                    } else {
+                        clearInterval(interval);
+                        promptUser();
+                    }
+                }, 2000);
+            }
+
+            function promptUser() {
+                const prompt = 'User@hacker-zone:~$ ';
+                consoleOutput.innerHTML += `<p>${prompt}</p>`;
+                consoleInput.focus();
+
+                consoleInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const command = consoleInput.value;
+                        consoleOutput.innerHTML += `<p>${prompt}${command}</p>`;
+                        handleCommand(command);
+                        consoleInput.value = '';
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                    }
+                });
+            }
+
+            function handleCommand(command) {
+                const response = `Executing: ${command}...<br>Command not found!`;
+                consoleOutput.innerHTML += `<p>${response}</p>`;
+                consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            }
+        });
+    </script>
 </body>
 </html>
