@@ -9,7 +9,7 @@
   <meta property="og:url" content="https://c22w.site">
   <meta property="og:type" content="website">
   <title>IN$TAKILL</title>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
     body, html {
       margin: 0;
@@ -23,8 +23,8 @@
       align-items: center;
       flex-direction: column;
       text-align: center;
+      overflow: hidden; /* To prevent scrolling */
     }
-
 
     .intro-overlay {
       position: absolute;
@@ -79,7 +79,6 @@
       justify-content: center;
       align-items: center;
     }
-
 
     .member-list {
       display: flex;
@@ -165,9 +164,26 @@
       margin-top: 30px;
       animation: fadeIn 3s ease-out;
     }
- body { margin: 0; overflow: hidden; background-color: black; }
-    .star { position: absolute; width: 5px; height: 5px; background-color: white; border-radius: 50%; visibility: hidden; }
-    .tiny { position: absolute; width: 2px; height: 2px; background-color: white; border-radius: 50%; visibility: hidden; }
+
+    /* Star Styles */
+    .star {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: white;
+      border-radius: 50%;
+      visibility: hidden;
+    }
+
+    .tiny {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      visibility: hidden;
+    }
+    
     audio {
       display: none;
     }
@@ -212,7 +228,7 @@
   <audio id="member-audio"></audio>
 
   <script>
-      function removeOverlay() {
+    function removeOverlay() {
       const overlay = document.getElementById("intro-overlay");
       overlay.style.opacity = 0;
       setTimeout(() => overlay.style.display = "none", 1000);
@@ -249,42 +265,43 @@
         window.location.replace("https://google.com");
       }
     }, 500); 
+
     const sparkles = 50, stars = [], tinyStars = [];
-  let x = 0, y = 0;
+    let x = 0, y = 0;
 
-  for (let i = 0; i < sparkles; i++) {
-    stars[i] = document.createElement('div');
-    stars[i].classList.add('star');
-    document.body.appendChild(stars[i]);
-
-    tinyStars[i] = document.createElement('div');
-    tinyStars[i].classList.add('tiny');
-    document.body.appendChild(tinyStars[i]);
-  }
-
-  document.onmousemove = (e) => { x = e.pageX; y = e.pageY; };
-  
-  function sparkle() {
     for (let i = 0; i < sparkles; i++) {
-      if (!stars[i].style.visibility) {
-        stars[i].style.left = `${x + Math.random() * 5 - 2}px`;
-        stars[i].style.top = `${y + Math.random() * 5 - 2}px`;
-        stars[i].style.visibility = 'visible';
+      stars[i] = document.createElement('div');
+      stars[i].classList.add('star');
+      document.body.appendChild(stars[i]);
 
-        setTimeout(() => { stars[i].style.visibility = 'hidden'; }, 500);
-        
-        tinyStars[i].style.left = stars[i].style.left;
-        tinyStars[i].style.top = stars[i].style.top;
-        tinyStars[i].style.visibility = 'visible';
-        setTimeout(() => { tinyStars[i].style.visibility = 'hidden'; }, 200);
-        
-        break;
-      }
+      tinyStars[i] = document.createElement('div');
+      tinyStars[i].classList.add('tiny');
+      document.body.appendChild(tinyStars[i]);
     }
-    requestAnimationFrame(sparkle);
-  }
 
-  sparkle();
+    document.onmousemove = (e) => { x = e.pageX; y = e.pageY; };
+    
+    function sparkle() {
+      for (let i = 0; i < sparkles; i++) {
+        if (!stars[i].style.visibility) {
+          stars[i].style.left = `${x + Math.random() * 5 - 2}px`;
+          stars[i].style.top = `${y + Math.random() * 5 - 2}px`;
+          stars[i].style.visibility = 'visible';
+
+          setTimeout(() => { stars[i].style.visibility = 'hidden'; }, 500);
+          
+          tinyStars[i].style.left = stars[i].style.left;
+          tinyStars[i].style.top = stars[i].style.top;
+          tinyStars[i].style.visibility = 'visible';
+          setTimeout(() => { tinyStars[i].style.visibility = 'hidden'; }, 200);
+          
+          break;
+        }
+      }
+      requestAnimationFrame(sparkle);
+    }
+
+    sparkle();
   </script>
   
 </body>
