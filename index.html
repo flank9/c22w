@@ -80,6 +80,7 @@
             opacity: 0; /* Initially hidden for fade-in */
             animation: fadeInMain 1s ease-in-out;
             animation-delay: 2s; /* Fade in after 2 seconds */
+            display: flex;
         }
 
         @keyframes fadeInMain {
@@ -133,9 +134,9 @@
     </div>
 
     <!-- Main Console -->
-    <div class="console" id="console" style="display: none;">
+    <div class="console" id="console">
         <div class="console-header">@IN$TAKILL</div>
-        <button class="enter-btn" id="enter-btn">Members.</button>
+        <button class="enter-btn" id="enter-btn">Enter</button>
     </div>
 
     <script>
@@ -144,15 +145,15 @@
             const loadingScreen = document.getElementById('loading-screen');
             const consoleContainer = document.getElementById('console');
 
-            // Show the main console after the loading screen
+            // Shorter loading screen and display main console after fade-out
             setTimeout(() => {
                 loadingScreen.style.display = 'none'; // Hide loading screen
                 consoleContainer.style.display = 'flex'; // Show the console
-            }, 2500); // Corrected delay to ensure smooth transition
+            }, 2500); // Corrected delay for loading screen fade-out
 
             // Redirect to members area when the Enter button is clicked
             enterButton.addEventListener('click', () => {
-                window.location.href = 'members.html';
+                window.location.href = 'members.html'; // Navigate to the members area
             });
         });
     </script>
