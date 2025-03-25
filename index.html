@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[XI] IN$TAKILL</title>
     <meta property="og:title" content="Login.">
-  <meta property="og:description" content="lmfao">
-  <meta property="og:image" content="https://c22w.site.com/instakill.png">
-  <meta property="og:url" content="https://c22w.site">
-  <meta property="og:type" content="website">
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <meta property="og:description" content="lmfao">
+    <meta property="og:image" content="https://c22w.site.com/instakill.png">
+    <meta property="og:url" content="https://c22w.site">
+    <meta property="og:type" content="website">
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     
     <style>
         /* Global Styling */
@@ -50,6 +50,12 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            animation: fadeOut 2s 3s forwards; /* Fade out after 3 seconds */
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
         }
 
         .loading-text {
@@ -62,142 +68,80 @@
             50% { opacity: 0; }
         }
 
-        /* Terminal Styling */
-        .console {
-            position: relative;
-            width: 85%;
-            height: 70%;
+        /* Main Interface */
+        .main-container {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
             background-color: #1e1e1e;
             border-radius: 12px;
-            border: 1px solid #444;
-            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            display: none;
         }
 
-        @keyframes slideIn {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(0); }
-        }
-
-        .console-header {
+        .main-header {
             color: #1f75fe;
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
-        .console-output {
-            flex-grow: 1;
+        .sub-text {
             color: #dcdcdc;
-            overflow-y: auto;
-            font-size: 16px;
-            margin-bottom: 15px;
-            padding-right: 20px;
+            font-size: 18px;
         }
 
-        .console-input {
-            width: 100%;
-            padding: 10px;
-            background: transparent;
+        /* Button Styling */
+        .start-button {
+            padding: 15px 30px;
+            background-color: #1f75fe;
             border: none;
-            color: #dcdcdc;
-            font-size: 16px;
-            outline: none;
-            border-top: 1px solid #333;
-            transition: border-color 0.3s ease;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .console-input:focus {
-            border-color: #1f75fe;
+        .start-button:hover {
+            background-color: #155fb2;
         }
-
-        /* Glitch Effect for Input */
-        .console-output p {
-            margin: 5px 0;
-            position: relative;
-            font-weight: bold;
-        }
-
-        .glitch {
-            color: #ff1493;
-            text-shadow: 2px 0 red, -2px 0 blue;
-            animation: glitch 1.5s infinite;
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 red, -2px 0 blue; }
-            50% { text-shadow: 3px 0 green, -3px 0 yellow; }
-            100% { text-shadow: 2px 0 red, -2px 0 blue; }
-        }
-
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loading-screen">
-        <div class="loading-text">Type 'Login' to go to members area...</div>
+        <div class="loading-text">IN$TAKILL</div>
     </div>
 
-    <!-- Main Console -->
-    <div class="console" id="console" style="display: none;">
-        <div class="console-header">!IN$TAKILL</div>
-        <div class="console-output" id="console-output"></div>
-        <input type="text" class="console-input" id="console-input" autocomplete="off" placeholder="Enter command..." />
+    <!-- Main Interface -->
+    <div class="main-container" id="main-container">
+        <div class="main-header">Welcome to IN$TAKILL</div>
+        <div class="sub-text">Wait...</div>
+        <button class="start-button" id="start-button">Enter too members.</button>
     </div>
 
     <script>
         window.addEventListener('load', () => {
-            const consoleInput = document.getElementById('console-input');
-            const consoleOutput = document.getElementById('console-output');
             const loadingScreen = document.getElementById('loading-screen');
-            const consoleContainer = document.getElementById('console');
-            const prompt = 'IN$TAKILL ';
+            const mainContainer = document.getElementById('main-container');
+            const startButton = document.getElementById('start-button');
 
+            // Wait for 5 seconds before hiding loading screen and showing the main content
             setTimeout(() => {
-        
                 loadingScreen.style.display = 'none';
-                consoleContainer.style.display = 'flex';
-                promptUser();
+                mainContainer.style.display = 'flex';
             }, 5000);
 
-            function promptUser() {
-                consoleOutput.innerHTML += `<p>${prompt}</p>`;
-                consoleInput.focus();
-
-                consoleInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        const command = consoleInput.value;
-                        consoleOutput.innerHTML += `<p>${prompt}${command}</p>`;
-                        handleCommand(command);
-                        consoleInput.value = '';
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                    }
-                });
-            }
-
-            function handleCommand(command) {
-                let response = '';
-                switch (command.toLowerCase()) {
-                    case 'login':
-                        response = 'Redirecting to members area...';
-                        consoleOutput.innerHTML += `<p>${response}</p>`;
-                        setTimeout(() => {
-                            window.location.href = 'members';
-                        }, 2000);
-                        break;
-                    case 'clear':
-                        consoleOutput.innerHTML = '';
-                        return;
-                    default:
-                        response = `Command not found: ${command}`;
-                        consoleOutput.innerHTML += `<p>${response}</p>`;
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                        break;
-                }
-            }
+            // Redirect to the members page when the user clicks the button
+            startButton.addEventListener('click', () => {
+                window.location.href = 'members.html';
+            });
         });
     </script>
 </body>
