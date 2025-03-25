@@ -38,24 +38,30 @@
             100% { opacity: 1; }
         }
 
-        /* Starry Night Effect */
+        /* Fullscreen Starry Night Effect */
         .starry-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            font-size: 10px;
-            color: #ffffff;
-            white-space: pre;
             z-index: 0;
-            animation: starsAnimation 100s infinite linear;
-            padding: 10px;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        @keyframes starsAnimation {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: starBlinking 2s infinite ease-in-out;
+        }
+
+        /* Animation for blinking stars */
+        @keyframes starBlinking {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
         }
 
         /* Loading Screen */
@@ -118,13 +124,8 @@
 </head>
 <body>
     <!-- Starry Background -->
-    <div class="starry-background">
-        <pre>
-          .    .     .      .     .    .  .
-    .   .     .    .      .    .     .    .   .  .   
-      .      .     .    .     .      .      .   . .  
-            .  .     .    .   .    .     .  .  .      .
-        </pre>
+    <div class="starry-background" id="starry-background">
+        <!-- Stars will be dynamically added here -->
     </div>
 
     <!-- Loading Screen -->
@@ -142,6 +143,34 @@
     </div>
 
     <script>
+        // Starry Night Effect - Random Stars & Blinking
+        function createStars() {
+            const starryBackground = document.getElementById('starry-background');
+            const starCount = 150; // Number of stars on the screen
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                // Set random position and size for each star
+                const size = Math.random() * 2 + 1; // Random size between 1 and 3
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+
+                // Randomize animation duration for each star to blink at different speeds
+                const animationDuration = Math.random() * 2 + 1; // Random duration between 1s and 3s
+                star.style.animationDuration = `${animationDuration}s`;
+
+                starryBackground.appendChild(star);
+            }
+        }
+
+        // Initialize the starry night effect
+        createStars();
+
+        // Loading Screen Logic
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading-screen');
             const consoleOutput = document.getElementById('console-output');
