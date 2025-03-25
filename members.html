@@ -237,6 +237,7 @@
     </div>
 
    <script>
+    // Music Player Variables
     var audio = document.getElementById("audio");
     var playPauseButton = document.getElementById("playPauseButton");
     var prevButton = document.getElementById("prevButton");
@@ -254,6 +255,7 @@
     var shuffledAudioFiles = shuffleArray(audioFiles);
     var currentAudioIndex = 0;
 
+    // Shuffle the audio files
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -262,6 +264,7 @@
         return array;
     }
 
+    // Load audio based on index
     function loadAudio(index) {
         var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
         audio.src = src;
@@ -272,6 +275,7 @@
         audio.load();
     }
 
+    // Play or Pause music
     function togglePlayPause() {
         if (audio.paused) {
             audio.play().catch(error => console.log("Autoplay blocked:", error));
@@ -282,12 +286,14 @@
         }
     }
 
+    // Play next audio
     function nextAudio() {
         currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
         loadAudio(currentAudioIndex);
         audio.play();
     }
 
+    // Play previous audio
     function previousAudio() {
         if (audio.currentTime <= 3) {
             currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
@@ -297,30 +303,40 @@
         loadAudio(currentAudioIndex);
         audio.play();
     }
-// Ensure the hash stays as #members
-function enforceHash() {
-    if (window.location.hash !== "#members") {
-        window.history.replaceState(null, null, "#members");
+
+    // Ensure the hash stays as #members (Handling the hash)
+    function enforceHash() {
+        if (window.location.hash !== "#") {
+            window.history.replaceState(null, null, "#");
+        }
     }
-}
 
-// Listen for page load and ensure the hash is set correctly
-window.addEventListener("load", function () {
-    enforceHash();
-});
+    // Ensure hash is handled when the page loads and refreshes
+    window.addEventListener("load", function () {
+        enforceHash();
+    });
 
-// Optionally store the hash when the page is unloaded
-window.addEventListener("beforeunload", function () {
-    sessionStorage.setItem("lastHash", window.location.hash);
-});
+    // Store the current hash when the page is unloaded
+    window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem("lastHash", window.location.hash);
+    });
 
-// Ensure the hash is restored on page load
-window.addEventListener("DOMContentLoaded", function () {
-    var lastHash = sessionStorage.getItem("lastHash");
-    if (lastHash && window.location.hash !== lastHash) {
-        window.location.hash = lastHash;
-    }
-});
+    // Restore the hash after page load
+    window.addEventListener("DOMContentLoaded", function () {
+        var lastHash = sessionStorage.getItem("lastHash");
+        if (lastHash && window.location.hash !== lastHash) {
+            window.location.hash = lastHash;
+        }
+    });
+
+    playPauseButton.addEventListener("click", togglePlayPause);
+    nextButton.addEventListener("click", nextAudio);
+    prevButton.addEventListener("click", previousAudio);
+
+    audio.addEventListener("ended", nextAudio);
+
+
+    loadAudio(currentAudioIndex);
 </script>
 </body>
 </html>
