@@ -238,82 +238,81 @@
     </div>
 
     <script>
-        // Music Player Variables
-        var audio = document.getElementById("audio");
-        var playPauseButton = document.getElementById("playPauseButton");
-        var prevButton = document.getElementById("prevButton");
-        var nextButton = document.getElementById("nextButton");
-        var artist = document.getElementById("artist");
-        var songTitle = document.getElementById("songTitle");
-
-        var audioFiles = [
-            { src: "music/audio.mp3", artist: "?", song: "Headshot" },
-            { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
-            { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
-            { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
-        ];
-
-        var currentAudioIndex = 0;
-        var shuffledAudioFiles = shuffleArray(audioFiles);
-
-        // Shuffle the audio files
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Load audio based on index
-        function loadAudio(index) {
-            var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
-            audio.src = src;
-            artist.textContent = artistName;
-            songTitle.textContent = songTitleText;
-
-            audio.load();
-        }
-
-        // Toggle play/pause
-        function togglePlayPause() {
-            if (audio.paused) {
-                audio.play().catch(error => console.log("Autoplay blocked:", error));
-                playPauseButton.innerHTML = "<img src='img/pause.png'>";
-            } else {
-                audio.pause();
-                playPauseButton.innerHTML = "<img src='img/play.png'>";
-            }
-        }
-
-        // Play next audio
-        function nextAudio() {
-            currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-            loadAudio(currentAudioIndex);
-            audio.play();
-        }
-
-        // Play previous audio
-        function previousAudio() {
-            if (audio.currentTime <= 3) {
-                currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-            } else {
-                audio.currentTime = 0;
-            }
-            loadAudio(currentAudioIndex);
-            audio.play();
-        }
-
-
-        playPauseButton.addEventListener("click", togglePlayPause);
-        nextButton.addEventListener("click", nextAudio);
-        prevButton.addEventListener("click", previousAudio);
-
-        audio.addEventListener("ended", nextAudio);
-
+         var audio = document.getElementById("audio");
+         var playPauseButton = document.getElementById("playPauseButton");
+         var prevButton = document.getElementById("prevButton");
+         var nextButton = document.getElementById("nextButton");
+         var artist = document.getElementById("artist");
+         var songTitle = document.getElementById("songTitle");
  
-        loadAudio(currentAudioIndex);
-
+         var audioFiles = [
+             { src: "music/audio.mp3", artist: "?", song: "Headshot" },
+             { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
+             { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
+             { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
+         ];
+ 
+         var shuffledAudioFiles = shuffleArray(audioFiles); 
+         var currentAudioIndex = 0;
+ 
+         loadAudio(currentAudioIndex); 
+ 
+         audio.addEventListener("ended", nextAudio); 
+         playPauseButton.addEventListener("click", togglePlayPause); 
+         nextButton.addEventListener("click", nextAudio); 
+         prevButton.addEventListener("click", previousAudio); 
+ 
+         function shuffleArray(array) {
+             for (let i = array.length - 1; i > 0; i--) {
+                 const j = Math.floor(Math.random() * (i + 1));
+                 [array[i], array[j]] = [array[j], array[i]];
+             }
+             return array;
+         }
+ 
+         function togglePlayPause() {
+             if (audio.paused) {
+                 audio.play().then(() => {
+                     audio.muted = false; 
+                     playPauseButton.innerHTML = "<img src='img/pause.png'>";
+                 }).catch((error) => {
+                     console.error("Autoplay blocked: ", error);
+                     alert("Please click the play button again to enable audio playback.");
+                 });
+             } else {
+                 audio.pause();
+                 playPauseButton.innerHTML = "<img src='img/play.png'>";
+             }
+         }
+ 
+         function loadAudio(index) {
+             var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
+             audio.src = src;
+             artist.textContent = artistName;
+             songTitle.textContent = songTitleText;
+ 
+             audio.load();
+         }
+ 
+         function nextAudio() {
+             currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
+             loadAudio(currentAudioIndex);
+             if (!audio.paused) {
+                 audio.play();
+             }
+         }
+ 
+         function previousAudio() {
+             if (audio.currentTime <= 3) {
+                 currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
+             } else {
+                 audio.currentTime = 0;
+             }
+             loadAudio(currentAudioIndex);
+             if (!audio.paused) {
+                 audio.play();
+             }
+         }
     function enforceHash() {
         if (window.location.hash !== "#") {
             window.history.replaceState(null, null, "#");
