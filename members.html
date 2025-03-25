@@ -11,9 +11,11 @@
     <meta property="og:image" content="https:/c22w.site/hung.png">
     <meta property="og:url" content="https://c22w.site">
     <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400;500&display=swap" rel="stylesheet">
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-   <script src="sparkle.js"></script>
+    <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script src="sparkle.js"></script>
+
     <style>
         body {
             background-color: #121212;
@@ -30,12 +32,16 @@
             position: relative;
         }
 
-        .tv-scanlines {
+        .tv-scanlines, .tv-static {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none;
+        }
+
+        .tv-scanlines {
             background: repeating-linear-gradient(
                 to bottom,
                 rgba(0, 0, 0, 0.5) 0px,
@@ -43,19 +49,12 @@
                 rgba(0, 0, 0, 0) 2px,
                 rgba(0, 0, 0, 0) 4px
             );
-            pointer-events: none;
             z-index: 1000;
         }
 
         .tv-static {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/noise.png') repeat;
+            background: url("https://www.transparenttextures.com/patterns/noise.png") repeat;
             opacity: 0.1;
-            pointer-events: none;
             z-index: 999;
         }
 
@@ -77,17 +76,11 @@
             margin: 0 auto;
             z-index: 999;
             animation: flicker 0.1s infinite alternate;
-        }
-
-        .content {
-            color: white;
             text-align: center;
-            font-size: 2rem;
         }
 
         h1 {
             font-size: 3rem;
-            margin-bottom: 30px;
             color: #1f75fe;
         }
 
@@ -108,7 +101,6 @@
 
         .member h2 {
             color: #1f75fe;
-            margin: 0;
         }
 
         .member a {
@@ -142,7 +134,6 @@
             padding: 20px;
             width: 80%;
             max-width: 400px;
-            text-align: center;
             margin-top: 50px;
             display: flex;
             flex-direction: column;
@@ -175,17 +166,11 @@
             font-size: 14px;
             color: #fff;
         }
-
-        .audio-player {
-            background-color: transparent;
-            box-shadow: none;
-        }
     </style>
 </head>
 <body>
 
     <div class="tv-static"></div>
-
     <div class="tv-scanlines"></div>
 
     <div class="crt-container">
@@ -200,6 +185,7 @@
                     <img src="img/dox.png" class="link-img" alt="Doxbin">
                 </a>
             </div>
+
             <div class="member">
                 <h2>Decoy</h2>
                 <img src="img/cash.png" alt="Decoy">
@@ -210,19 +196,18 @@
             </div>
         </div>
 
-<div class="audio-player">
-    <div class="controls">
-        <button id="prevButton">
-            <img src="img/back.png" alt="Previous">
-        </button>
-        <button id="playPauseButton">
-            <img src="img/play.png" alt="Play">
-        </button>
-        <button id="nextButton" class="controls">
-            <img src="img/next.png" alt="Next">
-        </button>
-    </div>
-</div>
+        <div class="audio-player">
+            <div class="controls">
+                <button id="prevButton">
+                    <img src="img/back.png" alt="Previous">
+                </button>
+                <button id="playPauseButton">
+                    <img src="img/play.png" alt="Play">
+                </button>
+                <button id="nextButton">
+                    <img src="img/next.png" alt="Next">
+                </button>
+            </div>
 
             <div class="audio-info">
                 <p id="artist">Artist</p>
@@ -237,7 +222,6 @@
     </div>
 
     <script>
-        // Getting DOM elements
         var audio = document.getElementById("audio");
         var playPauseButton = document.getElementById("playPauseButton");
         var prevButton = document.getElementById("prevButton");
@@ -249,70 +233,21 @@
             { src: "music/audio.mp3", artist: "?", song: "Headshot" },
             { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
             { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
-            { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
+            { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" }
         ];
 
-        var shuffledAudioFiles = shuffleArray(audioFiles); 
         var currentAudioIndex = 0;
-
-        loadAudio(currentAudioIndex); 
-
-        audio.addEventListener("ended", nextAudio); 
-        playPauseButton.addEventListener("click", togglePlayPause); 
-        nextButton.addEventListener("click", nextAudio); 
-        prevButton.addEventListener("click", previousAudio); 
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        function togglePlayPause() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    audio.muted = false; 
-                    playPauseButton.innerHTML = "<img src='img/pause.png'>";
-                }).catch((error) => {
-                    console.error("Autoplay blocked: ", error);
-                    alert("Please click the play button again to enable audio playback.");
-                });
-            } else {
-                audio.pause();
-                playPauseButton.innerHTML = "<img src='img/play.png'>";
-            }
-        }
-
         function loadAudio(index) {
-            var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
+            var { src, artist: artistName, song: songTitleText } = audioFiles[index];
             audio.src = src;
             artist.textContent = artistName;
             songTitle.textContent = songTitleText;
-
             audio.load();
         }
 
-        function nextAudio() {
-            currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-            loadAudio(currentAudioIndex);
-            if (!audio.paused) {
-                audio.play();
-            }
-        }
-
-        function previousAudio() {
-            if (audio.currentTime <= 3) {
-                currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-            } else {
-                audio.currentTime = 0;
-            }
-            loadAudio(currentAudioIndex);
-            if (!audio.paused) {
-                audio.play();
-            }
-        }
+        playPauseButton.addEventListener("click", () => {
+            audio.paused ? audio.play() : audio.pause();
+        });
     </script>
 
 </body>
