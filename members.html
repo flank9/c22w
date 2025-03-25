@@ -267,7 +267,8 @@
         audio.src = src;
         artist.textContent = artistName;
         songTitle.textContent = songTitleText;
-        audio.volume = volumeSlider.value / 100; 
+
+        audio.volume = 1.0; // Ensures full volume
         audio.load();
     }
 
@@ -297,16 +298,27 @@
         audio.play();
     }
 
-    function updateVolume() {
-        audio.volume = volumeSlider.value / 100;
-    }
+    // Keep user on "members.#" even after refresh
+    window.history.replaceState(null, null, "members.#");
+
+    window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem("lastHash", window.location.hash);
+    });
+
+    window.addEventListener("load", function () {
+        var lastHash = sessionStorage.getItem("lastHash");
+        if (lastHash) {
+            window.location.hash = lastHash;
+        }
+    });
+
 
     playPauseButton.addEventListener("click", togglePlayPause);
     nextButton.addEventListener("click", nextAudio);
     prevButton.addEventListener("click", previousAudio);
-    volumeSlider.addEventListener("input", updateVolume);
     audio.addEventListener("ended", nextAudio);
 
+ 
     loadAudio(currentAudioIndex);
 </script>
 </body>
