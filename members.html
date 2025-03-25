@@ -297,51 +297,30 @@
         loadAudio(currentAudioIndex);
         audio.play();
     }
-
-    // Keep user on "members.#" even after refresh
-    window.history.replaceState(null, null, "members.#");
-
-    window.addEventListener("beforeunload", function () {
-        sessionStorage.setItem("lastHash", window.location.hash);
-    });
-
-    window.addEventListener("load", function () {
-        var lastHash = sessionStorage.getItem("lastHash");
-        if (lastHash) {
-            window.location.hash = lastHash;
-        }
-    });
-
-
-    playPauseButton.addEventListener("click", togglePlayPause);
-    nextButton.addEventListener("click", nextAudio);
-    prevButton.addEventListener("click", previousAudio);
-    audio.addEventListener("ended", nextAudio);
-
- 
-    loadAudio(currentAudioIndex);
-    
-    function enforceHash() {
-        if (window.location.hash !== "#members") {
-            window.history.replaceState(null, null, "#members");
-        }
+// Ensure the hash stays as #members
+function enforceHash() {
+    if (window.location.hash !== "#members") {
+        window.history.replaceState(null, null, "#members");
     }
+}
 
+// Listen for page load and ensure the hash is set correctly
+window.addEventListener("load", function () {
+    enforceHash();
+});
 
-    window.addEventListener("load", enforceHash);
-    window.addEventListener("hashchange", enforceHash);
+// Optionally store the hash when the page is unloaded
+window.addEventListener("beforeunload", function () {
+    sessionStorage.setItem("lastHash", window.location.hash);
+});
 
-   
-    window.addEventListener("beforeunload", function () {
-        sessionStorage.setItem("lastHash", "#members");
-    });
-
-    window.addEventListener("DOMContentLoaded", function () {
-        var lastHash = sessionStorage.getItem("lastHash");
-        if (lastHash && window.location.hash !== lastHash) {
-            window.location.hash = lastHash;
-        }
-    });
+// Ensure the hash is restored on page load
+window.addEventListener("DOMContentLoaded", function () {
+    var lastHash = sessionStorage.getItem("lastHash");
+    if (lastHash && window.location.hash !== lastHash) {
+        window.location.hash = lastHash;
+    }
+});
 </script>
 </body>
 </html>
