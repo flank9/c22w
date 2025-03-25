@@ -237,7 +237,6 @@
     </div>
 
     <script>
-        // Getting DOM elements
         var audio = document.getElementById("audio");
         var playPauseButton = document.getElementById("playPauseButton");
         var prevButton = document.getElementById("prevButton");
@@ -317,6 +316,15 @@
             }
         }
         window.history.replaceState(null, null, "members.#");
+    window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem("lastHash", window.location.hash);
+    });
+    window.addEventListener("load", function () {
+        var lastHash = sessionStorage.getItem("lastHash");
+        if (lastHash) {
+            window.location.hash = lastHash;
+        }
+    });
     </script>
 
 </body>
