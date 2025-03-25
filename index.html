@@ -68,10 +68,10 @@
             50% { opacity: 0; }
         }
 
-        /* Main Console / Button Styling */
+        /* Main Console Styling */
         .console {
-            width: 85%;
-            height: 70%;
+            width: 50%; /* Reduced size for a more compact look */
+            height: 50%; /* Adjusted height */
             background-color: #1e1e1e;
             border-radius: 12px;
             padding: 20px;
@@ -80,12 +80,12 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            animation: slideIn 0.8s ease-out;
+            animation: fadeInMain 1s ease-in-out;
         }
 
-        @keyframes slideIn {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(0); }
+        @keyframes fadeInMain {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .console-header {
@@ -96,18 +96,19 @@
 
         /* Enter Button Styling */
         .enter-btn {
-            padding: 15px 30px;
-            background-color: rgba(255, 255, 255, 0.1); /* Light grey opacity */
+            padding: 10px 25px;
+            background-color: rgba(255, 255, 255, 0.15); /* Light grey opacity */
             border: none;
             color: #dcdcdc;
             font-size: 18px;
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.3s ease;
+            font-family: 'VT323', monospace; /* Ensures matching font */
         }
 
         .enter-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Slightly darker on hover */
+            background-color: rgba(255, 255, 255, 0.25); /* Slightly darker on hover */
         }
 
         .enter-btn:focus {
@@ -129,7 +130,6 @@
         <div class="loading-text">Hold on.</div>
     </div>
 
-    <!-- Main Console -->
     <div class="console" id="console" style="display: none;">
         <div class="console-header">@IN$TAKILL</div>
         <button class="enter-btn" id="enter-btn">Enter</button>
