@@ -252,6 +252,16 @@
         { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
     ];
 
+    loadAudio(currentAudioIndex);
+function togglePlayPause() {
+    if (audio.paused) {
+        audio.play().catch(error => console.log("Autoplay blocked:", error));
+        playPauseButton.innerHTML = "<img src='img/pause.png'>";
+    } else {
+        audio.pause();
+        playPauseButton.innerHTML = "<img src='img/play.png'>";
+    }
+}
     var shuffledAudioFiles = shuffleArray(audioFiles);
     var currentAudioIndex = 0;
 
@@ -273,17 +283,6 @@
 
         audio.volume = 1.0; // Ensures full volume
         audio.load();
-    }
-
-    // Play or Pause music
-    function togglePlayPause() {
-        if (audio.paused) {
-            audio.play().catch(error => console.log("Autoplay blocked:", error));
-            playPauseButton.innerHTML = "<img src='img/pause.png'>";
-        } else {
-            audio.pause();
-            playPauseButton.innerHTML = "<img src='img/play.png'>";
-        }
     }
 
     // Play next audio
@@ -335,17 +334,6 @@
 
     audio.addEventListener("ended", nextAudio);
 
-
-    loadAudio(currentAudioIndex);
-function togglePlayPause() {
-    if (audio.paused) {
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-        playPauseButton.innerHTML = "<img src='img/pause.png'>";
-    } else {
-        audio.pause();
-        playPauseButton.innerHTML = "<img src='img/play.png'>";
-    }
-}
    </script>
     
 </body>
