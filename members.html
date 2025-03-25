@@ -270,21 +270,24 @@
             return array;
         }
 
-        function togglePlayPause() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    audio.muted = false; 
-                    playPauseButton.innerHTML = "<img src='img/pause.png'>";
-                }).catch((error) => {
-                    console.error("Autoplay blocked: ", error);
-                    alert("Please click the play button again to enable audio playback.");
-                });
-            } else {
-                audio.pause();
-                playPauseButton.innerHTML = "<img src='img/play.png'>";
-            }
-        }
+       <audio id="audio" preload="auto">
+    <source src="music/audio.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
 
+<script>
+    var audio = document.getElementById("audio");
+    var playPauseButton = document.getElementById("playPauseButton");
+
+    playPauseButton.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+            playPauseButton.innerHTML = "<img src='img/pause.png'>";
+        } else {
+            audio.pause();
+            playPauseButton.innerHTML = "<img src='img/play.png'>";
+        }
+    });
         function loadAudio(index) {
             var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
             audio.src = src;
