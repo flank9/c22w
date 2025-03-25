@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://c22w.site">
     <meta property="og:type" content="website">
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    
+
     <style>
         /* Global Styling */
         * {
@@ -50,7 +50,9 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            animation: fadeOut 1s ease-out forwards;
+            opacity: 1;
+            animation: fadeOut 0.6s ease-out forwards;
+            animation-delay: 2s; /* Loading screen stays visible for 2 seconds */
         }
 
         @keyframes fadeOut {
@@ -61,6 +63,7 @@
         .loading-text {
             font-size: 24px;
             color: #1f75fe;
+            font-family: 'VT323', monospace;
             animation: blink 1.5s infinite;
         }
 
@@ -70,17 +73,19 @@
 
         /* Main Console Styling */
         .console {
-            width: 50%; /* Reduced size for a more compact look */
-            height: 50%; /* Adjusted height */
+            width: 60%; /* Slightly larger for a better look */
+            height: 50%;
             background-color: #1e1e1e;
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            opacity: 0; /* Initially hidden for fade-in */
             animation: fadeInMain 1s ease-in-out;
+            animation-delay: 2.4s; /* Waits for the loading screen */
         }
 
         @keyframes fadeInMain {
@@ -90,33 +95,34 @@
 
         .console-header {
             color: #1f75fe;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: bold;
         }
 
         /* Enter Button Styling */
         .enter-btn {
-            padding: 10px 25px;
-            background-color: rgba(255, 255, 255, 0.15); /* Light grey opacity */
+            padding: 12px 35px;
+            background-color: rgba(255, 255, 255, 0.2); /* Light grey opacity */
             border: none;
             color: #dcdcdc;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-family: 'VT323', monospace;
             transition: all 0.3s ease;
-            font-family: 'VT323', monospace; /* Ensures matching font */
         }
 
         .enter-btn:hover {
-            background-color: rgba(255, 255, 255, 0.25); /* Slightly darker on hover */
+            background-color: rgba(255, 255, 255, 0.3); /* Slightly darker on hover */
         }
 
         .enter-btn:focus {
             outline: none;
-            box-shadow: 0 0 10px rgba(31, 117, 254, 0.6);
+            box-shadow: 0 0 12px rgba(31, 117, 254, 0.8);
         }
 
-        /* Animation for Button Click */
+        /* Button click animation */
         .enter-btn:active {
             transform: scale(0.98);
         }
@@ -127,9 +133,10 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loading-screen">
-        <div class="loading-text">Hold on.</div>
+        <div class="loading-text">Hold on...</div>
     </div>
 
+    <!-- Main Console -->
     <div class="console" id="console" style="display: none;">
         <div class="console-header">@IN$TAKILL</div>
         <button class="enter-btn" id="enter-btn">Enter</button>
@@ -143,9 +150,9 @@
 
             // Show the main console after the loading screen
             setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                consoleContainer.style.display = 'flex';
-            }, 5000);
+                loadingScreen.style.display = 'none'; // Hide loading screen
+                consoleContainer.style.display = 'flex'; // Show the console
+            }, 2400); // Timing adjusted for the loading screen (2.4s)
 
             // Redirect to members area when the Enter button is clicked
             enterButton.addEventListener('click', () => {
