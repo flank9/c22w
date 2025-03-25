@@ -30,12 +30,6 @@
             align-items: center;
             overflow: hidden;
             position: relative;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         /* Loading Screen */
@@ -51,8 +45,8 @@
             align-items: center;
             z-index: 1000;
             opacity: 1;
-            animation: fadeOut 0.6s ease-out forwards;
-            animation-delay: 2s; /* Loading screen stays visible for 2 seconds */
+            animation: fadeOut 1s ease-out forwards;
+            animation-delay: 1.5s; /* Loading screen shows for 1.5 seconds */
         }
 
         @keyframes fadeOut {
@@ -73,11 +67,11 @@
 
         /* Main Console Styling */
         .console {
-            width: 60%; /* Slightly larger for a better look */
-            height: 50%;
+            width: 50%; /* Adjusting to fit better on screen */
+            height: 40%;
             background-color: #1e1e1e;
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -85,7 +79,7 @@
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
             opacity: 0; /* Initially hidden for fade-in */
             animation: fadeInMain 1s ease-in-out;
-            animation-delay: 2.4s; /* Waits for the loading screen */
+            animation-delay: 2s; /* Fade in after 2 seconds */
         }
 
         @keyframes fadeInMain {
@@ -95,14 +89,15 @@
 
         .console-header {
             color: #1f75fe;
-            font-size: 26px;
+            font-size: 28px;
             margin-bottom: 25px;
             font-weight: bold;
+            letter-spacing: 2px;
         }
 
         /* Enter Button Styling */
         .enter-btn {
-            padding: 12px 35px;
+            padding: 12px 30px;
             background-color: rgba(255, 255, 255, 0.2); /* Light grey opacity */
             border: none;
             color: #dcdcdc;
@@ -111,6 +106,7 @@
             border-radius: 8px;
             font-family: 'VT323', monospace;
             transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
         .enter-btn:hover {
@@ -139,7 +135,7 @@
     <!-- Main Console -->
     <div class="console" id="console" style="display: none;">
         <div class="console-header">@IN$TAKILL</div>
-        <button class="enter-btn" id="enter-btn">Enter</button>
+        <button class="enter-btn" id="enter-btn">Members.</button>
     </div>
 
     <script>
@@ -152,7 +148,7 @@
             setTimeout(() => {
                 loadingScreen.style.display = 'none'; // Hide loading screen
                 consoleContainer.style.display = 'flex'; // Show the console
-            }, 2400); // Timing adjusted for the loading screen (2.4s)
+            }, 2500); // Corrected delay to ensure smooth transition
 
             // Redirect to members area when the Enter button is clicked
             enterButton.addEventListener('click', () => {
