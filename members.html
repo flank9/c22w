@@ -334,6 +334,13 @@
             window.location.hash = lastHash;
         }
     });
+        window.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.log("Autoplay blocked, waiting for user interaction.");
+                });
+            }
+        });
     </script>
 
 </body>
