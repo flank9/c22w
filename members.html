@@ -236,7 +236,7 @@
         </div>
     </div>
 
-    <script>
+   <script>
     var audio = document.getElementById("audio");
     var playPauseButton = document.getElementById("playPauseButton");
     var prevButton = document.getElementById("prevButton");
@@ -253,7 +253,7 @@
 
     var shuffledAudioFiles = shuffleArray(audioFiles);
     var currentAudioIndex = 0;
-    
+
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -267,12 +267,13 @@
         audio.src = src;
         artist.textContent = artistName;
         songTitle.textContent = songTitleText;
-        audio.load(); 
+        audio.volume = volumeSlider.value / 100; 
+        audio.load();
     }
 
     function togglePlayPause() {
         if (audio.paused) {
-            audio.play();
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
             playPauseButton.innerHTML = "<img src='img/pause.png'>";
         } else {
             audio.pause();
@@ -296,23 +297,17 @@
         audio.play();
     }
 
+    function updateVolume() {
+        audio.volume = volumeSlider.value / 100;
+    }
+
     playPauseButton.addEventListener("click", togglePlayPause);
     nextButton.addEventListener("click", nextAudio);
     prevButton.addEventListener("click", previousAudio);
+    volumeSlider.addEventListener("input", updateVolume);
     audio.addEventListener("ended", nextAudio);
+
     loadAudio(currentAudioIndex);
-    window.history.replaceState(null, null, "members.#");
-    window.addEventListener("beforeunload", function () {
-        sessionStorage.setItem("lastHash", window.location.hash);
-    });
-    window.addEventListener("load", function () {
-        var lastHash = sessionStorage.getItem("lastHash");
-        if (lastHash) {
-            window.location.hash = lastHash;
-        }
-    });
-
 </script>
-
 </body>
 </html>
