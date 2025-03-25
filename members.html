@@ -320,6 +320,28 @@
 
  
     loadAudio(currentAudioIndex);
+    
+    function enforceHash() {
+        if (window.location.hash !== "#members") {
+            window.history.replaceState(null, null, "#members");
+        }
+    }
+
+
+    window.addEventListener("load", enforceHash);
+    window.addEventListener("hashchange", enforceHash);
+
+   
+    window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem("lastHash", "#members");
+    });
+
+    window.addEventListener("DOMContentLoaded", function () {
+        var lastHash = sessionStorage.getItem("lastHash");
+        if (lastHash && window.location.hash !== lastHash) {
+            window.location.hash = lastHash;
+        }
+    });
 </script>
 </body>
 </html>
