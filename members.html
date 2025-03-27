@@ -180,6 +180,16 @@
             background-color: transparent;
             box-shadow: none;
         }
+        .mouse-pointer {
+    background-image: url('img/reaper.cur');
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
@@ -355,6 +365,25 @@ document.body.addEventListener("click", () => {
                 });
             }
         });
+        
+const mousePointer = document.createElement('div');
+mousePointer.className = 'mouse-pointer';
+
+let size = 50;
+let pageX = 0;
+let pageY = 0;
+
+
+document.body.appendChild(mousePointer);
+
+mousePointer.style.setProperty('--size', size+'px');
+
+window.addEventListener('mousemove', function(mouseMovementDirection) {
+    pageX = mouseMovementDirection.clientX;
+    pageY = mouseMovementDirection.clientY;
+    mousePointer.style.left = mouseMovementDirection.clientX-size/2+'px';
+    mousePointer.style.top = mouseMovementDirection.clientY-size/2+'px';
+  });
     </script>
 
 </body>
