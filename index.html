@@ -31,32 +31,6 @@
             position: relative;
         }
 
-        /* Starry Background */
-        .starry-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0.8;
-            animation: starBlinking 2s infinite ease-in-out;
-        }
-
-        @keyframes starBlinking {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 0.3; }
-        }
-
-        /* ASCII Art */
         .ascii-container {
             text-align: center;
             font-size: 14px;
@@ -66,7 +40,6 @@
             position: relative;
             white-space: pre;
             user-select: none;
-            display: inline-block;
         }
 
         .ascii-char {
@@ -79,31 +52,11 @@
 </head>
 <body>
 
-    <div class="starry-background" id="starry-background"></div>
-
     <div class="ascii-container" id="ascii-logo">
         <pre id="ascii-text"></pre>
     </div>
 
     <script>
-        function createStars() {
-            const starryBackground = document.getElementById('starry-background');
-            const starCount = 100;
-
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.innerHTML = "+";
-                star.style.left = `${Math.random() * 100}vw`;
-                star.style.top = `${Math.random() * 100}vh`;
-                const animationDuration = Math.random() * 2 + 1;
-                star.style.animationDuration = `${animationDuration}s`;
-                starryBackground.appendChild(star);
-            }
-        }
-        createStars();
-
-        // ASCII Art Text
         const asciiArt = `
 ██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
@@ -114,14 +67,23 @@
 
         function applyAsciiEffect() {
             const asciiText = document.getElementById("ascii-text");
-            asciiText.innerHTML = "";
+            asciiText.innerHTML = ""; // Clear previous content
 
-            for (let i = 0; i < asciiArt.length; i++) {
-                let span = document.createElement("span");
-                span.textContent = asciiArt[i] === " " ? "\u00A0" : asciiArt[i]; // Preserve spaces
-                span.classList.add("ascii-char");
-                asciiText.appendChild(span);
-            }
+            asciiArt.split("\n").forEach((line, lineIndex) => {
+                let lineSpan = document.createElement("span");
+
+                line.split("").forEach((char, charIndex) => {
+                    let charSpan = document.createElement("span");
+                    charSpan.textContent = char;
+                    charSpan.classList.add("ascii-char");
+                    charSpan.style.transitionDelay = `${(charIndex + lineIndex * 10) * 20}ms`; // Stagger effect
+
+                    lineSpan.appendChild(charSpan);
+                });
+
+                asciiText.appendChild(lineSpan);
+                asciiText.appendChild(document.createElement("br")); // Maintain line breaks
+            });
 
             function animateAscii() {
                 let chars = document.querySelectorAll(".ascii-char");
@@ -132,16 +94,17 @@
                         setTimeout(() => {
                             char.style.color = "white";
                         }, 800);
-                    }, (index % 60) * 30); // Ensures smooth wave effect across lines
+                    }, index * 15);
                 });
 
                 setTimeout(animateAscii, 3000);
             }
+
             animateAscii();
         }
+
         applyAsciiEffect();
 
-        // Make ASCII Art Clickable
         document.getElementById('ascii-logo').addEventListener('click', function() {
             window.location.href = 'members.html';
         });
