@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head> 
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@IN$TAKILL</title>
     
     <meta property="og:title" content="Whores.net">
@@ -11,9 +10,9 @@
     <meta property="og:image" content="https:/c22w.site/hung.png">
     <meta property="og:url" content="https://c22w.site">
     <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400;500&display=swap" rel="stylesheet">
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
    <script src="sparkle.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #121212;
@@ -21,11 +20,10 @@
             font-family: 'VT323', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
             position: relative;
         }
@@ -47,344 +45,79 @@
             z-index: 1000;
         }
 
-        .tv-static {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/noise.png') repeat;
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.9; }
-            100% { opacity: 1; }
-        }
-
         .crt-container {
-            position: relative;
+            background: rgba(0, 0, 0, 0.05); /* Barely visible black box */
             padding: 20px;
-            border: 10px solid #000;
-            border-radius: 20px;
-            background-color: #121212;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            z-index: 999;
-            animation: flicker 0.1s infinite alternate;
-        }
-
-        .content {
-            color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             text-align: center;
-            font-size: 2rem;
+            width: 80%;
+            max-width: 600px;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: #1f75fe;
+        h1, .member h2, .member a {
+            color: #fff;
         }
 
         .members-container {
+            margin-top: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             gap: 40px;
         }
 
         .member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
-            gap: 10px;
-        }
-
-        .member h2 {
-            color: #1f75fe;
-            margin: 0;
         }
 
         .member a {
-            display: flex;
-            align-items: center;
-            color: #dcdcdc;
-            font-size: 1rem;
             text-decoration: none;
-            margin: 5px 0;
-        }
-
-        .member a:hover {
-            color: #1f75fe;
-        }
-
-        .member .link-img {
-            width: 35px;
-            height: 35px;
-            margin: 5px;
-            cursor: pointer;
-        }
-
-        .member img {
-            width: 60px;
-            height: 60px;
-            margin: 5px;
-            border-radius: 50%;
-        }
-
-        .audio-player {
-            padding: 20px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-            margin-top: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .audio-player .controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
+        .member img {
+            height: 40px;
+            margin-bottom: 5px;
         }
-
-        .audio-player button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .audio-player button img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .audio-info {
-            margin-top: 17px;
-        }
-
-        .audio-info p {
-            font-size: 14px;
-            color: #fff;
-        }
-
-        .audio-player {
-            background-color: transparent;
-            box-shadow: none;
-        }
-        .mouse-pointer {
-    background-image: url('img/reaper.cur');
-    width: var(--size);
-    height: var(--size);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    pointer-events: none;
-}
     </style>
 </head>
-<body>
-
-    <div class="tv-static"></div>
-
+<body onclick="startMusic()">
     <div class="tv-scanlines"></div>
 
     <div class="crt-container">
-        <h1>? ? ?</h1>
-
+        <h1>Retro Hub</h1>
+        
         <div class="members-container">
             <div class="member">
                 <h2>Flank</h2>
-                <img src="img/flank.png" alt="Flank">
-                <a href="https://t.me/flank155" target="_blank">
-                    <img src="img/tele.png" class="link-img" alt="Telegram">
-                    <a href="https://doxbin/user/InstakiII" target="_blank">
-                    <img src="img/dox.png" class="link-img" alt="Doxbin">
-                </a>
+                <a href="https://t.me/flank155"><img src="img/tele.png" alt="Telegram">Telegram</a> 
+                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin">Doxbin</a>
             </div>
             <div class="member">
                 <h2>Decoy</h2>
-                <img src="img/cash.png" alt="Decoy">
-                <a href="https://t.me/decoy95" target="_blank">
-                    <img src="img/tele.png" class="link-img" alt="Telegram">
-                    <a href="https://doxbin/user/InstakiII" target="_blank">
-                    <img src="img/dox.png" class="link-img" alt="Doxbin">
-                </a>
+                <a href="https://t.me/decoy95"><img src="img/tele.png" alt="Telegram">Telegram</a> 
+                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin">Doxbin</a>
             </div>
         </div>
-
-        <div class="audio-player">
-            <div class="controls">
-                <button id="prevButton">
-                    <img src="img/back.png" alt="Previous">
-                </button>
-                <button id="playPauseButton">
-                    <img src="img/play.png" alt="Play">
-                </button>
-                <button id="nextButton">
-                    <img src="img/next.png" alt="Next">
-                </button>
-            </div>
-        </div>
-
-        <div class="audio-info">
-            <p id="artist">Artist</p>
-            <p id="songTitle">Song Title</p>
-        </div>
-
-        <audio id="audio" preload="auto" muted>
-            <source src="music/audio.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
     <script>
-     // Getting DOM elements
-var audio = document.getElementById("audio");
-var playPauseButton = document.getElementById("playPauseButton");
-var prevButton = document.getElementById("prevButton");
-var nextButton = document.getElementById("nextButton");
-var artist = document.getElementById("artist");
-var songTitle = document.getElementById("songTitle");
+        let audioFiles = ["music/audio.mp3", "music/audio2.mp3", "music/audio3.mp3", "music/audio4.mp3"];
+        let currentTrack = 0;
+        let audio = new Audio(audioFiles[currentTrack]);
 
-var audioFiles = [
-    { src: "music/audio.mp3", artist: "?", song: "Headshot" },
-    { src: "music/audio2.mp3", artist: "? ?", song: "Dox" },
-    { src: "music/audio3.mp3", artist: "? ? ?", song: "Doxbin staff" },
-    { src: "music/audio4.mp3", artist: "? ? ? ?", song: "Elskling" },
-];
-
-var shuffledAudioFiles = shuffleArray(audioFiles); 
-var currentAudioIndex = 0;
-
-// Load the first audio
-loadAudio(currentAudioIndex);
-
-// Event Listeners
-audio.addEventListener("ended", nextAudio); 
-playPauseButton.addEventListener("click", togglePlayPause); 
-nextButton.addEventListener("click", nextAudio); 
-prevButton.addEventListener("click", previousAudio); 
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-function togglePlayPause() {
-    if (audio.paused) {
-        // If the browser blocks autoplay, this ensures that audio is played after user interaction
-        audio.play().then(() => {
-            audio.muted = false; // Unmute in case it's muted
-            playPauseButton.innerHTML = "<img src='img/pause.png'>";
-        }).catch((error) => {
-            // This occurs when autoplay is blocked. Ensure a user interaction happens first
-            console.error("Autoplay blocked: ", error);
-            alert("Please click the play button again to enable audio playback.");
-        });
-    } else {
-        audio.pause();
-        playPauseButton.innerHTML = "<img src='img/play.png'>";
-    }
-}
-
-function loadAudio(index) {
-    var { src, artist: artistName, song: songTitleText } = shuffledAudioFiles[index];
-    audio.src = src;
-    artist.textContent = artistName;
-    songTitle.textContent = songTitleText;
-
-    audio.load(); // Reload the audio element to apply the new source
-}
-
-function nextAudio() {
-    currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-    loadAudio(currentAudioIndex);
-    if (!audio.paused) {
-        audio.play(); // Automatically play the next song if audio is already playing
-    }
-}
-
-function previousAudio() {
-    if (audio.currentTime <= 3) {
-        currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-    } else {
-        audio.currentTime = 0;
-    }
-    loadAudio(currentAudioIndex);
-    if (!audio.paused) {
-        audio.play(); // Automatically play the previous song if audio is already playing
-    }
-}
-
-// Add a listener for the first interaction (to enable autoplay)
-document.body.addEventListener("click", () => {
-    // Allow audio playback after the user interacts with the page
-    audio.play().catch((error) => {
-        console.error("Autoplay still blocked:", error);
-    });
-});
-    function enforceHash() {
-        if (window.location.hash !== "#") {
-            window.history.replaceState(null, null, "#");
-        }
-    }
-
-    window.addEventListener("load", function () {
-        enforceHash();
-    });
-
-
-    window.addEventListener("beforeunload", function () {
-        sessionStorage.setItem("lastHash", window.location.hash);
-    });
-
-
-    window.addEventListener("DOMContentLoaded", function () {
-        var lastHash = sessionStorage.getItem("lastHash");
-        if (lastHash && window.location.hash !== lastHash) {
-            window.location.hash = lastHash;
-        }
-    });
-        window.addEventListener('click', function() {
+        function startMusic() {
             if (audio.paused) {
-                audio.play().catch(error => {
-                    console.log("Autoplay blocked, waiting for user interaction.");
-                });
+                audio.play();
+                audio.onended = function() {
+                    currentTrack = (currentTrack + 1) % audioFiles.length;
+                    audio.src = audioFiles[currentTrack];
+                    audio.play();
+                };
             }
-        });
-        
-const mousePointer = document.createElement('div');
-mousePointer.className = 'mouse-pointer';
-
-let size = 50;
-let pageX = 0;
-let pageY = 0;
-
-
-document.body.appendChild(mousePointer);
-
-mousePointer.style.setProperty('--size', size+'px');
-
-window.addEventListener('mousemove', function(mouseMovementDirection) {
-    pageX = mouseMovementDirection.clientX;
-    pageY = mouseMovementDirection.clientY;
-    mousePointer.style.left = mouseMovementDirection.clientX-size/2+'px';
-    mousePointer.style.top = mouseMovementDirection.clientY-size/2+'px';
-  });
+        }
     </script>
-
 </body>
 </html>
