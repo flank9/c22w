@@ -59,18 +59,19 @@
         /* ASCII Art */
         .ascii-container {
             text-align: center;
-            font-size: 14px; /* Change size of ASCII */
+            font-size: 14px;
             line-height: 1.1;
             cursor: pointer;
             z-index: 10;
             position: relative;
             white-space: pre;
             user-select: none;
-            transition: opacity 0.3s ease;
+            display: inline-block;
         }
 
-        .ascii-container:hover {
-            opacity: 0.7;
+        .ascii-char {
+            display: inline-block;
+            transition: color 1s ease-in-out;
         }
     </style>
 
@@ -81,7 +82,7 @@
     <div class="starry-background" id="starry-background"></div>
 
     <div class="ascii-container" id="ascii-logo">
-        <pre>
+        <pre id="ascii-text">
 ██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
 ██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
@@ -94,24 +95,51 @@
     <script>
         function createStars() {
             const starryBackground = document.getElementById('starry-background');
-            const starCount = 150;
+            const starCount = 100;
 
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
-                star.innerHTML = "+"; 
-
+                star.innerHTML = "+";
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
-
                 const animationDuration = Math.random() * 2 + 1;
                 star.style.animationDuration = `${animationDuration}s`;
-
                 starryBackground.appendChild(star);
             }
         }
-
         createStars();
+
+        // Apply color fade effect to ASCII text
+        function applyAsciiEffect() {
+            const asciiText = document.getElementById("ascii-text");
+            let text = asciiText.innerText;
+            asciiText.innerHTML = "";
+
+            for (let i = 0; i < text.length; i++) {
+                let span = document.createElement("span");
+                span.textContent = text[i] === " " ? "\u00A0" : text[i]; // Preserve spaces
+                span.classList.add("ascii-char");
+                span.style.transitionDelay = `${i * 30}ms`;
+                asciiText.appendChild(span);
+            }
+
+            function animateAscii() {
+                let chars = document.querySelectorAll(".ascii-char");
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.style.color = "white";
+                        setTimeout(() => {
+                            char.style.color = "#1f75fe"; // Blue
+                        }, 800);
+                    }, index * 40);
+                });
+
+                setTimeout(animateAscii, 3000);
+            }
+            animateAscii();
+        }
+        applyAsciiEffect();
 
         // Make ASCII Art Clickable
         document.getElementById('ascii-logo').addEventListener('click', function() {
