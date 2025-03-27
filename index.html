@@ -29,12 +29,6 @@
             align-items: center;
             overflow: hidden;
             position: relative;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         /* Starry Background */
@@ -62,40 +56,10 @@
             50% { opacity: 0.3; }
         }
 
-     
-        .loading-screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            animation: fadeOut 1s ease-out forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; display: none; }
-        }
-
-        .loading-text {
-            font-size: 24px;
-            color: #1f75fe;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-
+        /* ASCII Art */
         .ascii-container {
             text-align: center;
-            font-size: 12px; 
+            font-size: 14px; /* Change size of ASCII */
             line-height: 1.1;
             cursor: pointer;
             z-index: 10;
@@ -103,7 +67,6 @@
             white-space: pre;
             user-select: none;
             transition: opacity 0.3s ease;
-            display: none; 
         }
 
         .ascii-container:hover {
@@ -119,7 +82,6 @@
 
     <div class="ascii-container" id="ascii-logo">
         <pre>
-
 ██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
 ██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
@@ -132,18 +94,16 @@
     <script>
         function createStars() {
             const starryBackground = document.getElementById('starry-background');
-            const starCount = 100;
+            const starCount = 150;
 
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
                 star.innerHTML = "+"; 
 
-             
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
 
-          
                 const animationDuration = Math.random() * 2 + 1;
                 star.style.animationDuration = `${animationDuration}s`;
 
@@ -153,17 +113,7 @@
 
         createStars();
 
-        window.addEventListener('load', () => {
-            const loadingScreen = document.getElementById('loading-screen');
-            const asciiLogo = document.getElementById('ascii-logo');
-
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                asciiLogo.style.display = 'block';
-            }, 2400);
-        });
-
-   
+        // Make ASCII Art Clickable
         document.getElementById('ascii-logo').addEventListener('click', function() {
             window.location.href = 'members.html';
         });
