@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@IN$TAKILL</title>
-    <meta property="og:title" content="? ? ? ">
+    <title>[XI] IN$TAKILL</title>
+    <meta property="og:title" content="Login.">
     <meta property="og:description" content="lmfao">
     <meta property="og:image" content="https://c22w.site.com/instakill.png">
     <meta property="og:url" content="https://c22w.site">
@@ -13,7 +13,6 @@
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 
     <style>
-        /* Global Styling */
         * {
             margin: 0;
             padding: 0;
@@ -38,7 +37,7 @@
             100% { opacity: 1; }
         }
 
-        /* Fullscreen Starry Night Effect */
+        /* Starry Background */
         .starry-background {
             position: absolute;
             top: 0;
@@ -52,8 +51,8 @@
 
         .star {
             position: absolute;
-            background-color: white;
-            border-radius: 50%;
+            color: white;
+            font-size: 12px;
             opacity: 0.8;
             animation: starBlinking 2s infinite ease-in-out;
         }
@@ -63,6 +62,7 @@
             50% { opacity: 0.3; }
         }
 
+     
         .loading-screen {
             position: absolute;
             top: 0;
@@ -84,7 +84,7 @@
 
         .loading-text {
             font-size: 24px;
-            color: #6692d9;
+            color: #1f75fe;
             animation: blink 1.5s infinite;
         }
 
@@ -92,98 +92,80 @@
             50% { opacity: 0; }
         }
 
-        /* Main Text Styling */
-        .console-output {
+        /* Clickable ASCII Art */
+        .ascii-container {
             text-align: center;
-            font-size: 20px;
-            color: #6692d9;
+            font-size: 12px; 
+            line-height: 1.1;
+            cursor: pointer;
             z-index: 10;
             position: relative;
-            margin-top: 50px;
+            white-space: pre;
+            user-select: none;
+            transition: opacity 0.3s ease;
+            display: none; 
         }
 
-        /* Blinking + Across Screen */
-        .blinking-plus {
-            font-size: 30px;
-            color: #7fa8eb;
-            position: absolute;
-            animation: moveAndBlink 2s linear infinite;
-            white-space: nowrap;
-        }
-
-        @keyframes moveAndBlink {
-            0% { left: -100px; opacity: 1; }
-            50% { opacity: 0; }
-            100% { left: 100%; opacity: 1; }
+        .ascii-container:hover {
+            opacity: 0.7;
         }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Starry Background -->
-    <div class="starry-background" id="starry-background">
-    </div>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-text">Hold on.</div>
-    </div>
+    <div class="starry-background" id="starry-background"></div>
 
-    <!-- Main Content -->
-    <div id="console">
-        <div class="console-output" id="console-output">
-            <p>? ? ?</p>
-            <!-- Blinking + Symbol -->
-            <div class="blinking-plus">+</div>
-        </div>
+    <div class="ascii-container" id="ascii-logo">
+        <pre>
+
+██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
+██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
+██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
+██║██║╚████║░╚═██╔██╗░░░██║░░░██╔══██║██╔═██╗░██║██║░░░░░██║░░░░░
+██║██║░╚███║███████╔╝░░░██║░░░██║░░██║██║░╚██╗██║███████╗███████╗
+╚═╝╚═╝░░╚══╝╚══════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚══════╝╚══════╝
+        </pre>
     </div>
 
     <script>
-        // Starry Night Effect - Random Stars & Blinking
         function createStars() {
             const starryBackground = document.getElementById('starry-background');
-            const starCount = 100; // Number of stars on the screen
+            const starCount = 150;
 
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
+                star.innerHTML = "+"; 
 
-                // Set random position and size for each star
-                const size = Math.random() * 2 + 1; // Random size between 1 and 3
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
+             
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
 
-                // Randomize animation duration for each star to blink at different speeds
-                const animationDuration = Math.random() * 2 + 1; // Random duration between 1s and 3s
+          
+                const animationDuration = Math.random() * 2 + 1;
                 star.style.animationDuration = `${animationDuration}s`;
 
                 starryBackground.appendChild(star);
             }
         }
 
-        // Initialize the starry night effect
         createStars();
 
-        // Loading Screen Logic
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading-screen');
-            const consoleOutput = document.getElementById('console-output');
-            const blinkingPlus = document.querySelector('.blinking-plus');
+            const asciiLogo = document.getElementById('ascii-logo');
 
-            // Show the main content after the loading screen
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
-                consoleOutput.innerHTML = '<p>? ? ?</p>';
-                blinkingPlus.style.display = 'block'; // Ensure blinking "+" is shown
+                asciiLogo.style.display = 'block';
+            }, 2400);
+        });
 
-                // Redirect to members area after 3-4 seconds
-                setTimeout(() => {
-                    window.location.href = 'members.html';
-                }, 2400); // Adjusted to 3.5 seconds
-            }, 2200); // Adjusted loading time to 2.4 seconds
+   
+        document.getElementById('ascii-logo').addEventListener('click', function() {
+            window.location.href = 'members.html';
         });
     </script>
 </body>
