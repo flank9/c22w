@@ -82,14 +82,7 @@
     <div class="starry-background" id="starry-background"></div>
 
     <div class="ascii-container" id="ascii-logo">
-        <pre id="ascii-text">
-██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
-██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
-██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
-██║██║╚████║░╚═██╔██╗░░░██║░░░██╔══██║██╔═██╗░██║██║░░░░░██║░░░░░
-██║██║░╚███║███████╔╝░░░██║░░░██║░░██║██║░╚██╗██║███████╗███████╗
-╚═╝╚═╝░░╚══╝╚══════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚══════╝╚══════╝
-        </pre>
+        <div id="ascii-text"></div>
     </div>
 
     <script>
@@ -110,29 +103,36 @@
         }
         createStars();
 
-        // Apply color fade effect to ASCII text
+        // ASCII Art Text
+        const asciiArt = `
+██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
+██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
+██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
+██║██║╚████║░╚═██╔██╗░░░██║░░░██╔══██║██╔═██╗░██║██║░░░░░██║░░░░░
+██║██║░╚███║███████╔╝░░░██║░░░██║░░██║██║░╚██╗██║███████╗███████╗
+╚═╝╚═╝░░╚══╝╚══════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚══════╝╚══════╝`;
+
         function applyAsciiEffect() {
             const asciiText = document.getElementById("ascii-text");
-            let text = asciiText.innerText;
             asciiText.innerHTML = "";
 
-            for (let i = 0; i < text.length; i++) {
+            for (let i = 0; i < asciiArt.length; i++) {
                 let span = document.createElement("span");
-                span.textContent = text[i] === " " ? "\u00A0" : text[i]; // Preserve spaces
+                span.textContent = asciiArt[i] === " " ? "\u00A0" : asciiArt[i]; // Preserve spaces
                 span.classList.add("ascii-char");
-                span.style.transitionDelay = `${i * 30}ms`;
                 asciiText.appendChild(span);
             }
 
             function animateAscii() {
                 let chars = document.querySelectorAll(".ascii-char");
+
                 chars.forEach((char, index) => {
                     setTimeout(() => {
-                        char.style.color = "white";
+                        char.style.color = "#1f75fe"; // Blue
                         setTimeout(() => {
-                            char.style.color = "#1f75fe"; // Blue
+                            char.style.color = "white";
                         }, 800);
-                    }, index * 40);
+                    }, index * 30);
                 });
 
                 setTimeout(animateAscii, 3000);
