@@ -31,6 +31,32 @@
             position: relative;
         }
 
+        /* Starry Background */
+        .starry-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0.8;
+            animation: starBlinking 2s infinite ease-in-out;
+        }
+
+        @keyframes starBlinking {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ASCII Art */
         .ascii-container {
             text-align: center;
             font-size: 14px;
@@ -40,11 +66,12 @@
             position: relative;
             white-space: pre;
             user-select: none;
+            display: inline-block;
         }
 
         .ascii-char {
             display: inline-block;
-            transition: color 1s ease-in-out;
+            transition: color 0.5s ease-in-out;
         }
     </style>
 
@@ -52,11 +79,30 @@
 </head>
 <body>
 
+    <div class="starry-background" id="starry-background"></div>
+
     <div class="ascii-container" id="ascii-logo">
         <pre id="ascii-text"></pre>
     </div>
 
     <script>
+        function createStars() {
+            const starryBackground = document.getElementById('starry-background');
+            const starCount = 100;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.innerHTML = "+";
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                const animationDuration = Math.random() * 2 + 1;
+                star.style.animationDuration = `${animationDuration}s`;
+                starryBackground.appendChild(star);
+            }
+        }
+        createStars();
+
         const asciiArt = `
 ██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
 ██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
@@ -90,9 +136,9 @@
 
                 chars.forEach((char, index) => {
                     setTimeout(() => {
-                        char.style.color = "#1f75fe"; // Blue
+                        char.style.color = "#1f75fe"; // Blue effect
                         setTimeout(() => {
-                            char.style.color = "white";
+                            char.style.color = "white"; // Back to original
                         }, 800);
                     }, index * 15);
                 });
@@ -103,7 +149,7 @@
             animateAscii();
         }
 
-        applyAsciiEffect();
+        document.addEventListener("DOMContentLoaded", applyAsciiEffect);
 
         document.getElementById('ascii-logo').addEventListener('click', function() {
             window.location.href = 'members.html';
