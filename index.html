@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@IN$TAKILL</title>
-    <meta property="og:title" content="Login.">
+    <meta property="og:title" content="Whores.net.">
     <meta property="og:description" content="lmfao">
-    <meta property="og:image" content="https://c22w.site.com/instakill.png">
+    <meta property="og:image" content="https://c22w.site.com/img/instakill.png">
     <meta property="og:url" content="https://c22w.site">
     <meta property="og:type" content="website">
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
@@ -71,7 +71,7 @@
 
         .ascii-char {
             display: inline-block;
-            transition: color 0.5s ease-in-out;
+            color: white; /* Removed wave effect */
         }
     </style>
 
@@ -118,11 +118,10 @@
             asciiArt.split("\n").forEach((line, lineIndex) => {
                 let lineSpan = document.createElement("span");
 
-                line.split("").forEach((char, charIndex) => {
+                line.split("").forEach((char) => {
                     let charSpan = document.createElement("span");
                     charSpan.textContent = char;
                     charSpan.classList.add("ascii-char");
-                    charSpan.style.transitionDelay = `${(charIndex + lineIndex * 10) * 20}ms`; // Stagger effect
 
                     lineSpan.appendChild(charSpan);
                 });
@@ -130,23 +129,6 @@
                 asciiText.appendChild(lineSpan);
                 asciiText.appendChild(document.createElement("br")); // Maintain line breaks
             });
-
-            function animateAscii() {
-                let chars = document.querySelectorAll(".ascii-char");
-
-                chars.forEach((char, index) => {
-                    setTimeout(() => {
-                        char.style.color = "#1f75fe"; // Blue effect
-                        setTimeout(() => {
-                            char.style.color = "white"; // Back to original
-                        }, 800);
-                    }, index * 15);
-                });
-
-                setTimeout(animateAscii, 3000);
-            }
-
-            animateAscii();
         }
 
         document.addEventListener("DOMContentLoaded", applyAsciiEffect);
