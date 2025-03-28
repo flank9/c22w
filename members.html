@@ -11,8 +11,9 @@
     <meta property="og:url" content="https://c22w.site">
     <meta property="og:type" content="website">
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-   <script src="sparkle.js"></script>
+    <script src="sparkle.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
     <style>
         body {
             background-color: #121212;
@@ -46,7 +47,7 @@
         }
 
         .crt-container {
-            background: rgba(0, 0, 0, 0.05); /* Barely visible black box */
+            background: rgba(0, 0, 0, 0.05);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
@@ -70,6 +71,12 @@
             text-align: center;
         }
 
+        .member img.pfp {
+            width: 35px;
+            height: 35px;
+            margin-bottom: 5px;
+        }
+
         .member a {
             text-decoration: none;
             display: flex;
@@ -77,7 +84,7 @@
             align-items: center;
         }
 
-        .member img {
+        .member img.icon {
             height: 40px;
             margin-bottom: 5px;
         }
@@ -91,14 +98,16 @@
         
         <div class="members-container">
             <div class="member">
+                <img src="img/flank.png" alt="Flank" class="pfp">
                 <h2>Flank</h2>
-                <a href="https://t.me/flank155"><img src="img/tele.png" alt="Telegram">Telegram</a> 
-                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin">Doxbin</a>
+                <a href="https://t.me/flank155"><img src="img/tele.png" alt="Telegram" class="icon"></a> 
+                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin" class="icon"></a>
             </div>
             <div class="member">
+                <img src="img/cash.png" alt="Decoy" class="pfp">
                 <h2>Decoy</h2>
-                <a href="https://t.me/decoy95"><img src="img/tele.png" alt="Telegram">Telegram</a> 
-                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin">Doxbin</a>
+                <a href="https://t.me/decoy95"><img src="img/tele.png" alt="Telegram" class="icon"></a> 
+                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin" class="icon"></a>
             </div>
         </div>
     </div>
