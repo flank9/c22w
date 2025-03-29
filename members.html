@@ -31,42 +31,6 @@
             overflow: hidden;
         }
 
-        /* CRT boot-up effect */
-        .crt-boot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bootSequence 2s forwards;
-        }
-
-        .crt-line {
-            width: 100%;
-            height: 2px;
-            background: white;
-            animation: shrinkLine 0.6s 0.5s forwards;
-        }
-
-        @keyframes bootSequence {
-            0% { opacity: 1; }
-            20% { opacity: 1; }
-            40% { background: white; }
-            60% { background: black; }
-            80% { opacity: 1; }
-            100% { opacity: 0; visibility: hidden; }
-        }
-
-        @keyframes shrinkLine {
-            0% { height: 100vh; }
-            100% { height: 2px; }
-        }
-
         .tv-scanlines {
             position: fixed;
             top: 0;
@@ -134,10 +98,6 @@
     </style>
 </head>
 <body onclick="startMusic()">
-    <div class="crt-boot">
-        <div class="crt-line"></div>
-    </div>
-
     <div class="tv-scanlines"></div>
 
     <div class="crt-container">
@@ -175,22 +135,26 @@
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+        function typeWriter() {
             let text = "IN$TAKILL";
             let i = 0;
             let speed = 100;
             let heading = document.getElementById("title");
             heading.innerHTML = "";
 
-            function typeWriter() {
+            function type() {
                 if (i < text.length) {
                     heading.innerHTML += text.charAt(i);
                     i++;
-                    setTimeout(typeWriter, speed);
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(typeWriter, 2000);  // Restart after 2 seconds
                 }
             }
-            typeWriter();
-        });
+            type();
+        }
+
+        document.addEventListener("DOMContentLoaded", typeWriter);
     </script>
 </body>
 </html>
