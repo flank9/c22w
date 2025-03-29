@@ -15,20 +15,58 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
     <style>
-       body {
-    background: url('img/girl.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    font-family: 'VT323', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
-}
+        body {
+            background: url('img/girl.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'VT323', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CRT boot-up effect */
+        .crt-boot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bootSequence 2s forwards;
+        }
+
+        .crt-line {
+            width: 100%;
+            height: 2px;
+            background: white;
+            animation: shrinkLine 0.6s 0.5s forwards;
+        }
+
+        @keyframes bootSequence {
+            0% { opacity: 1; }
+            20% { opacity: 1; }
+            40% { background: white; }
+            60% { background: black; }
+            80% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes shrinkLine {
+            0% { height: 100vh; }
+            100% { height: 2px; }
+        }
+
         .tv-scanlines {
             position: fixed;
             top: 0;
@@ -54,6 +92,7 @@
             text-align: center;
             width: 80%;
             max-width: 600px;
+            z-index: 1;
         }
 
         h1, .member h2, .member a {
@@ -88,16 +127,21 @@
             height: 40px;
             margin-bottom: 5px;
         }
+
         body {
-            cursor: url('img/Reaper Link Select V2.cur'), auto; 
+            cursor: url('img/Reaper Link Select V2.cur'), auto;
         }
     </style>
 </head>
 <body onclick="startMusic()">
+    <div class="crt-boot">
+        <div class="crt-line"></div>
+    </div>
+
     <div class="tv-scanlines"></div>
 
     <div class="crt-container">
-        <h1>IN$TAKILL</h1>
+        <h1 id="title"></h1>
         
         <div class="members-container">
             <div class="member">
@@ -130,6 +174,23 @@
                 };
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let text = "IN$TAKILL";
+            let i = 0;
+            let speed = 100;
+            let heading = document.getElementById("title");
+            heading.innerHTML = "";
+
+            function typeWriter() {
+                if (i < text.length) {
+                    heading.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+        });
     </script>
 </body>
 </html>
