@@ -135,32 +135,42 @@
             }
         }
 
-        function typeTitle() {
-            const titleText = "@IN$TAKILL";
-            let forwardText = titleText;
-            let backwardText = titleText.split("").reverse().join("");
-            let currentText = forwardText;
-            let i = 0;
-            let speed = 100;
+        function typeAndDelete() {
+            const text = "@IN$TAKILL";
+            let displayText = '';
+            let index = 0;
+            let deleting = false;
+            let speed = 150;  
 
             function updateTitle() {
-                if (i < currentText.length) {
-                    document.title = currentText.substring(0, i + 1);
-                    i++;
-                    setTimeout(updateTitle, speed);
+                if (!deleting) {
+                    displayText = text.substring(0, index);
+                    document.title = displayText; 
+                    document.getElementById("title").textContent = displayText; 
+
+                    index++;
+                    if (index === text.length) {
+                        deleting = true;
+                    }
                 } else {
-                    setTimeout(() => {
-                        i = currentText.length - 1;
-                        currentText = (currentText === forwardText) ? backwardText : forwardText;
-                        updateTitle();
-                    }, 2000);  
+                    displayText = text.substring(0, index);
+                    document.title = displayText; 
+                    document.getElementById("title").textContent = displayText; 
+
+                    index--;
+                    if (index === 0) {
+                        deleting = false;
+                    }
                 }
+
+                setTimeout(updateTitle, speed);
             }
 
             updateTitle();
         }
 
-        document.addEventListener("DOMContentLoaded", typeTitle);
+
+        document.addEventListener("DOMContentLoaded", typeAndDelete);
     </script>
 </body>
 </html>
