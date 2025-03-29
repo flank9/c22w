@@ -135,26 +135,32 @@
             }
         }
 
-        function typeWriter() {
-            let text = "IN$TAKILL";
+        function typeTitle() {
+            const titleText = "@IN$TAKILL";
+            let forwardText = titleText;
+            let backwardText = titleText.split("").reverse().join("");
+            let currentText = forwardText;
             let i = 0;
             let speed = 100;
-            let heading = document.getElementById("title");
-            heading.innerHTML = "";
 
-            function type() {
-                if (i < text.length) {
-                    heading.innerHTML += text.charAt(i);
+            function updateTitle() {
+                if (i < currentText.length) {
+                    document.title = currentText.substring(0, i + 1);
                     i++;
-                    setTimeout(type, speed);
+                    setTimeout(updateTitle, speed);
                 } else {
-                    setTimeout(typeWriter, 2000);  // Restart after 2 seconds
+                    setTimeout(() => {
+                        i = currentText.length - 1;
+                        currentText = (currentText === forwardText) ? backwardText : forwardText;
+                        updateTitle();
+                    }, 2000);  
                 }
             }
-            type();
+
+            updateTitle();
         }
 
-        document.addEventListener("DOMContentLoaded", typeWriter);
+        document.addEventListener("DOMContentLoaded", typeTitle);
     </script>
 </body>
 </html>
