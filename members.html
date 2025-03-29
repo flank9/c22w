@@ -89,8 +89,8 @@
             margin-bottom: 5px;
         }
         body {
-    cursor: url('img/Reaper Link Select V2.cur'), auto; 
-}
+            cursor: url('img/Reaper Link Select V2.cur'), auto; 
+        }
     </style>
 </head>
 <body onclick="startMusic()">
@@ -117,14 +117,14 @@
 
     <script>
         let audioFiles = ["music/audio4.mp3", "music/audio3.mp3", "music/audio2.mp3", "music/audio.mp3"];
-        let currentTrack = 0;
+        let currentTrack = Math.floor(Math.random() * audioFiles.length);
         let audio = new Audio(audioFiles[currentTrack]);
 
         function startMusic() {
             if (audio.paused) {
                 audio.play();
                 audio.onended = function() {
-                    currentTrack = (currentTrack + 1) % audioFiles.length;
+                    currentTrack = Math.floor(Math.random() * audioFiles.length);
                     audio.src = audioFiles[currentTrack];
                     audio.play();
                 };
