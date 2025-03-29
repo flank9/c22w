@@ -13,9 +13,11 @@
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     <script src="sparkle.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background: #c0c0c0;
+            background: url('img/girl.png') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             font-family: 'VT323', sans-serif;
             margin: 0;
@@ -27,34 +29,6 @@
             height: 100vh;
             position: relative;
             overflow: hidden;
-            cursor: url('img/Reaper Link Select V2.cur'), auto;
-        }
-
-        /* Windows 95 Retro Style */
-        #desktop {
-            background: #c0c0c0;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .crt-container {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-            z-index: 1;
-            border: 2px solid #00007b;
-        }
-
-        h1, .member h2, .member a {
-            color: #000;
         }
 
         .tv-scanlines {
@@ -72,6 +46,21 @@
             );
             pointer-events: none;
             z-index: 1000;
+        }
+
+        .crt-container {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        h1, .member h2, .member a {
+            color: #fff;
         }
 
         .members-container {
@@ -103,54 +92,8 @@
             margin-bottom: 5px;
         }
 
-        .toolbar {
-            background-color: #c0c0c0;
-            border-top: 2px solid #fff;
-            height: 35px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 2;
-        }
-
-        .toolbar .toolbar-left,
-        .toolbar .toolbar-right {
-            display: inline-block;
-        }
-
-        .toolbar .toolbar-icon {
-            width: 25px;
-            height: 25px;
-            margin: 5px;
-            background: no-repeat center / contain;
-            cursor: pointer;
-        }
-
-        .toolbar .toolbar-start-menu {
-            float: left;
-        }
-
-        .toolbar .toolbar-start-menu .start-button {
-            background: url('https://win98icons.alexmeub.com/icons/png/windows-0.png') no-repeat center;
-            padding-left: 28px;
-            height: 29px;
-            font-weight: bold;
-            border: 2px solid #7c7c7c;
-        }
-
-        .toolbar .toolbar-start-menu .start-button:hover {
-            background-color: #a7a7a7;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media only screen and (max-width: 600px) {
-            body {
-                margin: 0;
-                overflow-x: hidden;
-            }
-            .crt-container {
-                width: 90%;
-            }
+        body {
+            cursor: url('img/Reaper Link Select V2.cur'), auto;
         }
     </style>
 </head>
@@ -176,12 +119,6 @@
         </div>
     </div>
 
-    <div class="toolbar">
-        <div class="toolbar-start-menu">
-            <button class="start-button">Start</button>
-        </div>
-    </div>
-
     <script>
         let audioFiles = ["music/audio4.mp3", "music/audio3.mp3", "music/audio2.mp3", "music/audio.mp3"];
         let currentTrack = Math.floor(Math.random() * audioFiles.length);
@@ -203,7 +140,7 @@
             let displayText = '';
             let index = 0;
             let deleting = false;
-            let speed = 150;  
+            let speed = 250;  
 
             function updateTitle() {
                 if (!deleting) {
@@ -231,6 +168,7 @@
 
             updateTitle();
         }
+
 
         document.addEventListener("DOMContentLoaded", typeAndDelete);
     </script>
