@@ -119,58 +119,61 @@
         </div>
     </div>
 
-    <script>
-        let audioFiles = ["music/audio4.mp3", "music/audio3.mp3", "music/audio2.mp3", "music/audio.mp3"];
-        let currentTrack = Math.floor(Math.random() * audioFiles.length);
-        let audio = new Audio(audioFiles[currentTrack]);
+   <script>
+    let audioFiles = ["music/audio4.mp3", "music/audio3.mp3", "music/audio2.mp3", "music/audio.mp3"];
+    let currentTrack = Math.floor(Math.random() * audioFiles.length);
+    let audio = new Audio(audioFiles[currentTrack]);
 
-        function startMusic() {
-            if (audio.paused) {
+    function startMusic() {
+        if (audio.paused) {
+            audio.play();
+            audio.onended = function() {
+                currentTrack = Math.floor(Math.random() * audioFiles.length);
+                audio.src = audioFiles[currentTrack];
                 audio.play();
-                audio.onended = function() {
-                    currentTrack = Math.floor(Math.random() * audioFiles.length);
-                    audio.src = audioFiles[currentTrack];
-                    audio.play();
-                };
-            }
+            };
         }
+    }
 
-        function typeAndDelete() {
-            const text = "@IN$TAKILL";
-            let displayText = '';
-            let index = 0;
-            let deleting = false;
-            let speed = 250;  
+    function typeAndDelete() {
+        const text = "@IN$TAKILL"; // Keep the '@' intact
+        let displayText = '';
+        let index = 0;
+        let deleting = false;
+        let speed = 250;  
 
-            function updateTitle() {
-                if (!deleting) {
-                    displayText = text.substring(0, index);
-                    document.title = displayText; 
-                    document.getElementById("title").textContent = displayText; 
+        function updateTitle() {
+            if (!deleting) {
+                displayText = text.substring(0, index);
+                document.title = displayText; 
+                document.getElementById("title").textContent = displayText; 
 
-                    index++;
-                    if (index === text.length) {
-                        deleting = true;
-                    }
-                } else {
-                    displayText = text.substring(0, index);
-                    document.title = displayText; 
-                    document.getElementById("title").textContent = displayText; 
-
-                    index--;
-                    if (index === 0) {
-                        deleting = false;
-                    }
+                index++;
+                if (index === text.length) {
+                    deleting = true;
                 }
+            } else {
+                displayText = text.substring(0, index);
+                document.title = displayText; 
+                document.getElementById("title").textContent = displayText; 
 
-                setTimeout(updateTitle, speed);
+                if (index > 1) {
+                    index--;
+                }
+                
+                if (index === 1) {
+                    deleting = false;
+                }
             }
 
-            updateTitle();
+            setTimeout(updateTitle, speed);
         }
 
+        updateTitle();
+    }
 
-        document.addEventListener("DOMContentLoaded", typeAndDelete);
-    </script>
+    document.addEventListener("DOMContentLoaded", typeAndDelete);
+</script>
+    
 </body>
 </html>
