@@ -3,147 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@IN$TAKILL</title>
-    <meta property="og:title" content="Whores.net.">
-    <meta property="og:description" content="lmfao">
-    <meta property="og:image" content="https://c22w.site.com/img/instakill.png">
-    <meta property="og:url" content="https://c22w.site">
-    <meta property="og:type" content="website">
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-
+    <title>Terminal Output</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: #121212;
-            color: #dcdcdc;
-            font-family: 'VT323', monospace;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Starry Background */
-        .starry-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
+            background-color: #1e1e2e; /* Blue background */
             color: white;
-            font-size: 12px;
-            opacity: 0.8;
-            animation: starBlinking 2s infinite ease-in-out;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            padding: 20px;
         }
-
-        @keyframes starBlinking {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 0.3; }
+        #output {
+            white-space: pre-wrap;
+            overflow: hidden;
         }
-
-        /* ASCII Art */
-        .ascii-container {
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.1;
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: white;
+            animation: blink 0.6s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .user {
+            color: red;
+        }
+        .command {
+            color: lightblue;
+        }
+        .output {
+            color: lightgray;
+        }
+        .clickable {
+            color: #33ff33;
+            text-decoration: underline;
             cursor: pointer;
-            z-index: 10;
-            position: relative;
-            white-space: pre;
-            user-select: none;
-            display: inline-block;
         }
-
-        .ascii-char {
-            display: inline-block;
-            color: white; /* Removed wave effect */
-        }
-
-        .header {
-        text-align: center;
-        font-size: 15 
-        text (Crip walking on you internet) 
-        position: top/ 
-            
-        
     </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="starry-background" id="starry-background"></div>
-
-    <div class="ascii-container" id="ascii-logo">
-        <pre id="ascii-text"></pre>
-    </div>
-
+    <div id="output"></div>
     <script>
-        function createStars() {
-            const starryBackground = document.getElementById('starry-background');
-            const starCount = 100;
+        const text = `<span class='user'>user@poor:~$</span> <span class='command'>sudo apt-get install poor_members</span>
+<span class='output'>Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating poor_members... Done</span>
 
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.innerHTML = "+";
-                star.style.left = `${Math.random() * 100}vw`;
-                star.style.top = `${Math.random() * 100}vh`;
-                const animationDuration = Math.random() * 2 + 1;
-                star.style.animationDuration = `${animationDuration}s`;
-                starryBackground.appendChild(star);
+<span class='user'>user@poor:~$</span> <span class='command'>cd ~/documents</span>
+
+<span class='user'>user@poor:~$</span> <span class='command'>tree /poor_members</span>
+<span class='output'>├── assets
+│   ├── <span class='clickable' onclick="window.location.href='members.html'">members.html</span>
+│   ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
+│   ├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
+│   ├── made_by_ruub.txt</span>`;
+        
+        let i = 0;
+        function typeOut() {
+            if (i < text.length) {
+                document.getElementById("output").innerHTML = text.substring(0, i+1) + '<span class="cursor"></span>';
+                i++;
+                let speed = Math.random() * (80 - 30) + 30; // Randomized typing speed
+                setTimeout(typeOut, speed);
+            } else {
+                document.querySelector(".cursor").remove();
             }
         }
-        createStars();
-
-        const asciiArt = `
-██╗███╗░░██╗░███████╗████████╗░█████╗░██╗░░██╗██╗██╗░░░░░██╗░░░░░
-██║████╗░██║██╔██╔══╝╚══██╔══╝██╔══██╗██║░██╔╝██║██║░░░░░██║░░░░░
-██║██╔██╗██║╚██████╗░░░░██║░░░███████║█████═╝░██║██║░░░░░██║░░░░░
-██║██║╚████║░╚═██╔██╗░░░██║░░░██╔══██║██╔═██╗░██║██║░░░░░██║░░░░░
-██║██║░╚███║███████╔╝░░░██║░░░██║░░██║██║░╚██╗██║███████╗███████╗
-╚═╝╚═╝░░╚══╝╚══════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚══════╝╚══════╝`;
-
-        function applyAsciiEffect() {
-            const asciiText = document.getElementById("ascii-text");
-            asciiText.innerHTML = ""; // Clear previous content
-
-            asciiArt.split("\n").forEach((line, lineIndex) => {
-                let lineSpan = document.createElement("span");
-
-                line.split("").forEach((char) => {
-                    let charSpan = document.createElement("span");
-                    charSpan.textContent = char;
-                    charSpan.classList.add("ascii-char");
-
-                    lineSpan.appendChild(charSpan);
-                });
-
-                asciiText.appendChild(lineSpan);
-                asciiText.appendChild(document.createElement("br")); // Maintain line breaks
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", applyAsciiEffect);
-
-        document.getElementById('ascii-logo').addEventListener('click', function() {
-            window.location.href = 'members.html';
-        });
+        window.onload = typeOut;
     </script>
 </body>
 </html>
