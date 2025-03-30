@@ -173,7 +173,15 @@
     }
 
     document.addEventListener("DOMContentLoaded", typeAndDelete);
-</script>
+
+       document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        document.title = 'Come back!';
+    } else {
+        document.title = '@instakill'; 
+    }
+});
+   </script>
     
 </body>
 </html>
