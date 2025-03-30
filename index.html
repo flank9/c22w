@@ -8,11 +8,11 @@
         body {
             background-color: #1e1e2e; /* Blue background */
             color: white;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 16px;
             padding: 20px;
             cursor: none;
-            line-height: 1.2;
+            line-height: 1.1;
         }
         #output {
             white-space: pre-wrap;
@@ -23,7 +23,7 @@
             width: 10px;
             height: 20px;
             background-color: white;
-            animation: blink 0.2s infinite;
+            animation: blink 0.3s infinite;
         }
         @keyframes blink {
             50% { opacity: 0; }
@@ -48,9 +48,9 @@
         }
         .ring {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            border: 2px solid white;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
@@ -72,14 +72,14 @@ Calculating IN$TAKILL_members... Done</span>
 │   ├── <span class='clickable' onclick="window.location.href='https://github.com/c22w/member.html'">members.html</span>
 │   ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
 │   ├── <span class='clickable' onclick="window.location.href='your-sourcecode-url.zip'">source_code.zip</span>
-│   ├── made_by_ruub.txt</span>`;
+│   ├── CRIP WALKIN ON YOUR INTERNET PRESENCE.txt</span>`;
         
         let i = 0;
         function typeOut() {
             if (i < text.length) {
-                document.getElementById("output").innerHTML = text.substring(0, i+5) + '<span class="cursor"></span>';
-                i += 5;
-                let speed = Math.random() * (25 - 5) + 5; // Even faster typing speed
+                document.getElementById("output").innerHTML = text.substring(0, i+3) + '<span class="cursor"></span>';
+                i += 3;
+                let speed = Math.random() * (50 - 20) + 20; // Smoother, slightly slower typing speed
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
