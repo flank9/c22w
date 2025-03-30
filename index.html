@@ -13,18 +13,16 @@
    <meta property="og:type" content="website">
    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://github.com/flank9/c22w/blob/main/img/favicon.ico" type="image/x-icon">
 
     <style>
          body {
-           
-            background-color: #222a37 ; 
+            background-color: #222a37;
             color: white;
             font-family: 'VT323', sans-serif;
-            font-size: 16px;
+            font-size: 20px; /* Increased font size */
             padding: 20px;
             cursor: none;
-            line-height: 1.4; 
+            line-height: 1.8; /* Increased line spacing */
         }
         #output {
             white-space: pre-wrap;
@@ -51,9 +49,10 @@
         }
         .clickable {
             color: white;
-            text-decoration: none; 
+            text-decoration: none;
             cursor: pointer;
             transition: background-color 0.2s ease-in-out;
+            font-size: 22px; /* Increased link size */
         }
         .clickable:hover {
             background-color: rgba(255, 255, 255, 0.3);
@@ -109,14 +108,6 @@ Calculating instakill_members... Done</span>
         document.addEventListener("mouseover", () => {
             document.body.style.cursor = "none";
         });
-       document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = '@Come back!';
-    } else {
-        document.title = '@instakill'; 
-    }
-});
-
     </script>
 </body>
 </html>
