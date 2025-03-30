@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Output</title>
+    <title>@instakill</title>
+    <meta property="og:title" content="Instakill.">
+  <meta property="og:description" content="Fetch me there souls.">
+  <meta property="og:image" content="https://c22w.site.com/img/instakill.png">
+  <meta property="og:url" content="https://c22w.site">
+  <meta property="og:type" content="website">
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     <style>
         body {
-            background-color: #1e1e2e; /* Blue background */
+            background-color: #1e1e2e; 
             color: white;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 16px;
             padding: 20px;
             cursor: none;
-            line-height: 1.3; /* Increased spacing between lines */
+            line-height: 1.2; /* Increased spacing between lines */
         }
         #output {
             white-space: pre-wrap;
@@ -62,17 +68,17 @@
     <div id="output"></div>
     <div class="ring" id="ring"></div>
     <script>
-        const text = `<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>sudo apt-get install IN$TAKILL_members</span>
+        const text = `<span class='user'>user@instakill:~$</span> <span class='command'>sudo apt-get install instakill_members</span>
 <span class='output'>Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-Calculating IN$TAKILL_members... Done</span>
-<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>cd ~/documents</span>
-<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>tree /IN$TAKILL_members</span>
+Calculating instakill_members... Done</span>
+<span class='user'>user@instakill:~$</span> <span class='command'>cd ~/documents</span>
+<span class='user'>user@instakill:~$</span> <span class='command'>tree /instakill_members</span>
 <span class='output'>├── assets
-│   ├── <span class='clickable' onclick="window.location.href='https://github.com/c22w/member.html'">members.html</span>
+│   ├── <span class='clickable' onclick="window.location.href='https://github.com/c22w/members.html'">members.html</span>
 │   ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
-│   ├── <span class='clickable' onclick="window.location.href='your-sourcecode-url.zip'">source_code.zip</span>
+│   ├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
 │   ├── CRIP WALKIN ON YOUR INTERNET PRESENCE.txt</span>`;
         
         let i = 0;
@@ -80,7 +86,7 @@ Calculating IN$TAKILL_members... Done</span>
             if (i < text.length) {
                 document.getElementById("output").innerHTML = text.substring(0, i+3) + '<span class="cursor"></span>';
                 i += 3;
-                let speed = Math.random() * (50 - 20) + 20; // Smoother, slightly slower typing speed
+                let speed = Math.random() * (50 - 20) + 20; 
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
