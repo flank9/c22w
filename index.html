@@ -3,19 +3,17 @@
 <head>
    <meta charset="UTF-8"> 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
    <title>@instakill</title>
-    
    <meta property="og:title" content="Instakill">
-  <meta property="og:description" content="bigmoney nigga">
-  <meta property="og:image" content="https://c22w.site.com/img/hung.png">
-  <meta property="og:url" content="https://c22w.site">
+   <meta property="og:description" content="bigmoney nigga">
+   <meta property="og:image" content="https://c22w.site.com/img/hung.png">
+   <meta property="og:url" content="https://c22w.site">
    <meta property="og:type" content="website">
    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-    <style>
-         body {
+   <style>
+        body {
             background-color: #222a37;
             color: white;
             font-family: 'VT323', sans-serif;
@@ -74,7 +72,7 @@
     <div id="output"></div>
     <div class="ring" id="ring"></div>
     <script>
-         const text = `<span class='user'>user@instakill:~$</span> <span class='command'>sudo apt-get install instakill_members</span>
+        const text = `<span class='user'>user@instakill:~$</span> <span class='command'>sudo apt-get install instakill_members</span>
 <span class='output'>Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -96,6 +94,7 @@ Calculating instakill_members... Done</span>
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
+                setTimeout(applyBinaryEffect, 500); // After the text is typed out, apply binary effect
             }
         }
         window.onload = typeOut;
@@ -109,56 +108,43 @@ Calculating instakill_members... Done</span>
         document.addEventListener("mouseover", () => {
             document.body.style.cursor = "none";
         });
-         document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = 'Come back!';
-    } else {
-        document.title = '@instakill'; 
-    }
-});
-       document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll("body *:not(h1):not(script):not(style)");
-    let originalTexts = [];
-
-    elements.forEach((el, index) => {
-        originalTexts[index] = el.innerHTML;
-    });
-
-    function randomBinary(length) {
-        return Array.from({ length }, () => (Math.random() > 0.5 ? "1" : "0")).join("");
-    }
-
-    function applyBinaryEffect() {
-        elements.forEach((el, index) => {
-            if (originalTexts[index].trim() !== "") {
-                el.innerHTML = randomBinary(originalTexts[index].length);
+        
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Come back!';
+            } else {
+                document.title = '@instakill'; 
             }
         });
 
-        setTimeout(revertToOriginal, 2300); 
-    }
+  
+        function randomBinary(length) {
+            return Array.from({ length }, () => (Math.random() > 0.5 ? "1" : "0")).join("");
+        }
 
-    function revertToOriginal() {
-        elements.forEach((el, index) => {
-            if (originalTexts[index].trim() !== "") {
-                let original = originalTexts[index];
-                let current = "";
-                let length = original.length;
+        function applyBinaryEffect() {
+            const outputElement = document.getElementById("output");
+            let originalText = outputElement.innerHTML;
+            
+      
+            outputElement.innerHTML = randomBinary(originalText.length);
+            
+            setTimeout(() => {
+       
+                let reversedText = originalText.split("").reverse().join("");
+                let currentText = "";
+                let index = 0;
                 let interval = setInterval(() => {
-                    if (current.length === length) {
-                        clearInterval(interval);
-                        el.innerHTML = original; 
+                    if (index < reversedText.length) {
+                        currentText += reversedText.charAt(index);
+                        outputElement.innerHTML = currentText;
+                        index++;
                     } else {
-                        current = original.substring(0, length - current.length - 1);
-                        el.innerHTML = current;
+                        clearInterval(interval);
                     }
                 }, 50); 
-            }
-        });
-    }
-
-    applyBinaryEffect(); 
-});
+            }, 2300); 
+        }
     </script>
 </body>
 </html>
