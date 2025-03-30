@@ -109,6 +109,13 @@ Calculating instakill_members... Done</span>
         document.addEventListener("mouseover", () => {
             document.body.style.cursor = "none";
         });
+         document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        document.title = 'Come back!';
+    } else {
+        document.title = '@instakill'; 
+    }
+});
     </script>
 </body>
 </html>
