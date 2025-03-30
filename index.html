@@ -13,6 +13,7 @@
    <meta property="og:type" content="website">
    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://github.com/flank9/c22w/blob/main/img/favicon.ico" type="image/x-icon">
 
     <style>
          body {
@@ -108,6 +109,14 @@ Calculating instakill_members... Done</span>
         document.addEventListener("mouseover", () => {
             document.body.style.cursor = "none";
         });
+       document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        document.title = '@Come back!';
+    } else {
+        document.title = '@instakill'; 
+    }
+});
+
     </script>
 </body>
 </html>
