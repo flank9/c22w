@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@instakill</title>
     <meta property="og:title" content="Instakill.">
@@ -9,16 +9,17 @@
   <meta property="og:image" content="https://c22w.site.com/img/instakill.png">
   <meta property="og:url" content="https://c22w.site">
   <meta property="og:type" content="website">
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    <style>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'>
+</script>
+      <style>
         body {
-            background-color: #222a37; 
+            background-color: #222a37 ; 
             color: white;
-            font-family: 'TheSans Mono Condensed SemiBold', monospace;
+            font-family: 'TheSans Mono Condensed SemiBold', sans-serif;
             font-size: 16px;
             padding: 20px;
             cursor: none;
-            line-height: 1.2; /* Increased spacing between lines */
+            line-height: 1.2; 
         }
         #output {
             white-space: pre-wrap;
@@ -45,7 +46,7 @@
         }
         .clickable {
             color: white;
-            text-decoration: underline;
+            text-decoration: none; /* Remove underline */
             cursor: pointer;
             transition: background-color 0.2s ease-in-out;
         }
@@ -60,7 +61,7 @@
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            mix-blend-mode: difference; /* Makes the cursor visible over text */
+            mix-blend-mode: difference; 
         }
     </style>
 </head>
@@ -76,10 +77,10 @@ Calculating instakill_members... Done</span>
 <span class='user'>user@instakill:~$</span> <span class='command'>cd ~/documents</span>
 <span class='user'>user@instakill:~$</span> <span class='command'>tree /instakill_members</span>
 <span class='output'>├── assets
-│   ├── <span class='clickable' onclick="window.location.href='members.html'">members.html</span>
-│   ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
-│   ├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
-│   ├── CRIP WALKIN ON YOUR INTERNET PRESENCE.txt</span>`;
+ ├── <span class='clickable' onclick="window.location.href='members.html'">members.html</span>
+ ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
+ ├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
+ ├── instakill.txt</span>`;
         
         let i = 0;
         function typeOut() {
@@ -98,6 +99,10 @@ Calculating instakill_members... Done</span>
             const ring = document.getElementById("ring");
             ring.style.left = `${e.clientX}px`;
             ring.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener("mouseover", () => {
+            document.body.style.cursor = "none";
         });
     </script>
 </body>
