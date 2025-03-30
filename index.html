@@ -116,35 +116,6 @@ Calculating instakill_members... Done</span>
                 document.title = '@instakill'; 
             }
         });
-
-  
-        function randomBinary(length) {
-            return Array.from({ length }, () => (Math.random() > 0.5 ? "1" : "0")).join("");
-        }
-
-        function applyBinaryEffect() {
-            const outputElement = document.getElementById("output");
-            let originalText = outputElement.innerHTML;
-            
-      
-            outputElement.innerHTML = randomBinary(originalText.length);
-            
-            setTimeout(() => {
-       
-                let reversedText = originalText.split("").reverse().join("");
-                let currentText = "";
-                let index = 0;
-                let interval = setInterval(() => {
-                    if (index < reversedText.length) {
-                        currentText += reversedText.charAt(index);
-                        outputElement.innerHTML = currentText;
-                        index++;
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, 50); 
-            }, 2300); 
-        }
     </script>
 </body>
 </html>
