@@ -9,8 +9,9 @@
             background-color: #1e1e2e; /* Blue background */
             color: white;
             font-family: 'VT323', monospace;
-            font-size: 20px;
+            font-size: 16px;
             padding: 20px;
+            cursor: none;
         }
         #output {
             white-space: pre-wrap;
@@ -21,7 +22,7 @@
             width: 10px;
             height: 20px;
             background-color: white;
-            animation: blink 0.6s infinite;
+            animation: blink 0.3s infinite;
         }
         @keyframes blink {
             50% { opacity: 0; }
@@ -40,24 +41,34 @@
             text-decoration: underline;
             cursor: pointer;
         }
+        .ring {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.05s linear;
+        }
     </style>
 </head>
 <body>
     <div id="output"></div>
+    <div class="ring" id="ring"></div>
     <script>
-        const text = `<span class='user'>user@poor:~$</span> <span class='command'>sudo apt-get install poor_members</span>
+        const text = `<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>sudo apt-get install IN$TAKILL_members</span>
 <span class='output'>Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-Calculating poor_members... Done</span>
+Calculating IN$TAKILL_members... Done</span>
 
-<span class='user'>user@poor:~$</span> <span class='command'>cd ~/documents</span>
+<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>cd ~/documents</span>
 
-<span class='user'>user@poor:~$</span> <span class='command'>tree /poor_members</span>
+<span class='user'>user@IN$TAKILL:~$</span> <span class='command'>tree /IN$TAKILL_members</span>
 <span class='output'>├── assets
-│   ├── <span class='clickable' onclick="window.location.href='members.html'">members.html</span>
+│   ├── <span class='clickable' onclick="window.location.href='https://github.com/c22w/member.html'">members.html</span>
 │   ├── <span class='clickable' onclick="window.location.href='your-nostalgia-url.html'">nostalgia.html</span>
-│   ├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
+│   ├── <span class='clickable' onclick="window.location.href='your-sourcecode-url.zip'">source_code.zip</span>
 │   ├── made_by_ruub.txt</span>`;
         
         let i = 0;
@@ -65,13 +76,18 @@ Calculating poor_members... Done</span>
             if (i < text.length) {
                 document.getElementById("output").innerHTML = text.substring(0, i+1) + '<span class="cursor"></span>';
                 i++;
-                let speed = Math.random() * (80 - 30) + 30; // Randomized typing speed
+                let speed = Math.random() * (40 - 10) + 10; // Faster typing speed
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
             }
         }
         window.onload = typeOut;
+        
+        document.addEventListener("mousemove", (e) => {
+            const ring = document.getElementById("ring");
+            ring.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+        });
     </script>
 </body>
 </html>
