@@ -92,7 +92,7 @@ Calculating instakill_members... Done</span>
             if (i < text.length) {
                 document.getElementById("output").innerHTML = text.substring(0, i+3) + '<span class="cursor"></span>';
                 i += 3;
-                let speed = Math.random() * (50 - 20) + 20; 
+                let speed = Math.random() * (40 - 20) + 15; 
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
