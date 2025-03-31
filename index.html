@@ -43,12 +43,18 @@
         .tilde {
             color: #1e6091;
         }
+        .colon {
+            color: white;
+        }
         .command {
             color: white;
         }
         .output {
             color: lightgray;
             line-height: 1.2; 
+        }
+        .highlight {
+            color: #1e6091;
         }
         .clickable {
             color: white;
@@ -76,13 +82,13 @@
     <div id="output"></div>
     <div class="ring" id="ring"></div>
     <script>
-        const text = `<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>sudo apt-get install instakill_members</span>
+        const text = `<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>sudo apt-get install </span><span class='highlight'>instakill_members</span>
 <span class='output'>Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-Calculating instakill_members... Done</span>
-<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>cd ~/documents</span>
-<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>tree /instakill_members</span>
+Calculating <span class='highlight'>instakill_members</span>... Done</span>
+<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>cd ~/documents</span>
+<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>tree </span><span class='highlight'>/instakill_members</span>
 <span class='output'>├── assets
 ├── <span class='clickable' onclick="window.location.href='members'">members.html</span>
 ├── <span class='clickable' onclick="window.location.href='https://files.catbox.moe/wq2xbz.jpg'">retard.html</span>
