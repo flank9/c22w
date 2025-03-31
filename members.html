@@ -1,183 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@instakill</title>
-    <link rel="shortcut icon" href="https://github.com/flank9/c22w/blob/main/img/favicon.ico" type="image/x-icon">
-    <meta property="og:title" content="Big money">
-    <meta property="og:description" content="big money monkey">
-    <meta property="og:image" content="https:/c22w.site/hung.png">
-    <meta property="og:url" content="https://c22w.site">
-    <meta property="og:type" content="website">
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    <script src="sparkle.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>@instakill</title>
+   <meta property="og:title" content="Instakill">
+   <meta property="og:description" content="bigmoney nigga">
+   <meta property="og:image" content="https://c22w.site.com/img/hung.png">
+   <meta property="og:url" content="https://c22w.site">
+   <meta property="og:type" content="website">
+   <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-    <style>
+   <style>
         body {
-            background: url('img/girl.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            background-color: #0d1117;
+            color: #c9d1d9;
             font-family: 'VT323', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-size: 20px;
+            padding: 20px;
+            cursor: default;
+            line-height: 1.55;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            position: relative;
             overflow: hidden;
         }
-
-        .tv-scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.5) 0px,
-                rgba(0, 0, 0, 0.5) 2px,
-                rgba(0, 0, 0, 0) 2px,
-                rgba(0, 0, 0, 0) 4px
-            );
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .crt-container {
-            background: rgba(0, 0, 0, 0.05);
+        .terminal {
+            background: #161b22;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             width: 80%;
             max-width: 600px;
-            z-index: 1;
+            text-align: left;
         }
-
-        h1, .member h2, .member a {
-            color: #fff;
+        .user {
+            color: red;
         }
-
-        .members-container {
+        .tilde {
+            color: #1e6091;
+        }
+        .colon {
+            color: white;
+        }
+        .command {
+            color: white;
+        }
+        .output {
+            color: lightgray;
+            line-height: 1.2;
+        }
+        .highlight {
+            color: #1e6091;
+        }
+        .clickable {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .clickable:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .members {
             margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .member {
             text-align: center;
         }
-
-        .member img.pfp {
-            width: 35px;
-            height: 35px;
-            margin-bottom: 5px;
+        .member {
+            margin-bottom: 10px;
         }
-
         .member a {
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color: #58a6ff;
         }
-
-        .member img.icon {
-            height: 40px;
-            margin-bottom: 5px;
-        }
-    </style>
+   </style>
 </head>
-<body onclick="startMusic()">
-    <div class="tv-scanlines"></div>
-
-    <div class="crt-container">
-        <h1 id="title"></h1>
-        
-        <div class="members-container">
-            <div class="member">
-                <img src="img/flank.png" alt="Flank" class="pfp">
-                <h2>Flank</h2>
-                <a href="https://t.me/flank155"><img src="img/tele.png" alt="Telegram" class="icon"></a> 
-                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin" class="icon"></a>
-            </div>
-            <div class="member">
-                <img src="img/cash.png" alt="Decoy" class="pfp">
-                <h2>Decoy</h2>
-                <a href="https://t.me/decoy95"><img src="img/tele.png" alt="Telegram" class="icon"></a> 
-                <a href="https://doxbin/user/InstakiII"><img src="img/dox.png" alt="Doxbin" class="icon"></a>
-            </div>
+<body>
+    <div class="terminal">
+        <div id="output"></div>
+    </div>
+    <div class="members">
+        <h2>Members</h2>
+        <div class="member">
+            <p>Flank - <a href="https://t.me/flank155">Telegram</a> | <a href="https://doxbin/user/InstakiII">Doxbin</a></p>
+        </div>
+        <div class="member">
+            <p>Decoy - <a href="https://t.me/decoy95">Telegram</a> | <a href="https://doxbin/user/InstakiII">Doxbin</a></p>
         </div>
     </div>
-
    <script>
-    let audioFiles = ["music/audio4.mp3", "music/audio3.mp3", "music/audio2.mp3", "music/audio.mp3"];
-    let currentTrack = Math.floor(Math.random() * audioFiles.length);
-    let audio = new Audio(audioFiles[currentTrack]);
-
-    function startMusic() {
-        if (audio.paused) {
-            audio.play();
-            audio.onended = function() {
-                currentTrack = Math.floor(Math.random() * audioFiles.length);
-                audio.src = audioFiles[currentTrack];
-                audio.play();
-            };
-        }
-    }
-
-    function typeAndDelete() {
-        const text = "@instakill"; // Keep the '@' intact
-        let displayText = '';
-        let index = 0;
-        let deleting = false;
-        let speed = 250;  
-
-        function updateTitle() {
-            if (!deleting) {
-                displayText = text.substring(0, index);
-                document.title = displayText; 
-                document.getElementById("title").textContent = displayText; 
-
-                index++;
-                if (index === text.length) {
-                    deleting = true;
-                }
-            } else {
-                displayText = text.substring(0, index);
-                document.title = displayText; 
-                document.getElementById("title").textContent = displayText; 
-
-                if (index > 1) {
-                    index--;
-                }
-                
-                if (index === 1) {
-                    deleting = false;
-                }
+        const text = `<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>sudo apt-get install </span><span class='highlight'>instakill_members</span>
+<span class='output'>Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating <span class='highlight'>instakill_members</span>... Done</span>
+<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>cd ~/documents</span>
+<span class='user'>user@instakill</span><span class='colon'>:</span><span class='tilde'>~</span> <span class='command'>tree </span><span class='highlight'>/instakill_members</span>
+<span class='output'>├── assets
+├── <span class='clickable' onclick="window.location.href='members'">members.html</span>
+├── <span class='clickable' onclick="window.location.href='https://files.catbox.moe/wq2xbz.jpg'">retard.html</span>
+├── <span class='clickable' onclick="window.location.href='https://www.youtube.com/watch?v=xvFZjo5PgG0'">source_code.zip</span>
+├── instakill.txt</span>`;
+        
+        let i = 0;
+        function typeOut() {
+            if (i < text.length) {
+                document.getElementById("output").innerHTML = text.substring(0, i+3);
+                i += 3;
+                let speed = Math.random() * (40 - 20) + 15; 
+                setTimeout(typeOut, speed);
             }
-
-            setTimeout(updateTitle, speed);
         }
+        window.onload = typeOut;
 
-        updateTitle();
-    }
-
-    document.addEventListener("DOMContentLoaded", typeAndDelete);
-
-       document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = 'Come back!';
-    } else {
-        document.title = '@instakill'; 
-    }
-});
-   </script>
-    
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = 'Come back!';
+            } else {
+                document.title = '@instakill';
+            }
+        });
+    </script>
 </body>
 </html>
