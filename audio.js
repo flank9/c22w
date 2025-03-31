@@ -1,91 +1,99 @@
-var audio = document.getElementById("audio");
-var playPauseButton = document.getElementById("playPauseButton");
-var audioFiles = [
-    {
-        src: "music/audio.mp3",
-        artist: "Artist 1",
-        song: "Song 1"
-    },
-    {
-        src: "music/audio2.mp3",
-        artist: "Artist 2",
-        song: "Song 2"
-    },
-    {
-        src: "music/audio3.mp3",
-        artist: "Artist 3",
-        song: "Song 3"
-    },
-    {
-        src: "music/audio4.mp3",
-        artist: "Artist 4",
-        song: "Song 4"
-    }
-];
-
-var artist = document.getElementById("artist");
-var songTitle = document.getElementById("songTitle");
-
-var shuffledAudioFiles = shuffleArray(audioFiles);
-var currentAudioIndex = 0;
-
-audio.addEventListener("ended", function() {
-    nextAudio();
-});
-
-function playMedia() {
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("audio");
+    const trackList = document
+      .getElementById("trackList")
+      .getElementsByTagName("li");
+    const songTitle = document.getElementById("songTitle");
+    const forwardButton = document.getElementById("forward");
+    const backwardButton = document.getElementById("backward");
+    let songTime = document.getElementById("songTime");
+    let pause = document.getElementById("pause");
+    
+    let currentTrack = Math.floor(Math.random() * trackList.length);
+  
+    audio.src = document.querySelector(
+      `[data-track-number="${trackList[currentTrack].dataset.trackNumber}"]`
+    ).src;
+    songTitle.innerText = trackList[currentTrack].innerText;
     audio.play();
-    document.getElementById("overlays").classList.add("fade-out");
-}
-
-function togglePlayPause() {
-    if (audio.paused) {
-        audio.play();
-        playPauseButton.innerHTML = "<img src='pause.png'>";
-    } else {
-        audio.pause();
-        playPauseButton.innerHTML = "<img src='play.png'>";
-    }
-}
-
-function nextAudio() {
-    currentAudioIndex = (currentAudioIndex + 1) % shuffledAudioFiles.length;
-    loadAudio(currentAudioIndex);
-}
-
-function previousAudio() {
-    if (audio.currentTime <= 3) {
-        currentAudioIndex = (currentAudioIndex - 1 + shuffledAudioFiles.length) % shuffledAudioFiles.length;
-    } else {
+  
+    forwardButton.addEventListener("click", function () {
+      currentTrack = (currentTrack + 1) % trackList.length;
+      audio.src = document.querySelector(
+        `[data-track-number="${trackList[currentTrack].dataset.trackNumber}"]`
+      ).src;
+      songTitle.innerText = trackList[currentTrack].innerText;
+      audio.play();
+    });
+  
+    backwardButton.addEventListener("click", function () {
+      if (audio.currentTime > 2) {
         audio.currentTime = 0;
+        audio.play();
+      } else {
+        currentTrack = (currentTrack - 1 + trackList.length) % trackList.length;
+        audio.src = document.querySelector(
+          `[data-track-number="${trackList[currentTrack].dataset.trackNumber}"]`
+        ).src;
+        songTitle.innerText = trackList[currentTrack].innerText;
+        audio.play();
+      }
+    });
+  
+    audio.addEventListener("ended", function () {
+      let currentTrackNumber = Number(
+        audio.querySelector("source").getAttribute("data-track-number")
+      );
+      let nextTrackNumber = (currentTrackNumber % trackList.children.length) + 1;
+  
+      audio
+        .querySelector(`source[data-track-number="${nextTrackNumber}"]`)
+        .setAttribute(
+          "src",
+          audio
+            .querySelector(`source[data-track-number="${nextTrackNumber}"]`)
+            .getAttribute("src")
+        );
+      songTitle.innerHTML = trackList.querySelector(
+        `li[data-track-number="${nextTrackNumber}"]`
+      ).innerHTML;
+      audio.load();
+      audio.play();
+    });
+    pause.addEventListener("click", function () {
+      if (audio.paused) {
+        audio.play();
+        pause.classList.remove("fa-play");
+        pause.classList.add("fa-pause");
+      } else {
+        audio.pause();
+        pause.classList.remove("fa-pause");
+        pause.classList.add("fa-play");
+      }
+    });
+  
+    function updateTime() {
+      let currentTime = audio.currentTime;
+      let minutes = Math.floor(currentTime / 60);
+      let seconds = Math.floor(currentTime % 60);
+  
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      songTime.innerHTML = `${minutes}:${seconds}`;
     }
-    loadAudio(currentAudioIndex);
-}
-
-function loadAudio(index) {
-    var audioFile = shuffledAudioFiles[index];
-    audio.src = audioFile.src;
-    artist.textContent = audioFile.artist;
-    songTitle.textContent = audioFile.song;
-    audio.play();
-}
-
-function shuffleArray(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-audio.src = shuffledAudioFiles[0].src;
-audio.play();
-
-loadAudio(0);
+    audio.addEventListener("timeupdate", function () {
+      updateTime();
+    });
+  
+    audio.addEventListener("loadedmetadata", function () {
+      updateTime();
+    });
+  
+    audio.addEventListener("play", function () {
+      songTitle.innerHTML = trackList.querySelector(
+        "li[data-track-number='" +
+          audio.querySelector("source").getAttribute("data-track-number") +
+          "']"
+      ).innerHTML;
+    });
+  });
+  
