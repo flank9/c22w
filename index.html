@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>@instakill</title>
    <meta property="og:title" content="Instakill">
-   <meta property="og:description" content="bigmoney nigga">
+   <meta property="og:description" content="big money nigga">
    <meta property="og:image" content="https://c22w.site.com/img/hung.png">
    <meta property="og:url" content="https://c22w.site">
    <meta property="og:type" content="website">
@@ -39,8 +39,11 @@
         .user {
             color: red;
         }
+        .tilde {
+            color: #1e6091;
+        }
         .command {
-            color: lightblue;
+            color: white;
         }
         .output {
             color: lightgray;
@@ -56,29 +59,18 @@
         .clickable:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
-        .ring {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference; 
-        }
     </style>
 </head>
 <body>
     <div id="output"></div>
-    <div class="ring" id="ring"></div>
     <script>
-        const text = `<span class='user'>user@instakill:~$</span> <span class='command'>sudo apt-get install instakill_members</span>
+        const text = `<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>sudo apt-get install instakill_members</span>
 <span class='output'>Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 Calculating instakill_members... Done</span>
-<span class='user'>user@instakill:~$</span> <span class='command'>cd ~/documents</span>
-<span class='user'>user@instakill:~$</span> <span class='command'>tree /instakill_members</span>
+<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>cd ~/documents</span>
+<span class='user'>user@instakill</span><span class='tilde'>:~</span> <span class='command'>tree /instakill_members</span>
 <span class='output'>├── assets
 ├── <span class='clickable' onclick="window.location.href='members'">members.html</span>
 ├── <span class='clickable' onclick="window.location.href='https://files.catbox.moe/wq2xbz.jpg'">retard.html</span>
@@ -94,28 +86,9 @@ Calculating instakill_members... Done</span>
                 setTimeout(typeOut, speed);
             } else {
                 document.querySelector(".cursor").remove();
-                setTimeout(applyBinaryEffect, 500); // After the text is typed out, apply binary effect
             }
         }
         window.onload = typeOut;
-        
-        document.addEventListener("mousemove", (e) => {
-            const ring = document.getElementById("ring");
-            ring.style.left = `${e.clientX}px`;
-            ring.style.top = `${e.clientY}px`;
-        });
-
-        document.addEventListener("mouseover", () => {
-            document.body.style.cursor = "none";
-        });
-        
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = 'Come back!';
-            } else {
-                document.title = '@instakill'; 
-            }
-        });
     </script>
 </body>
 </html>
