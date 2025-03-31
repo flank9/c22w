@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@instakill</title>
@@ -17,11 +17,11 @@
             min-height: 100vh;
         }
         .members {
-            color: #888;
-            font-size: 18px;
+            color: #777;
+            font-size: 14px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             padding: 10px;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -34,8 +34,18 @@
             padding-top: 10px;
             z-index: 1000;
         }
+        .members span {
+            position: relative;
+        }
+        .members span::after {
+            content: " · ";
+            color: grey;
+        }
+        .members span:last-child::after {
+            content: "";
+        }
         .members span:hover {
-            color: #999;
+            color: white;
         }
         #display {
             margin-top: 60px;
@@ -47,6 +57,16 @@
             width: 100%;
             height: 100%;
             background: url('png/hung.png') no-repeat center center;
+            background-size: cover;
+            pointer-events: none;
+        }
+        #ascii-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/.fake-ascii.png') no-repeat center center;
             background-size: cover;
             pointer-events: none;
         }
@@ -80,17 +100,18 @@
 </head>
 <body>
     <div class="members">
-        <span onclick="changeContent('INSTAKILL; FLANK', 'https://t.me/flank155', 'https://doxbin.org/users/flank155')">Flank</span>
-        <span onclick="changeContent('INSTAKILL; DECOY', 'https://t.me/decoy9', 'https://doxbin.org/users/Instakill')">Decoy</span>
-        <span onclick="changeContent('INSTAKILL; DORM', 'https://t.me/stompedskull', 'https://doxbin.org/users/Instakill')">Dorm</span>
+        <span onclick="changeContent('@instakill ; Flank', 'https://t.me/flank', 'https://doxbin.org/users/flank')">Flank</span>
+        <span onclick="changeContent('@instakill ; Decoy', 'https://t.me/decoy', 'https://doxbin.org/users/decoy')">Decoy</span>
+        <span onclick="changeContent('@instakill ; Dorm', 'https://t.me/dorm', 'https://doxbin.org/users/dorm')">Dorm</span>
     </div>
     <div id="display">
         <div id="links" class="links">
-            <a id="telegram" href="#" target="_blank">t.me/</a>
+            <a id="telegram" href="#" target="_blank">Telegram</a>
             <a id="doxbin" href="#" target="_blank">Doxbin</a>
         </div>
     </div>
     <div id="overlay"></div>
+    <div id="ascii-overlay"></div>
     <div class="footer">
         All rights reserved @instakill<br>
         <a href="https://instakill.cc" target="_blank">instakill.cc</a>
