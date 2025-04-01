@@ -5,64 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@instakill</title>
     <meta property="og:title" content="Instakill">
-   <meta property="og:description" content="bigmoney nigga">
-   <meta property="og:image" content="https://c22w.site.com/img/hung.png">
-   <meta property="og:url" content="https://c22w.site">
-   <meta property="og:type" content="website">
-   <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <meta property="og:description" content="bigmoney nigga">
+    <meta property="og:image" content="https://c22w.site.com/img/hung.png">
+    <meta property="og:url" content="https://c22w.site">
+    <meta property="og:type" content="website">
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
         body {
             background-color: black;
             text-align: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 100vh;
+            font-size: 18px;
         }
         .members {
-            color: #777;
-            font-size: 14px;
+            color: #bbb;
+            font-size: 22px;
+            font-weight: 600;
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 10px;
+            gap: 20px;
+            padding: 15px;
             cursor: pointer;
             transition: color 0.3s ease;
             position: fixed;
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: black;
-            width: 100%;
-            padding-top: 10px;
             z-index: 1000;
-        }
-        .members span {
-            position: relative;
-        }
-        .members span::after {
-            content: " · ";
-            color: grey;
-        }
-        .members span:last-child::after {
-            content: "";
         }
         .members span:hover {
             color: white;
         }
         #display {
-            margin-top: 60px;
+            margin-top: 80px;
         }
         #overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
             background: url('img/hung.png') no-repeat center center;
+            background-size: contain;
             pointer-events: none;
         }
         #ascii-overlay {
@@ -72,17 +65,19 @@
             width: 100%;
             height: 100%;
             background: url('img/fake-ascii.png') no-repeat center center;
-            background-size: cover;
+            background-size: 70%;
+            opacity: 0.4;
             pointer-events: none;
         }
         .links {
-            margin-top: 10px;
+            margin-top: 15px;
             display: none;
+            font-size: 20px;
         }
         .links a {
             color: grey;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 20px;
             display: block;
             margin-top: 5px;
         }
@@ -92,11 +87,12 @@
         .footer {
             margin-bottom: 20px;
             color: grey;
-            font-size: 12px;
+            font-size: 18px;
         }
         .footer a {
             color: grey;
             text-decoration: none;
+            font-size: 18px;
         }
         .footer a:hover {
             color: white;
@@ -105,13 +101,13 @@
 </head>
 <body>
     <div class="members">
-        <span onclick="changeContent('@instakill ; Flank', 'https://t.me/flank', 'https://doxbin.org/users/flank')">Flank</span>
-        <span onclick="changeContent('@instakill ; Decoy', 'https://t.me/decoy', 'https://doxbin.org/users/decoy')">Decoy</span>
-        <span onclick="changeContent('@instakill ; Dorm', 'https://t.me/dorm', 'https://doxbin.org/users/dorm')">Dorm</span>
+        <span onclick="changeContent('@instakill ; Flank', 'Flank', 'https://t.me/flank', 'https://doxbin.org/users/flank')">Flank</span>
+        <span onclick="changeContent('@instakill ; Decoy', 'Decoy', 'https://t.me/decoy', 'https://doxbin.org/users/decoy')">Decoy</span>
+        <span onclick="changeContent('@instakill ; Dorm', 'Dorm', 'https://t.me/dorm', 'https://doxbin.org/users/dorm')">Dorm</span>
     </div>
     <div id="display">
         <div id="links" class="links">
-            <a id="telegram" href="#" target="_blank">Telegram</a>
+            <a id="telegram" href="#" target="_blank"></a>
             <a id="doxbin" href="#" target="_blank">Doxbin</a>
         </div>
     </div>
@@ -122,8 +118,9 @@
         <a href="https://instakill.cc" target="_blank">instakill.cc</a>
     </div>
     <script>
-        function changeContent(title, telegramUrl, doxbinUrl) {
+        function changeContent(title, name, telegramUrl, doxbinUrl) {
             document.title = title;
+            document.getElementById("telegram").textContent = "Telegram (" + name + ")";
             document.getElementById("telegram").href = telegramUrl;
             document.getElementById("doxbin").href = doxbinUrl;
             document.getElementById("links").style.display = "block";
