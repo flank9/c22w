@@ -183,6 +183,6 @@ body, html {
     -ms-user-select: none;
 }
 
-.buttons-container button:hover[data-gif="dialga.gif"] {
+.buttons-container button:hover[data-gif="monopoly.gif"] {
     color: rgba(62, 132, 182, 1);
 }
