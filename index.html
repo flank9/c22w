@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Instakill</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+ <script src="sparkle.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -16,7 +19,7 @@
       height: 100%;
       background-color: black;
       color: white;
-      font-family: monospace;
+      font-family: 'IBM Plex Mono', monospace;
       overflow: hidden;
     }
 
@@ -106,6 +109,12 @@
       z-index: 2;
     }
 
+    #mainImage,
+    #enterImage,
+    #aboutOverlay img {
+      opacity: 0.8;
+    }
+
     #mainImage {
       position: relative;
       z-index: 2;
@@ -113,7 +122,6 @@
 
     #enterImage {
       max-width: 100px;
-      opacity: 0.5;
     }
 
     #overlayBg {
@@ -175,7 +183,7 @@
     <nav>
       <a id="aboutLink">About</a>
       <a href="https://t.me/instakilled" target="_blank">Telegram</a>
-      <a href="soon!">Soon!</a>
+      <a href="#">Soon!</a>
     </nav>
 
     <div class="tag-bar">
