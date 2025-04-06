@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Instakill</title>
   <style>
     * {
@@ -89,7 +89,7 @@
       text-align: center;
       font-size: 13px;
       color: #aaa;
-      z-index: 11;
+      z-index: 12;
     }
 
     .underline {
@@ -100,11 +100,11 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       z-index: 5;
       pointer-events: none;
-      opacity: 0.3;
+      opacity: 0.15;
       mix-blend-mode: screen;
     }
 
@@ -136,6 +136,16 @@
       display: none;
       z-index: 98;
     }
+
+    #mainImage {
+      position: relative;
+      z-index: 9;
+    }
+
+    #enterImage {
+      max-width: 100px;
+      opacity: 0.5;
+    }
   </style>
 </head>
 <body>
@@ -143,8 +153,9 @@
   <img id="asciiOverlay" src="img/fake-ascii.png" alt="ASCII Overlay" />
 
   <!-- ENTER PAGE -->
-  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh;">
-    <div id="enterTrigger" style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc; cursor: pointer;">
+  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column;">
+    <img id="enterImage" src="img/fake-ascii.png" alt="Enter Icon"/>
+    <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">
       enter
     </div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
@@ -166,17 +177,13 @@
       <span onclick="switchMember('demon')">Dorm</span>
     </div>
 
-    <div class="center" style="height: 60vh; position: relative; z-index: 9;">
-      <img id="mainImage" src="image.png" width="220" class="fade-in" />
+    <div class="center" style="height: 60vh;">
+      <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
     </div>
 
     <div class="footer">
-      <span id="alias" class="underline">instakill</span>, <span id="description">a party o_O</span>
+      <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
     </div>
-
-    <audio id="bgm" autoplay loop>
-      <source id="audioSource" src="music/audio.mp3" type="audio/mpeg">
-    </audio>
   </div>
 
   <!-- ABOUT OVERLAY -->
@@ -185,10 +192,16 @@
     <img src="about.png" alt="About Image" />
   </div>
 
+  <!-- AUDIO -->
+  <audio id="bgm" loop>
+    <source src="music/audio2.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const enterPage = document.getElementById('enterPage');
     const mainPage = document.getElementById('mainPage');
     const enterTrigger = document.getElementById('enterTrigger');
+    const audio = document.getElementById('bgm');
 
     const aboutLink = document.getElementById('aboutLink');
     const aboutOverlay = document.getElementById('aboutOverlay');
@@ -200,19 +213,16 @@
     const members = {
       scare: {
         image: 'img/hung.png',
-        song: 'music/audio4.mp3',
         description: 'a party o_O',
         alias: 'Flank'
       },
       ghost: {
         image: 'img/hung.png',
-        song: 'music/audio2.mp3',
         description: 'whispers in static',
         alias: 'Decoy'
       },
       demon: {
         image: 'img/hung.png',
-        song: 'music/audio3.mp3',
         description: 'fire behind the eyes',
         alias: 'Dorm'
       }
@@ -224,11 +234,12 @@
         enterPage.classList.add('hidden');
         mainPage.classList.remove('hidden');
         mainPage.classList.add('fade-in');
+        audio.play();
       }, 1000);
     });
 
-    function switchMember(aliasKey) {
-      const member = members[aliasKey];
+    function switchMember(key) {
+      const member = members[key];
       const img = document.getElementById('mainImage');
       img.classList.remove('fade-in');
       void img.offsetWidth;
@@ -237,12 +248,6 @@
 
       aliasEl.textContent = member.alias;
       descriptionEl.textContent = member.description;
-
-      const audio = document.getElementById('bgm');
-      const source = document.getElementById('audioSource');
-      source.src = member.song;
-      audio.load();
-      audio.play();
     }
 
     aboutLink.addEventListener('click', () => {
