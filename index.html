@@ -9,12 +9,15 @@
       box-sizing: border-box;
     }
 
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
       background-color: black;
       color: white;
       font-family: monospace;
       overflow: hidden;
+      height: 100%;
+      width: 100%;
     }
 
     .center {
@@ -96,35 +99,6 @@
       text-decoration: underline;
     }
 
-    #aboutOverlay {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: black;
-      border: 1px solid #444;
-      padding: 10px;
-      display: none;
-      z-index: 99;
-    }
-
-    #aboutOverlay img {
-      max-width: 300px;
-      height: auto;
-      display: block;
-    }
-
-    #overlayBg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      z-index: 98;
-    }
-
     .image-wrapper {
       position: relative;
       z-index: 1;
@@ -151,6 +125,35 @@
     #enterImage {
       max-width: 100px;
       opacity: 0.5;
+    }
+
+    #aboutOverlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: black;
+      border: 1px solid #444;
+      padding: 10px;
+      display: none;
+      z-index: 1002;
+    }
+
+    #aboutOverlay img {
+      max-width: 300px;
+      height: auto;
+      display: block;
+    }
+
+    #overlayBg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      z-index: 1001;
     }
   </style>
 </head>
@@ -190,7 +193,7 @@
     </div>
   </div>
 
-  <!-- ABOUT OVERLAY -->
+  <!-- ABOUT OVERLAY + BACKDROP -->
   <div id="overlayBg"></div>
   <div id="aboutOverlay">
     <img src="about.png" alt="About Image" />
@@ -255,8 +258,8 @@
     }
 
     aboutLink.addEventListener('click', () => {
-      aboutOverlay.style.display = 'block';
       overlayBg.style.display = 'block';
+      aboutOverlay.style.display = 'block';
     });
 
     overlayBg.addEventListener('click', () => {
