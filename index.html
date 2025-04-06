@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Instakill</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-<script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
- <script src="sparkle.js"></script>
+  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+  <script src="sparkle.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -91,9 +91,9 @@
     }
 
     .footer {
-      position: relative;
+      position: absolute;
       z-index: 10;
-      bottom: 20px;
+      bottom: 5vh;
       width: 100%;
       text-align: center;
       font-size: 13px;
@@ -112,7 +112,7 @@
     #mainImage,
     #enterImage,
     #aboutOverlay img {
-      opacity: 0.8;
+      opacity: 0.5;
     }
 
     #mainImage {
@@ -192,7 +192,7 @@
       <span onclick="switchMember('demon')">Dorm</span>
     </div>
 
-    <div id="mainContent" style="position: relative; z-index: 2;">
+    <div id="mainContent" style="position: relative; z-index: 2; height: 100vh;">
       <div class="center image-wrapper" style="height: 60vh;">
         <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
       </div>
