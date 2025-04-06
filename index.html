@@ -144,21 +144,31 @@
       height: auto;
       display: block;
     }
+/* ✅ PNG OVERLAY */
+#visualOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/fake-ascii.png'); /* Replace with your PNG path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
 
-    /* ✅ PNG OVERLAY */
-    #visualOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('img/fake-ascii.png'); /* Replace with your PNG path */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      pointer-events: none;
-      z-index: 2;
-    }
+.image-wrapper {
+  position: relative;
+  z-index: -1;
+}
+
+#mainImage {
+  position: relative;
+  z-index: -1;
+}
+
   </style>
 </head>
 <body>
