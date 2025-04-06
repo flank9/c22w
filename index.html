@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>good in the evil</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background-color: black;
@@ -12,41 +16,39 @@
       font-family: monospace;
       overflow: hidden;
     }
+
     .center {
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .flex-col {
       flex-direction: column;
     }
-    .pixelated {
-      image-rendering: pixelated;
-    }
+
     .hidden {
       display: none;
     }
+
     .fade-in {
       animation: fadeIn 1s ease-in-out forwards;
     }
+
+    .fade-out {
+      animation: fadeOut 1s ease-in-out forwards;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    .tag-bar {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 12px;
-      color: #aaa;
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
-    .tag-bar span {
-      margin: 0 5px;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .tag-bar span:hover {
-      color: white;
-    }
+
     nav {
       position: absolute;
       top: 10px;
@@ -54,11 +56,30 @@
       text-align: center;
       font-size: 13px;
     }
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: white;
     }
+
+    .tag-bar {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .tag-bar span {
+      margin: 0 5px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .tag-bar span:hover {
+      color: white;
+    }
+
     .footer {
       position: absolute;
       bottom: 20px;
@@ -67,6 +88,7 @@
       font-size: 13px;
       color: #aaa;
     }
+
     .underline {
       text-decoration: underline;
     }
@@ -74,9 +96,11 @@
 </head>
 <body>
   <!-- ENTER PAGE -->
-  <div id="enterPage" class="h-screen w-screen center flex-col">
-    <div style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc;">enter</div>
-    <img src="image.png" alt="overlay creature" class="pixelated" width="200" />
+  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh;">
+    <div style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc;">
+      enter
+    </div>
+    <div style="font-size: 20px; letter-spacing: 1px;">click to enter</div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
       good in the evil &lt;3
     </div>
@@ -89,17 +113,21 @@
       <a href="#">Telegram</a>
       <a href="#">Soon!</a>
     </nav>
+
     <div class="tag-bar">
       <span onclick="switchMember('scare')">scare</span> •
       <span onclick="switchMember('ghost')">ghost</span> •
       <span onclick="switchMember('demon')">demon</span>
     </div>
+
     <div class="center" style="height: 60vh;">
-      <img id="mainImage" src="image.png" class="pixelated fade-in" width="220" />
+      <img id="mainImage" src="image.png" width="220" class="fade-in" />
     </div>
+
     <div class="footer">
       @ <span id="alias" class="underline">scare</span>, <span id="description">a party o_O</span>
     </div>
+
     <audio id="bgm" autoplay loop>
       <source id="audioSource" src="song1.mp3" type="audio/mpeg">
     </audio>
@@ -108,7 +136,7 @@
   <script>
     const enterPage = document.getElementById('enterPage');
     const mainPage = document.getElementById('mainPage');
-    
+
     const members = {
       scare: {
         image: 'image.png',
@@ -128,15 +156,19 @@
     };
 
     enterPage.addEventListener('click', () => {
-      enterPage.classList.add('hidden');
-      mainPage.classList.remove('hidden');
+      enterPage.classList.add('fade-out');
+      setTimeout(() => {
+        enterPage.classList.add('hidden');
+        mainPage.classList.remove('hidden');
+        mainPage.classList.add('fade-in');
+      }, 1000); // wait for fade-out to finish
     });
 
     function switchMember(alias) {
       const member = members[alias];
       const img = document.getElementById('mainImage');
       img.classList.remove('fade-in');
-      void img.offsetWidth; // restart animation
+      void img.offsetWidth; // force reflow to restart animation
       img.src = member.image;
       img.classList.add('fade-in');
 
