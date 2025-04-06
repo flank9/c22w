@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>good in the evil</title>
+  <title>Instakill</title>
   <style>
     * {
       box-sizing: border-box;
@@ -55,12 +55,14 @@
       width: 100%;
       text-align: center;
       font-size: 13px;
+      z-index: 10;
     }
 
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: white;
+      cursor: pointer;
     }
 
     .tag-bar {
@@ -92,32 +94,60 @@
     .underline {
       text-decoration: underline;
     }
+
+    #aboutOverlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: black;
+      border: 1px solid #444;
+      padding: 10px;
+      display: none;
+      z-index: 99;
+    }
+
+    #aboutOverlay img {
+      max-width: 300px;
+      height: auto;
+      display: block;
+    }
+
+    #overlayBg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      z-index: 98;
+    }
   </style>
 </head>
 <body>
   <!-- ENTER PAGE -->
   <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh;">
-    <div style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc;">
+    <div id="enterTrigger" style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc; cursor: pointer;">
       enter
     </div>
-    <div style="font-size: 20px; letter-spacing: 1px;">click to enter</div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
-      good in the evil &lt;3
+      Good in the evil o_O &lt;3
     </div>
   </div>
 
   <!-- MAIN PAGE -->
   <div id="mainPage" class="hidden fade-in">
     <nav>
-      <a href="#">About</a>
-      <a href="#">Telegram</a>
+      <a id="aboutLink">About</a>
+      <a href="https://t.me/instakilled" target="_blank">Telegram</a>
       <a href="#">Soon!</a>
     </nav>
 
     <div class="tag-bar">
-      <span onclick="switchMember('scare')">scare</span> •
-      <span onclick="switchMember('ghost')">ghost</span> •
-      <span onclick="switchMember('demon')">demon</span>
+      <span onclick="switchMember('scare')">Flank</span> •
+      <span onclick="switchMember('ghost')">Decoy</span> •
+      <span onclick="switchMember('demon')">Dorm</span>
     </div>
 
     <div class="center" style="height: 60vh;">
@@ -129,46 +159,57 @@
     </div>
 
     <audio id="bgm" autoplay loop>
-      <source id="audioSource" src="song1.mp3" type="audio/mpeg">
+      <source id="audioSource" src="music/audio.mp3" type="audio/mpeg">
     </audio>
+  </div>
+
+  <!-- ABOUT OVERLAY -->
+  <div id="overlayBg"></div>
+  <div id="aboutOverlay">
+    <img src="about.png" alt="About Image" />
   </div>
 
   <script>
     const enterPage = document.getElementById('enterPage');
     const mainPage = document.getElementById('mainPage');
+    const enterTrigger = document.getElementById('enterTrigger');
+
+    const aboutLink = document.getElementById('aboutLink');
+    const aboutOverlay = document.getElementById('aboutOverlay');
+    const overlayBg = document.getElementById('overlayBg');
 
     const members = {
       scare: {
-        image: 'image.png',
-        song: 'song1.mp3',
-        description: 'a party o_O'
+        image: 'img/hung.png',
+        song: 'music/audio4.mp3',
+        description: 'instakill; a party o_O'
       },
       ghost: {
-        image: 'image2.png',
-        song: 'song2.mp3',
+        image: 'img/hung.png',
+        song: 'music/audio2.mp3',
         description: 'whispers in static'
       },
       demon: {
-        image: 'image3.png',
-        song: 'song3.mp3',
+        image: 'img/hung.png',
+        song: 'music/audio3.mp3',
         description: 'fire behind the eyes'
       }
     };
 
-    enterPage.addEventListener('click', () => {
+    enterTrigger.addEventListener('click', () => {
       enterPage.classList.add('fade-out');
       setTimeout(() => {
         enterPage.classList.add('hidden');
         mainPage.classList.remove('hidden');
         mainPage.classList.add('fade-in');
-      }, 1000); // wait for fade-out to finish
+      }, 1000);
     });
 
     function switchMember(alias) {
       const member = members[alias];
       const img = document.getElementById('mainImage');
       img.classList.remove('fade-in');
-      void img.offsetWidth; // force reflow to restart animation
+      void img.offsetWidth; // reflow
       img.src = member.image;
       img.classList.add('fade-in');
 
@@ -181,6 +222,16 @@
       audio.load();
       audio.play();
     }
+
+    aboutLink.addEventListener('click', () => {
+      aboutOverlay.style.display = 'block';
+      overlayBg.style.display = 'block';
+    });
+
+    overlayBg.addEventListener('click', () => {
+      aboutOverlay.style.display = 'none';
+      overlayBg.style.display = 'none';
+    });
   </script>
 </body>
 </html>
