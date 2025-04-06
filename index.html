@@ -89,10 +89,23 @@
       text-align: center;
       font-size: 13px;
       color: #aaa;
+      z-index: 11;
     }
 
     .underline {
       text-decoration: underline;
+    }
+
+    #asciiOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.3;
+      mix-blend-mode: screen;
     }
 
     #aboutOverlay {
@@ -126,6 +139,9 @@
   </style>
 </head>
 <body>
+  <!-- ASCII OVERLAY -->
+  <img id="asciiOverlay" src="img/fake-ascii.png" alt="ASCII Overlay" />
+
   <!-- ENTER PAGE -->
   <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh;">
     <div id="enterTrigger" style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc; cursor: pointer;">
@@ -150,12 +166,12 @@
       <span onclick="switchMember('demon')">Dorm</span>
     </div>
 
-    <div class="center" style="height: 60vh;">
+    <div class="center" style="height: 60vh; position: relative; z-index: 9;">
       <img id="mainImage" src="image.png" width="220" class="fade-in" />
     </div>
 
     <div class="footer">
-      @ <span id="alias" class="underline">instakill</span>, <span id="description">a party o_O</span>
+      <span id="alias" class="underline">instakill</span>, <span id="description">a party o_O</span>
     </div>
 
     <audio id="bgm" autoplay loop>
@@ -178,21 +194,27 @@
     const aboutOverlay = document.getElementById('aboutOverlay');
     const overlayBg = document.getElementById('overlayBg');
 
+    const aliasEl = document.getElementById('alias');
+    const descriptionEl = document.getElementById('description');
+
     const members = {
       scare: {
         image: 'img/hung.png',
         song: 'music/audio4.mp3',
-        description: 'a party o_O'
+        description: 'a party o_O',
+        alias: 'Flank'
       },
       ghost: {
         image: 'img/hung.png',
         song: 'music/audio2.mp3',
-        description: 'whispers in static'
+        description: 'whispers in static',
+        alias: 'Decoy'
       },
       demon: {
         image: 'img/hung.png',
         song: 'music/audio3.mp3',
-        description: 'fire behind the eyes'
+        description: 'fire behind the eyes',
+        alias: 'Dorm'
       }
     };
 
@@ -205,16 +227,16 @@
       }, 1000);
     });
 
-    function switchMember(alias) {
-      const member = members[alias];
+    function switchMember(aliasKey) {
+      const member = members[aliasKey];
       const img = document.getElementById('mainImage');
       img.classList.remove('fade-in');
-      void img.offsetWidth; // reflow
+      void img.offsetWidth;
       img.src = member.image;
       img.classList.add('fade-in');
 
-      document.getElementById('alias').textContent = alias;
-      document.getElementById('description').textContent = member.description;
+      aliasEl.textContent = member.alias;
+      descriptionEl.textContent = member.description;
 
       const audio = document.getElementById('bgm');
       const source = document.getElementById('audioSource');
