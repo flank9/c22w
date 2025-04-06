@@ -151,12 +151,12 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('img/fake-ascii.png'); /* Replace with your image */
+      background-image: url('img/fake-ascii.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       pointer-events: none;
-      z-index: 5;
+      z-index: 3; /* Updated layering */
     }
   </style>
 </head>
@@ -164,9 +164,9 @@
   <!-- ENTER PAGE -->
   <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column; position: relative; z-index: 10;">
     <img id="enterImage" src="img/fake-ascii.png" alt="Enter Icon"/>
-    <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">enter</div>
+    <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">Enter</div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
-      Good in the evil o_O &lt;3
+      Good in the evil? o_O &lt;3
     </div>
   </div>
 
@@ -175,7 +175,7 @@
     <nav>
       <a id="aboutLink">About</a>
       <a href="https://t.me/instakilled" target="_blank">Telegram</a>
-      <a href="#">Soon!</a>
+      <a href="soon!">Soon!</a>
     </nav>
 
     <div class="tag-bar">
@@ -184,12 +184,14 @@
       <span onclick="switchMember('demon')">Dorm</span>
     </div>
 
-    <div class="center image-wrapper" style="height: 60vh;">
-      <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
-    </div>
+    <div id="mainContent" style="position: relative; z-index: 2;">
+      <div class="center image-wrapper" style="height: 60vh;">
+        <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
+      </div>
 
-    <div class="footer">
-      <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
+      <div class="footer">
+        <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
+      </div>
     </div>
   </div>
 
@@ -228,12 +230,12 @@
       },
       ghost: {
         image: 'img/hung.png',
-        description: 'whispers in static',
+        description: 'Number one fed dodger?',
         alias: 'Decoy'
       },
       demon: {
         image: 'img/hung.png',
-        description: 'fire behind the eyes',
+        description: 'The most muslim bitch you will find!',
         alias: 'Dorm'
       }
     };
