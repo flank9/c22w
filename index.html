@@ -1,49 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>good in the evil</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flex-col {
+      flex-direction: column;
+    }
+    .pixelated {
+      image-rendering: pixelated;
+    }
+    .hidden {
+      display: none;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .tag-bar {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+    }
+    .tag-bar span {
+      margin: 0 5px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .tag-bar span:hover {
+      color: white;
+    }
+    nav {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .underline {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- ENTER PAGE -->
+  <div id="enterPage" class="h-screen w-screen center flex-col">
+    <div style="position:absolute; top: 10px; width:100%; text-align:center; color: #ccc;">enter</div>
+    <img src="image.png" alt="overlay creature" class="pixelated" width="200" />
+    <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
+      good in the evil &lt;3
+    </div>
+  </div>
 
-    <audio id="song" autoplay <source src="LÄGG IN EN LÅT MED EN CATBOX.MOE LÄNK!!!!!!" id="audio-source">
+  <!-- MAIN PAGE -->
+  <div id="mainPage" class="hidden fade-in">
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Telegram</a>
+      <a href="#">Soon!</a>
+    </nav>
+    <div class="tag-bar">
+      <span onclick="switchMember('scare')">scare</span> •
+      <span onclick="switchMember('ghost')">ghost</span> •
+      <span onclick="switchMember('demon')">demon</span>
+    </div>
+    <div class="center" style="height: 60vh;">
+      <img id="mainImage" src="image.png" class="pixelated fade-in" width="220" />
+    </div>
+    <div class="footer">
+      @ <span id="alias" class="underline">scare</span>, <span id="description">a party o_O</span>
+    </div>
+    <audio id="bgm" autoplay loop>
+      <source id="audioSource" src="song1.mp3" type="audio/mpeg">
     </audio>
+  </div>
 
-    <div class="buttons-container" id="enter-container">
-        <button id="enter" onclick="startPage()" data-gif="monopoly.gif">enter</button>
-        <div id="mobile-notice"></div>
-    </div>
+  <script>
+    const enterPage = document.getElementById('enterPage');
+    const mainPage = document.getElementById('mainPage');
+    
+    const members = {
+      scare: {
+        image: 'image.png',
+        song: 'song1.mp3',
+        description: 'a party o_O'
+      },
+      ghost: {
+        image: 'image2.png',
+        song: 'song2.mp3',
+        description: 'whispers in static'
+      },
+      demon: {
+        image: 'image3.png',
+        song: 'song3.mp3',
+        description: 'fire behind the eyes'
+      }
+    };
 
-    <div class="buttons-container" id="member-container">
-        <button onclick="decoy()" data-gif="monopoly.gif">decoy</button>
-        <p>◦</p>
-        <button onclick="flank()" data-gif="monopoly.gif">flank</button>
-        <p>◦</p>
-        <button onclick="dorm()" data-gif="monopoly.gif">dorm</button>
-    </div>
+    enterPage.addEventListener('click', () => {
+      enterPage.classList.add('hidden');
+      mainPage.classList.remove('hidden');
+    });
 
-    <div class="buttons-container" id="main-container">
-        <button onclick="about()" data-gif="monopoly.gif">About</button>
-        <p>◦</p>
-        <button onclick="telegram()" data-gif="monopoly.gif">Telegram</button>
-        <p>◦</p>
-        <button data-gif="monopoly.gif">Soon!</button>
-        <p>◦</p>
-    </div>
+    function switchMember(alias) {
+      const member = members[alias];
+      const img = document.getElementById('mainImage');
+      img.classList.remove('fade-in');
+      void img.offsetWidth; // restart animation
+      img.src = member.image;
+      img.classList.add('fade-in');
 
-    <div class="background container">
-        <div class="ascii-image" id="image">
-            <img id="random-gif" src="monopoly.gif">
-            <img id="pfp-image">
-        </div>
+      document.getElementById('alias').textContent = alias;
+      document.getElementById('description').textContent = member.description;
 
-        <div class="full-page-overlay">
-            <img src="img/fake-ascii.png">
-        </div>
-    </div>
-
-    <div class="text-container">
-        <p class="display-text">NIGGER NIGGER NIGGER NIGGER NIGGER</p>
-    </div>
-
-    <div class="snowflakes"></div>
-
-    <script src="snowflakes.js"></script>
-    <script src="snowflakes2.js"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="old.css">
-
-</body></html>
+      const audio = document.getElementById('bgm');
+      const source = document.getElementById('audioSource');
+      source.src = member.song;
+      audio.load();
+      audio.play();
+    }
+  </script>
+</body>
+</html>
