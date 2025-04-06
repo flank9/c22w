@@ -53,12 +53,12 @@
     }
 
     nav {
-      position: absolute;
+      position: relative; /* <-- FIXED */
+      z-index: 100;
       top: 10px;
       width: 100%;
       text-align: center;
       font-size: 13px;
-      z-index: 10;
     }
 
     nav a {
@@ -69,12 +69,12 @@
     }
 
     .tag-bar {
+      position: relative; /* <-- FIXED */
+      z-index: 100;
       text-align: center;
       margin-top: 40px;
       font-size: 12px;
       color: #aaa;
-      z-index: 10;
-      position: relative;
     }
 
     .tag-bar span {
@@ -88,13 +88,13 @@
     }
 
     .footer {
-      position: absolute;
+      position: relative; /* <-- FIXED */
+      z-index: 100;
       bottom: 20px;
       width: 100%;
       text-align: center;
       font-size: 13px;
       color: #aaa;
-      z-index: 12;
     }
 
     .underline {
@@ -103,12 +103,12 @@
 
     .image-wrapper {
       position: relative;
-      z-index: 1;
+      z-index: 50;
     }
 
     #mainImage {
       position: relative;
-      z-index: 1;
+      z-index: 50;
     }
 
     #enterImage {
@@ -124,7 +124,7 @@
       height: 1000vh;
       background: rgba(0, 0, 0, 0.85);
       display: none;
-      z-index: 10;
+      z-index: 2000;
     }
 
     #aboutOverlay {
@@ -136,7 +136,7 @@
       border: 1px solid #444;
       padding: 10px;
       display: none;
-      z-index: 1001;
+      z-index: 3000;
     }
 
     #aboutOverlay img {
@@ -157,23 +157,13 @@
       background-repeat: no-repeat;
       background-position: center;
       pointer-events: none;
-      z-index: -10; /* FIXED: lower z-index so content sits on top */
-    }
-
-    .image-wrapper {
-      position: relative;
-      z-index: 1;
-    }
-
-    #mainImage {
-      position: relative;
-      z-index: 1;
+      z-index: -1; /* ✅ FIXED */
     }
   </style>
 </head>
 <body>
   <!-- ENTER PAGE -->
-  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column;">
+  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column; position: relative; z-index: 100;">
     <img id="enterImage" src="img/fake-ascii.png" alt="Enter Icon"/>
     <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">enter</div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
@@ -182,7 +172,7 @@
   </div>
 
   <!-- MAIN PAGE -->
-  <div id="mainPage" class="hidden fade-in">
+  <div id="mainPage" class="hidden fade-in" style="position: relative; z-index: 100;">
     <nav>
       <a id="aboutLink">About</a>
       <a href="https://t.me/instakilled" target="_blank">Telegram</a>
