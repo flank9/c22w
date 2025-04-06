@@ -53,8 +53,8 @@
     }
 
     nav {
-      position: relative; /* <-- FIXED */
-      z-index: 100;
+      position: relative;
+      z-index: 10;
       top: 10px;
       width: 100%;
       text-align: center;
@@ -69,8 +69,8 @@
     }
 
     .tag-bar {
-      position: relative; /* <-- FIXED */
-      z-index: 100;
+      position: relative;
+      z-index: 10;
       text-align: center;
       margin-top: 40px;
       font-size: 12px;
@@ -88,8 +88,8 @@
     }
 
     .footer {
-      position: relative; /* <-- FIXED */
-      z-index: 100;
+      position: relative;
+      z-index: 10;
       bottom: 20px;
       width: 100%;
       text-align: center;
@@ -103,12 +103,12 @@
 
     .image-wrapper {
       position: relative;
-      z-index: 50;
+      z-index: 10;
     }
 
     #mainImage {
       position: relative;
-      z-index: 50;
+      z-index: 10;
     }
 
     #enterImage {
@@ -145,25 +145,25 @@
       display: block;
     }
 
-    /* ✅ PNG OVERLAY - FIXED */
+    /* ✅ PNG OVERLAY - working and doesn't block interaction */
     #visualOverlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('img/fake-ascii.png'); /* Replace with your PNG path */
+      background-image: url('img/fake-ascii.png'); /* Replace with your image path */
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       pointer-events: none;
-      z-index: -1; /* ✅ FIXED */
+      z-index: 1;
     }
   </style>
 </head>
 <body>
   <!-- ENTER PAGE -->
-  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column; position: relative; z-index: 100;">
+  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column; position: relative; z-index: 10;">
     <img id="enterImage" src="img/fake-ascii.png" alt="Enter Icon"/>
     <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">enter</div>
     <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
@@ -172,7 +172,7 @@
   </div>
 
   <!-- MAIN PAGE -->
-  <div id="mainPage" class="hidden fade-in" style="position: relative; z-index: 100;">
+  <div id="mainPage" class="hidden fade-in" style="position: relative; z-index: 10;">
     <nav>
       <a id="aboutLink">About</a>
       <a href="https://t.me/instakilled" target="_blank">Telegram</a>
