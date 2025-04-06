@@ -92,12 +92,12 @@
 
     .footer {
       position: absolute;
-      z-index: 10;
       bottom: 5vh;
       width: 100%;
       text-align: center;
       font-size: 13px;
       color: #aaa;
+      z-index: 10;
     }
 
     .underline {
@@ -197,7 +197,8 @@
         <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
       </div>
 
-      <div class="footer">
+      <!-- FIXED FOOTER WITH ALIAS + DESCRIPTION -->
+      <div class="footer" id="footerText">
         <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
       </div>
     </div>
@@ -266,6 +267,7 @@
       img.src = member.image;
       img.classList.add('fade-in');
 
+      // Update footer content
       aliasEl.textContent = member.alias;
       descriptionEl.textContent = member.description;
     }
