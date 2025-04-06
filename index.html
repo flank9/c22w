@@ -96,18 +96,6 @@
       text-decoration: underline;
     }
 
-    #asciiOverlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 5;
-      pointer-events: none;
-      opacity: 0.15;
-      mix-blend-mode: screen;
-    }
-
     #aboutOverlay {
       position: fixed;
       top: 50%;
@@ -137,65 +125,70 @@
       z-index: 98;
     }
 
+    .image-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ascii-overlay {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: 2;
+    }
+
     #mainImage {
       position: relative;
-      z-index: 9;
+      z-index: 1;
     }
 
     #enterImage {
       max-width: 100px;
       opacity: 0.5;
     }
-    .image-wrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.ascii-overlay {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  opacity: 0.15;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: 2;
-}
-
-#mainImage {
-  position: relative;
-  z-index: 1;
-}
-
   </style>
 </head>
 <body>
-<!-- MAIN PAGE -->
-<div id="mainPage" class="hidden fade-in">
-  <nav>
-    <a id="aboutLink">About</a>
-    <a href="https://t.me/instakilled" target="_blank">Telegram</a>
-    <a href="#">Soon!</a>
-  </nav>
-
-  <div class="tag-bar">
-    <span onclick="switchMember('scare')">Flank</span> •
-    <span onclick="switchMember('ghost')">Decoy</span> •
-    <span onclick="switchMember('demon')">Dorm</span>
+  <!-- ENTER PAGE -->
+  <div id="enterPage" class="h-screen w-screen center flex-col fade-in" style="height: 100vh; flex-direction: column;">
+    <img id="enterImage" src="img/fake-ascii.png" alt="Enter Icon"/>
+    <div id="enterTrigger" style="margin-top: 20px; color: #ccc; cursor: pointer;">
+      enter
+    </div>
+    <div style="position:absolute; bottom: 20px; width:100%; text-align:center; color: #aaa;">
+      Good in the evil o_O &lt;3
+    </div>
   </div>
 
-  <!-- IMAGE + ASCII OVERLAY WRAPPED TOGETHER -->
-  <div class="center image-wrapper" style="height: 60vh; position: relative;">
-    <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
-    <img class="ascii-overlay" src="img/fake-ascii.png" alt="ASCII Overlay" />
-  </div>
+  <!-- MAIN PAGE -->
+  <div id="mainPage" class="hidden fade-in">
+    <nav>
+      <a id="aboutLink">About</a>
+      <a href="https://t.me/instakilled" target="_blank">Telegram</a>
+      <a href="#">Soon!</a>
+    </nav>
 
-  <div class="footer">
-    <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
+    <div class="tag-bar">
+      <span onclick="switchMember('scare')">Flank</span> •
+      <span onclick="switchMember('ghost')">Decoy</span> •
+      <span onclick="switchMember('demon')">Dorm</span>
+    </div>
+
+    <div class="center image-wrapper" style="height: 60vh;">
+      <img id="mainImage" src="img/hung.png" width="220" class="fade-in" />
+      <img class="ascii-overlay" src="img/fake-ascii.png" alt="ASCII Overlay" />
+    </div>
+
+    <div class="footer">
+      <span id="alias" class="underline">Flank</span>, <span id="description">a party o_O</span>
+    </div>
   </div>
-</div>
 
   <!-- ABOUT OVERLAY -->
   <div id="overlayBg"></div>
@@ -245,7 +238,7 @@
         enterPage.classList.add('hidden');
         mainPage.classList.remove('hidden');
         mainPage.classList.add('fade-in');
-        audio.play();
+        audio.play().catch(e => console.log("Autoplay blocked:", e));
       }, 1000);
     });
 
