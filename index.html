@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instakill</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
   <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script> 
   <script src="sparkle.js"></script>
   <style>
@@ -25,26 +25,26 @@
       font-size: 6rem;
       display: flex;
       z-index: 1;
-      margin-top: 3rem;
-      letter-spacing: 0.6rem;
+      margin-top: 2rem;
+      letter-spacing: 0.4rem; /* Adjusted spacing */
       opacity: 0.9;
     }
 
     .letter {
-      animation: waveColors 3s infinite ease-in-out;
-      animation-delay: calc(var(--i) * 0.15s);
+      animation: waveColors 4s infinite ease-in-out;
+      animation-delay: calc(var(--i) * 0.2s);
       transition: color 0.5s ease-in-out;
     }
 
     @keyframes waveColors {
-      0%   { color: #grey; }
-      14%  { color: #white; }
-      28%  { color: #red; }
-      42%  { color: #darkred; }
-      56%  { color: #grey; }
-      70%  { color: #white; }
-      84%  { color: #red; }
-      100% { color: #darkred; }
+      0%   { color: #8b0000; } /* Dark Red */
+      14%  { color: #ffffff; } /* White */
+      28%  { color: #ff0000; } /* Red */
+      42%  { color: #8b0000; } /* Dark Red */
+      56%  { color: #ffffff; } /* White */
+      70%  { color: #ff0000; } /* Red */
+      84%  { color: #8b0000; } /* Dark Red */
+      100% { color: #ffffff; } /* White */
     }
 
     .overlay {
@@ -53,7 +53,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,14 +66,14 @@
     }
 
     .overlay:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 <body>
   <div class="title" id="instakill"></div>
   <div class="overlay" onclick="enterSite()" id="overlay">Click to Enter</div>
-  <audio id="bg-music" src="music/audio.mp3" loop></audio>
+  <audio id="bg-music" src="music/audio4.mp3" loop></audio> <!-- Ensure the path is correct -->
 
   <script>
     const title = document.getElementById('instakill');
