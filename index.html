@@ -1,149 +1,116 @@
 <!DOCTYPE html><html lang="en"><head>
-    <title>@mvp</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:description" content=":c">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" sizes="32x32" href="img/icon-32x32.png" type="image/png">
-    <link rel="icon" sizes="16x16" href="img/icon-16x16.png" type="image/png">
-    <meta name="theme-color" data-react-helmet="true" content="#ffd4f4">
-    <link rel="stylesheet" type="text/css" href="404.css">
-</head>
-<style>
-    body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-}
+    <link rel="stylesheet" href="/css/star.css">
+    <script src="js/antinspect.js"></script>
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="0e3129054fa97055e1fdc294-|49"></script>
+    </head><body onload="document.body.style.opacity='1'" class="wallpaper">
+    <title>@instakill</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('fonts/Minecraftia.ttf') format('truetype');
+        }
 
-.background {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000;
-    z-index: -2;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
+        @keyframes sparkling {
+            0% {
+                opacity: 0.2;
+            }
 
-.ascii-image {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    z-index: -2;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
+            50% {
+                opacity: 1;
+            }
 
-.full-page-overlay {
-    position: absolute;
-    transition: opacity 1s ease-in-out;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
- #enter-gate {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(100, 100, 100, 0.4);
-      backdrop-filter: blur(3px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-      cursor: pointer;
-    }
+            100% {
+                opacity: 0.2;
+            }
+        }
 
-    .enter-text {
-      color: white;
-      font-size: 2rem;
-      font-family: monospace;
-      pointer-events: none;
-      user-select: none;
-    }
+        .sparkle-text {
+            animation: sparkling 2s infinite;
+        }
 
-    #enter-gate.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
+        .navigation a {
+            text-shadow: 0px 0px 16.5px white;
+        }
 
-    body.paused {
-      background: none;
-    }
-    <style></style>
-<body>
-     <div id="enter-gate">
-    <div class="enter-text">Click to Enter...</div>
-  </div>
+        .sparkle-text {
+            animation: sparkling 2s infinite;
+        }
 
-    <div class="background">
-        <div class="ascii-image" id="image">
-            <img id="random-gif" src="img/lmfao2gif.gif">
-        </div>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Minecraftia', sans-serif;
+            font-size: 24px;
+            z-index: 9999;
+            cursor: pointer;
+        }
 
-        <div class="full-page-overlay">
-            <img src="img/fake-ascii.png">
+    </style>
+
+
+    <div id="overlay">
+        <div>
+            <p>Click to enter.</p>
         </div>
     </div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92e9f7ba7fc4671c',t:'MTc0NDM2OTA5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-<script type="d0ec47953c03bf8c5b872881-text/javascript">
-    window.onload = function () {
-        if (window.location.pathname === '/index.html') {
-            window.location.replace('/');
-        }
-    };
+    <div class="galaxy">
+        <div class="stars1"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">Instakill</h1>
+        <div class="profiles">
+            
+            <a href="https://t.me/flank155" class="profile-link">
+                <div class="profile">
+                    <img src="img/american.png" alt="flank">
+                    <p>@Flank</p>
+                </div>
+            </a>
+            <a href="https://t.me/decoy95" class="profile-link">
+                <div class="profile">
+                    <img src="img/cash.png" alt="decoy">
+                    <p>@Decoy</p>
+                </div>
+            </a>
+            <a href="https://t.me/pleinnmm" class="profile-link">
+                <div class="profile">
+                    <i class="fa-solid fa-crown"></i>
+                    <img src="img/hung.png" alt="Dorm">
+                    <p>@Dorm</p>
+                </div>
+            </a>
+
     
-</script>
 
-    <script type="d0ec47953c03bf8c5b872881-text/javascript">
-   
-        function openNewPage(url) {
-        window.open(url, '_blank');
-    }
+    <div id="bottom-left">
+        © <a href="https://t.me/instakilled" target="_blank" style="color:white; text-decoration: none;">instakill</a> | <a href="https://flanked.xyz" target="_blank" style="color:white; text-decoration: none;">Instakill</a> | 2025
+    </div>
 
-    function handleEvent(event) {
-
-        if (event.type === 'contextmenu' || (event.type === 'keydown' && (event.ctrlKey || event.shiftKey || event.key === 's'))) {
-
-            openNewPage('https://www.google.com/search?q=what+to+do+if+I+get+caught+with+child+porn&oq=what+to+do+if+I+get+caught+with+child+porn');
-            event.preventDefault();
-        }
-    }
-
-        
-</script>
     <script>
-  document.getElementById('enter-gate').addEventListener('click', function () {
-    const gate = this;
-    gate.classList.add('fade-out');
+        document.getElementById("overlay").addEventListener("click", function() {
+            document.getElementById("overlay").style.display = "none";
+            var audio = new Audio('/music/audio3.mp3');
+            audio.volume = 0.3;
+            audio.play();
+        });
+    </script>
 
-    // Optional: Allow animations to finish before hiding it completely
-    setTimeout(() => {
-      gate.style.display = 'none';
-    }, 500); // Match your CSS transition duration
-  });
-</script>
 
-    <script src="cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="d0ec47953c03bf8c5b872881-|49" defer=""></script>
-
-</body>
-
-</html>
+</body></html>
