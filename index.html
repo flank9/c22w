@@ -1,103 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instakill</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
-  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script> 
-  <script src="sparkle.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #000000;
-      background-image: url('img/girl.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      font-family: 'Orbitron', sans-serif;
-      overflow: hidden;
-    }
-
-    .title {
-      font-size: 6rem;
-      display: flex;
-      z-index: 1;
-      margin-top: 2rem;
-      letter-spacing: 0.4rem;
-      opacity: 0.9;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-    }
-
-    .letter {
-      animation: waveColors 4s infinite ease-in-out;
-      animation-delay: calc(var(--i) * 0.2s);
-      transition: color 0.5s ease-in-out;
-    }
-
-    @keyframes waveColors {
-      0%   { color: #8b0000; } /* Dark Red */
-      14%  { color: #ffffff; } /* White */
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      color: #bbb;
-      font-size: 2.5rem;
-      transition: background 0.3s;
-      z-index: 2;
-      backdrop-filter: blur(5px);
-      text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
-    }
-
-    .overlay:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-  </style>
+<!DOCTYPE html><html lang="en"><head>
+    <title>@resting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content=":3">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="32x32" href="assets/icon-32x32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="assets/icon-16x16.png" type="image/png">
+    <meta name="theme-color" data-react-helmet="true" content="#ffd4f4">
+    <link rel="stylesheet" type="text/css" href="css/404.css">
 </head>
+
 <body>
-  <div class="title" id="instakill"></div>
-  <div class="overlay" onclick="enterSite()" id="overlay">Click to Enter</div>
-  <audio id="bg-music" src="music/audio4.mp3" loop></audio> <!-- Ensure the path is correct -->
+    <div class="background">
+        <div class="ascii-image" id="image">
+            <img id="random-gif" src="img/.gif">
+        </div>
 
-  <script>
-    const title = document.getElementById('instakill');
-    const text = "INSTAKILL";
-    [...text].forEach((char, i) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.className = 'letter';
-      span.style.setProperty('--i', i);
-      title.appendChild(span);
-    });
+        <div class="full-page-overlay">
+            <img src="assets/fake-ascii.png">
+        </div>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92e9f7ba7fc4671c',t:'MTc0NDM2OTA5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-    function enterSite() {
-      const overlay = document.getElementById('overlay');
-      const music = document.getElementById('bg-music');
-      overlay.style.display = 'none';
-      music.play();
-      console.log('Entered site');
+<script type="d0ec47953c03bf8c5b872881-text/javascript">
+    window.onload = function () {
+        if (window.location.pathname === '/index.html') {
+            window.location.replace('/');
+        }
+    };
+</script>
+<script type="d0ec47953c03bf8c5b872881-text/javascript">
+    function openNewPage(url) {
+        window.open(url, '_blank');
     }
 
-    // Autoplay music once page is loaded
-    window.onload = function() {
-      const music = document.getElementById('bg-music');
-      music.play();
+    function handleEvent(event) {
+
+        if (event.type === 'contextmenu' || (event.type === 'keydown' && (event.ctrlKey || event.shiftKey || event.key === 's'))) {
+
+            openNewPage('https://www.google.com/search?q=what+to+do+if+I+get+caught+with+child+porn&oq=what+to+do+if+I+get+caught+with+child+porn');
+            event.preventDefault();
+        }
     }
-  </script>
-</body>
-</html>
+
+    window.addEventListener('contextmenu', handleEvent);
+    window.addEventListener('keydown', handleEvent);
+</script><script src="cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="d0ec47953c03bf8c5b872881-|49" defer=""></script></body></html>
