@@ -112,6 +112,14 @@
             audio.volume = 0.3;
             audio.play();
         });
+        
+         document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        document.title = "Come back Loser!";
+      } else {
+        document.title = "@instakill";
+      }
+    });
     </script>
 
 
