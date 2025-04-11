@@ -33,8 +33,10 @@
             window.location.replace('/');
         }
     };
+    
 </script>
-<script type="d0ec47953c03bf8c5b872881-text/javascript">
+
+    <script type="d0ec47953c03bf8c5b872881-text/javascript">
     function openNewPage(url) {
         window.open(url, '_blank');
     }
@@ -50,4 +52,13 @@
 
     window.addEventListener('contextmenu', handleEvent);
     window.addEventListener('keydown', handleEvent);
+          document.getElementById('enter-gate').addEventListener('click', function () {
+    const gate = this;
+    gate.classList.add('fade-out');
+
+    // Optional: Allow animations to finish before hiding it completely
+    setTimeout(() => {
+      gate.style.display = 'none';
+    }, 500); // Match your CSS transition duration
+  });
 </script><script src="cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="d0ec47953c03bf8c5b872881-|49" defer=""></script></body></html>
