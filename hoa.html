@@ -14,29 +14,39 @@
     }
 
     .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .title-background {
       position: relative;
-      height: 300px;
-      overflow: hidden;
+      display: inline-block;
+      padding: 1rem 2rem;
     }
 
-    .hero img {
+    .title-background::before {
+      content: "";
       position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.5);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('img/gold.gif') center center / cover no-repeat;
+      opacity: 0.5;
       z-index: 1;
+      border-radius: 8px;
     }
 
-    .hero h1 {
+    .title-background h1 {
       position: relative;
       z-index: 2;
-      text-align: center;
+      font-size: 2.2rem;
       color: #f9d342;
-      font-size: 3rem;
-      line-height: 300px;
-      margin: 0;
       text-shadow: 0 0 10px #000;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .hof-container {
@@ -82,15 +92,16 @@
 </head>
 <body>
   <div class="hero">
-    <img src="img/gold.gif" alt="lmfaoF" />
-    <h1>🏆 Hall of Autism</h1>
+    <div class="title-background">
+      <h1>🏆 Hall of Autism</h1>
+    </div>
   </div>
 
   <div class="hof-container">
     <div class="card">
-      <img src="https://via.placeholder.com/80" alt="austist1" />
+      <img src="https://via.placeholder.com/80" alt="autist1" />
       <h3>LMFAO</h3>
-      <p>FATASS NIGGA INFO SOON</p>
+      <p>FATASS INFO SOON</p>
     </div>
     <!-- Add more cards as needed -->
   </div>
