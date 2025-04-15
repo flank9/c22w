@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>@instakill | Hall of retards</title>
+  <title>instakill | Hall of retards</title>
   <style>
     body {
       margin: 0;
@@ -14,38 +14,43 @@
 
     .hero {
       position: relative;
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
     }
 
-    .hero img {
+    .hero .gold-gif {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.3);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
       z-index: 1;
+      opacity: 0.4;
+      pointer-events: none;
     }
 
     .hero h1 {
       position: relative;
       z-index: 2;
-      font-size: 3rem;
-      text-align: center;
-      background: linear-gradient(90deg, gold, orange, gold);
+      font-size: 2.6rem;
+      font-weight: bold;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 15px #000;
+      animation: rainbow 8s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     .hof-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem;
       padding: 2rem;
       max-width: 1400px;
@@ -77,9 +82,11 @@
     .name {
       font-size: 1.3rem;
       font-weight: bold;
-      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
       margin-bottom: 0.2rem;
     }
 
@@ -97,7 +104,7 @@
 
     .card a {
       display: inline-block;
-      margin-top: 0.5rem;
+      margin-top: 0.7rem;
       font-size: 0.85rem;
       color: #42aaff;
       text-decoration: underline;
@@ -106,41 +113,26 @@
 </head>
 <body>
 
-  <!-- Top banner with gif background -->
+  <!-- Hero section with gold gif behind title -->
   <div class="hero">
-    <img src="img/gold.gif" alt="Golden Background" />
+    <img src="img/gold.gif" alt="Gold Effect" class="gold-gif" />
     <h1>Hall of Retards</h1>
   </div>
 
-  <!-- Cards section -->
+  <!-- Cards -->
   <div class="hof-container">
     <div class="card">
-      <img src="https://via.placeholder.com/120" alt="User 1" />
+      <img src="https://files.catbox.moe/83rwzp.png" alt="Retard 1" />
       <div class="name">Kaan Kemikli</div>
-      <div class="tag">larp</div>
+      <div class="tag">Blacklist</div>
       <div class="desc">
-       Wannabe 1337 hacker, but he is the biggest larp lol
+        Wannabe 1337 hacker, but he is the biggest larp// 
       </div>
-      <a href="#"> - Full Name: Kaan Kemikli
- - Address: Heimbühlstraße 26, 72768 Reutlingen
- - DOB: 25.04.2008
- - Gender: Male
- - Old Number: +491631742530
- - Email: kemikli.kaan@gmail.com
- - Tisch Tennis Verein: SV Rommelsbach, Spiellokal 1 : Turnhalle am Reisweg, Reisweg 25, 72768 Reutlingen</a>
+      <a href="https://files.catbox.moe/twjv1y.txt">Paste</a>
     </div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/120" alt="User 2" />
-      <div class="name">Username Two</div>
-      <div class="tag">AnotherTag</div>
-      <div class="desc">
-        This is another safe and clean description. All good to go!
-      </div>
-      <a href="#">More Info</a>
-    </div>
 
-    <!-- Add more cards here -->
+    <!-- Add more cards as needed -->
   </div>
 
 </body>
