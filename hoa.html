@@ -2,108 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@instakill | HOA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@instakill | Hall of retards</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #1e1e1e;
-      color: #fff;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #0f0;
     }
 
     .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .title-background {
       position: relative;
-      display: inline-block;
-      padding: 1rem 2rem;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .title-background::before {
-      content: "";
+    .hero img {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('img/gold.gif') center center / cover no-repeat;
-      opacity: 0.5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
       z-index: 1;
-      border-radius: 8px;
     }
 
-    .title-background h1 {
+    .hero h1 {
       position: relative;
       z-index: 2;
-      font-size: 2.2rem;
-      color: #f9d342;
-      text-shadow: 0 0 10px #000;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 3rem;
+      text-align: center;
+      background: linear-gradient(90deg, gold, orange, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px #000;
     }
 
     .hof-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 2rem;
       padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
     }
 
     .card {
-      background: #2e2e2e;
-      border-radius: 10px;
+      background: #1a1a1a;
+      border-radius: 12px;
       padding: 1.5rem;
-      width: 250px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
     }
 
     .card img {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      margin-bottom: 1rem;
       object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid #333;
     }
 
-    .card h3 {
-      margin: 0.5rem 0;
-      color: #ff6f61;
+    .name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.2rem;
     }
 
-    .card p {
+    .tag {
+      color: #aaa;
       font-size: 0.9rem;
-      color: #ccc;
+      margin-bottom: 0.6rem;
+    }
+
+    .desc {
+      font-size: 0.85rem;
+      color: #0f0;
+      line-height: 1.4;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #42aaff;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
+  <!-- Top banner with gif background -->
   <div class="hero">
-    <div class="title-background">
-      <h1>🏆 Hall of Autism</h1>
-    </div>
+    <img src="img/gold.gif" alt="Golden Background" />
+    <h1>Hall of Retards</h1>
   </div>
 
+  <!-- Cards section -->
   <div class="hof-container">
     <div class="card">
-      <img src="https://via.placeholder.com/80" alt="autist1" />
-      <h3>LMFAO</h3>
-      <p>FATASS INFO SOON</p>
+      <img src="https://via.placeholder.com/120" alt="User 1" />
+      <div class="name">Kaan Kemikli</div>
+      <div class="tag">larp</div>
+      <div class="desc">
+       Wannabe 1337 hacker, but he is the biggest larp lol
+      </div>
+      <a href="#"> - Full Name: Kaan Kemikli
+ - Address: Heimbühlstraße 26, 72768 Reutlingen
+ - DOB: 25.04.2008
+ - Gender: Male
+ - Old Number: +491631742530
+ - Email: kemikli.kaan@gmail.com
+ - Tisch Tennis Verein: SV Rommelsbach, Spiellokal 1 : Turnhalle am Reisweg, Reisweg 25, 72768 Reutlingen</a>
     </div>
-    <!-- Add more cards as needed -->
+
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="User 2" />
+      <div class="name">Username Two</div>
+      <div class="tag">AnotherTag</div>
+      <div class="desc">
+        This is another safe and clean description. All good to go!
+      </div>
+      <a href="#">More Info</a>
+    </div>
+
+    <!-- Add more cards here -->
   </div>
+
 </body>
 </html>
