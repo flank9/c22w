@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>instakill | Hall of retards</title>
+  <title>instakill | Hall of Fame</title>
   <style>
     body {
       margin: 0;
@@ -13,27 +13,33 @@
     }
 
     .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .title-background {
       position: relative;
-      padding: 3rem 1rem 2rem;
-      text-align: center;
+      display: inline-block;
+      padding: 1rem 2rem;
     }
 
-    .hero .gold-gif {
+    .title-background::before {
+      content: "";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 180px;
-      height: 180px;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('img/gold.gif') center center / cover no-repeat;
+      opacity: 0.5;
       z-index: 1;
-      opacity: 0.4;
-      pointer-events: none;
+      border-radius: 10px;
     }
 
-    .hero h1 {
+    .title-background h1 {
       position: relative;
       z-index: 2;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: bold;
       background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
       background-size: 600% 600%;
@@ -41,6 +47,7 @@
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 15px #000;
       animation: rainbow 8s linear infinite;
+      margin: 0;
     }
 
     @keyframes rainbow {
@@ -113,26 +120,27 @@
 </head>
 <body>
 
-  <!-- Hero section with gold gif behind title -->
+  <!-- Hero title with animated gold gif background -->
   <div class="hero">
-    <img src="img/gold.gif" alt="Gold Effect" class="gold-gif" />
-    <h1>Hall of Retards</h1>
+    <div class="title-background">
+      <h1>Hall of retards</h1>
+    </div>
   </div>
 
-  <!-- Cards -->
+  <!-- Cards Section -->
   <div class="hof-container">
     <div class="card">
       <img src="https://files.catbox.moe/83rwzp.png" alt="Retard 1" />
       <div class="name">Kaan Kemikli</div>
       <div class="tag">Blacklist</div>
       <div class="desc">
-        Wannabe 1337 hacker, but he is the biggest larp// 
+        Wannabe 1337 hacker, but he is the biggest larp.
       </div>
       <a href="https://files.catbox.moe/twjv1y.txt">Paste</a>
     </div>
 
+    <!-- Add more cards here as needed -->
 
-    <!-- Add more cards as needed -->
   </div>
 
 </body>
