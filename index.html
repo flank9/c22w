@@ -22,10 +22,31 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      text-align: center;
+      text-align: left;
       padding: 2rem;
       z-index: 1;
       position: relative;
+    }
+
+    .terminal-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .terminal img.logo {
+      max-width: 200px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    }
+
+    .line {
+      margin: 0.6rem 0;
+      line-height: 1.5;
     }
 
     .terminal a {
@@ -63,7 +84,7 @@
     }
 
     .members {
-      margin-top: 1rem;
+      margin-top: 2rem;
       text-align: left;
       line-height: 1.6;
     }
@@ -118,20 +139,25 @@
 <body>
 
 <div class="terminal" id="terminal">
-  :: Welcome to instakill's website  
-  :: Secure access granted...  
-  :: System active. Proceed with navigation
+  <div class="terminal-content">
+    <!-- Optional PNG logo overlay -->
+    <img src="img/logo.png" alt="Logo" class="logo">
 
-  <br><br>
+    <div class="line">:: Welcome to instakill check the hoa for retards</div>
+    <div class="line">:: Secure access granted...</div>
+    <div class="line">:: System active. Proceed with navigation</div>
 
-  <a href="hoa.">:: Hall of Autism (H.O.A)</a>  
-  :: Dumb asses, degenerates, pedos and more  
-  :: Just enter and see
+    <br>
 
-  <div class="members">
-    <p>- @decoy — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/decoy95" target="_blank">t.me/@decoy</a>]</p>
-    <p>_ @pleinmm — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/pleinnmm" target="_blank">t.me/@pleinnmm</a>]</p>
-    <p>- @twomists — <a href="/user/flanked">[/user/ceo]</a> [<a href="https://t.me/twomists" target="_blank">t.me/@twomists</a>]</p>
+    <div class="line"><a href="hoa">:: Hall of Autism's (HOA)</a></div>
+    <div class="line">:: Dumbasses, degenerates, pedos and more</div>
+    <div class="line">:: Just enter and see the retards</div>
+
+    <div class="members">
+      <p> ::@decoy — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/decoy95" target="_blank">t.me/@decoy</a>]</p>
+      <p> ::@pleinmm — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/pleinnmm" target="_blank">t.me/@pleinnmm</a>]</p>
+      <p> ::@twomists — <a href="/user/flanked">[/user/flank]</a> [<a href="https://t.me/twomists" target="_blank">t.me/@twomists</a>]</p>
+    </div>
   </div>
 </div>
 
@@ -144,7 +170,7 @@
 <div class="stars" id="stars"></div>
 
 <!-- Audio -->
-<audio id="bgMusic" src="music/audio.mp3" preload="auto" loop></audio>
+<audio id="bgMusic" src="music/audio4.mp3" preload="auto" loop></audio>
 
 <script>
   function startExperience() {
@@ -204,7 +230,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     applyFlickerEffect();
-    createStars(80);
+    createStars(50);
   });
 </script>
 
