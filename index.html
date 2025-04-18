@@ -71,16 +71,16 @@
       cursor: pointer;
     }
 
+    .overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .overlay-text {
       color: white;
       font-size: 2rem;
       font-weight: bold;
       text-align: center;
-    }
-
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
     }
 
     .members {
@@ -140,19 +140,14 @@
 
 <div class="terminal" id="terminal">
   <div class="terminal-content">
-    <!-- Optional PNG logo overlay -->
     <img src="img/logo.png" alt="Logo" class="logo">
-
     <div class="line">:: Welcome to instakill check the hoa for retards</div>
     <div class="line">:: Secure access granted...</div>
     <div class="line">:: System active. Proceed with navigation</div>
-
     <br>
-
     <div class="line"><a href="hoa">:: Hall of Autism's (HOA)</a></div>
     <div class="line">:: Dumbasses, degenerates, pedos and more</div>
     <div class="line">:: Just enter and see the retards</div>
-
     <div class="members">
       <p> ::@decoy — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/decoy95" target="_blank">t.me/@decoy</a>]</p>
       <p> ::@pleinmm — <a href="/user/...">[/user/???]</a> [<a href="https://t.me/pleinnmm" target="_blank">t.me/@pleinnmm</a>]</p>
@@ -162,7 +157,7 @@
 </div>
 
 <!-- Overlay -->
-<div class="overlay" id="overlay" onclick="startExperience()">
+<div class="overlay" id="overlay">
   <div class="overlay-text">Enter</div>
 </div>
 
@@ -173,16 +168,16 @@
 <audio id="bgMusic" src="music/audio4.mp3" preload="auto" loop></audio>
 
 <script>
-  function startExperience() {
-    const overlay = document.getElementById("overlay");
+  const overlay = document.getElementById("overlay");
+  const audio = document.getElementById("bgMusic");
+
+  overlay.addEventListener("click", () => {
     overlay.classList.add("hidden");
 
-    const audio = document.getElementById("bgMusic");
-    audio.volume = 0.7;
-    audio.play().catch(err => {
-      console.error("Audio play failed:", err);
-    });
-  }
+    // iOS and browsers require this to be from a user interaction
+    audio.volume = 0.6;
+    audio.play().catch(e => console.warn("Audio play blocked:", e));
+  });
 
   function applyFlickerEffect() {
     const terminal = document.getElementById("terminal");
