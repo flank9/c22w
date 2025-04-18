@@ -69,6 +69,24 @@
     .members p {
       margin: 0.3rem 0;
     }
+    .flicker {
+  animation: flickerAnimation 2s infinite;
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity: 1; }
+  10%  { opacity: 0.3; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0.5; }
+  40%  { opacity: 1; }
+  50%  { opacity: 0.1; }
+  60%  { opacity: 1; }
+  70%  { opacity: 0.4; }
+  80%  { opacity: 1; }
+  90%  { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
   </style>
 </head>
 <body>
@@ -110,6 +128,37 @@
       console.error("Audio play failed:", err);
     });
   }
+   function applyFlickerEffect() {
+    const terminal = document.getElementById("terminal");
+    const textNodes = [];
+
+    function getTextNodes(node) {
+      if (node.nodeType === 3 && node.nodeValue.trim()) {
+        textNodes.push(node);
+      } else if (node.nodeType === 1) {
+        for (let child of node.childNodes) {
+          getTextNodes(child);
+        }
+      }
+    }
+
+    getTextNodes(terminal);
+
+    textNodes.forEach(node => {
+      const chars = node.nodeValue.split('');
+      const newHTML = chars.map(char => {
+        if (Math.random() < 0.05 && char.trim() !== '') {
+          return `<span class="flicker">${char}</span>`;
+        }
+        return char;
+      }).join('');
+      const wrapper = document.createElement("span");
+      wrapper.innerHTML = newHTML;
+      node.parentNode.replaceChild(wrapper, node);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", applyFlickerEffect);
 </script>
 
 </body>
