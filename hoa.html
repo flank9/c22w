@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <title>Instakill | Hall of Autism</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #0a0a0a;
       color: white;
       overflow-x: hidden;
+      height: 100%;
     }
 
     nav {
@@ -29,7 +31,7 @@
 
     h1 {
       text-align: center;
-      font-size: 3em;
+      font-size: 2.8em;
       margin: 25px 0;
       animation: rainbow 5s infinite linear;
       font-weight: bold;
@@ -47,53 +49,56 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 30px 20px;
+      padding: 20px;
     }
 
     .card {
       background: #1a1a1a;
       border-radius: 10px;
-      padding: 15px;
+      padding: 10px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.15);
     }
 
     .card img {
       width: 100%;
       border-radius: 10px;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      max-height: 300px;
+      max-height: 220px;
     }
 
     .card h2 {
       color: limegreen;
-      margin: 10px 0 4px;
-      font-size: 1.3em;
+      margin: 10px 0 5px;
+      font-size: 1.1em;
     }
 
     .card p {
-      font-size: 0.9em;
+      font-size: 0.85em;
       color: #ccc;
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     .card a {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 6px;
       color: violet;
-      font-size: 0.85em;
+      font-size: 0.8em;
       text-decoration: underline;
     }
 
     canvas {
       position: fixed;
-      pointer-events: none;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
       z-index: 9999;
     }
   </style>
@@ -121,22 +126,31 @@
       <p>Claims to hack NASA but can't open a ZIP file. Classic.</p>
     </div>
 
-    <!-- More cards go here -->
+    <!-- Add more cards here -->
   </div>
 
-  <audio autoplay loop id="bgmusic" src="music/audio3.mp3"></audio>
+  <audio autoplay loop id="bgmusic" src="music/audio3.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  
   <canvas id="confetti-canvas"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     const canvas = document.getElementById('confetti-canvas');
-    const confetti = confetti.create(canvas, { resize: true, useWorker: true });
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confettiInstance = confetti.create(canvas, {
+      resize: true,
+      useWorker: true
+    });
 
     function launchTrail(x, y) {
-      confetti({
-        particleCount: 3,
-        startVelocity: 20,
-        spread: 20,
+      confettiInstance({
+        particleCount: 2,
+        startVelocity: 10,
+        spread: 15,
         origin: {
           x: x / window.innerWidth,
           y: y / window.innerHeight
@@ -144,7 +158,14 @@
       });
     }
 
-    document.addEventListener('mousemove', e => launchTrail(e.clientX, e.clientY));
+    document.addEventListener('mousemove', e => {
+      launchTrail(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 
 </body>
