@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0a0a0a;
       color: white;
       overflow-x: hidden;
@@ -14,7 +14,7 @@
 
     nav {
       background: #111;
-      padding: 10px 20px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,15 +23,16 @@
     nav a {
       color: #f0f0f0;
       text-decoration: none;
-      margin: 0 10px;
       font-weight: bold;
+      font-size: 14px;
     }
 
     h1 {
       text-align: center;
       font-size: 3em;
-      margin: 20px 0;
-      animation: rainbow 4s infinite linear;
+      margin: 25px 0;
+      animation: rainbow 5s infinite linear;
+      font-weight: bold;
     }
 
     @keyframes rainbow {
@@ -46,11 +47,11 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 30px 20px;
     }
 
     .card {
@@ -65,17 +66,27 @@
       width: 100%;
       border-radius: 10px;
       object-fit: cover;
-      max-height: 250px;
+      max-height: 300px;
     }
 
     .card h2 {
-      color: hotpink;
-      margin: 10px 0 5px;
+      color: limegreen;
+      margin: 10px 0 4px;
+      font-size: 1.3em;
     }
 
     .card p {
       font-size: 0.9em;
       color: #ccc;
+      margin: 8px 0;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 8px;
+      color: violet;
+      font-size: 0.85em;
+      text-decoration: underline;
     }
 
     canvas {
@@ -83,53 +94,58 @@
       pointer-events: none;
       top: 0;
       left: 0;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
+
   <nav>
-    <div><a href="index.html">Home</a></div>
-    <div><a href="index.html#members">Members</a></div>
+    <a href="index.html">Home</a>
+    <a href="hoa.html">Hall of Autism</a>
   </nav>
 
   <h1>HALL OF AUTISM</h1>
 
   <div class="grid">
     <div class="card">
-      <img src="ttps://files.catbox.moe/83rwzp.png" alt="Funny Cat">
+      <img src="https://files.catbox.moe/83rwzp.png" alt="Kaan">
       <h2>Kaan Kemikli</h2>
       <p>Wannabe 1337 hacker, but he is the biggest larp.</p>
-      <a href="https://files.catbox.moe/twjv1y.txt">Paste</a>
+      <a href="https://files.catbox.moe/twjv1y.txt" target="_blank">Paste</a>
     </div>
+
     <div class="card">
-      <img src="https://placebear.com/300/300" alt="Meme Lord">
+      <img src="https://placebear.com/300/300" alt="Grizzly Goon">
       <h2>Grizzly Goon</h2>
       <p>Claims to hack NASA but can't open a ZIP file. Classic.</p>
     </div>
-    <!-- Add more cards here -->
+
+    <!-- More cards go here -->
   </div>
 
-  <audio autoplay loop id="bgmusic" src="music.mp3"></audio>
-
+  <audio autoplay loop id="bgmusic" src="music/audio3.mp3"></audio>
   <canvas id="confetti-canvas"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     const canvas = document.getElementById('confetti-canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const confetti = confetti.create(canvas, { resize: true });
+    const confetti = confetti.create(canvas, { resize: true, useWorker: true });
 
-    document.addEventListener('mousemove', (e) => {
+    function launchTrail(x, y) {
       confetti({
-        particleCount: 2,
+        particleCount: 3,
+        startVelocity: 20,
         spread: 20,
         origin: {
-          x: e.clientX / window.innerWidth,
-          y: e.clientY / window.innerHeight
+          x: x / window.innerWidth,
+          y: y / window.innerHeight
         }
       });
-    });
+    }
+
+    document.addEventListener('mousemove', e => launchTrail(e.clientX, e.clientY));
   </script>
+
 </body>
 </html>
