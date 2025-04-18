@@ -21,9 +21,9 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      white-space: pre-line;
-      font-size: 1rem;
-      padding: 1rem;
+      padding: 2rem;
+      z-index: 1;
+      position: relative;
     }
 
     a {
@@ -31,80 +31,73 @@
       text-decoration: underline;
     }
 
-    hr {
-      width: 60%;
-      border: none;
-      border-top: 1px solid white;
-      margin: 1rem 0;
-    }
-
-    .enter-button {
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(100, 100, 100, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      transition: opacity 0.5s ease;
       cursor: pointer;
-      color: white;
-      font-weight: bold;
-      margin-top: 2rem;
-      border: 2px solid white;
-      padding: 0.5rem 1rem;
-      transition: background 0.3s;
     }
 
-    .enter-button:hover {
-      background: white;
-      color: black;
+    .overlay-text {
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
     }
 
     .hidden {
-      display: none;
+      opacity: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
 
 <div class="terminal" id="terminal">
-  :: Welcome to Iron Veil's terminal.  
+  :: Welcome to Iron Veil's terminal  
   :: Secure access granted...  
-  :: System active. Proceed with navigation.
+  :: System active. Proceed with navigation
 
-  <hr>
+  <br><br>
 
   <a href="hoa.html">:: Hall of Autism (H.O.A)</a>  
-  :: Meme wall, degenerates, confetti trails & amphetamine-core HTML.  
-  :: Enter at your own risk.
+  :: Meme wall, degenerates, confetti trails & amphetamine-core HTML  
+  :: Enter at your own risk
 
-  <hr>
+  <br><br>
 
   :: @LTE — <a href="/user/lte">[/user/lte]</a> [<a href="https://t.me/bleed" target="_blank">t.me/@bleed</a>]  
   :: @VIS — <a href="/user/vv">[/user/vv]</a> [<a href="https://t.me/viscount" target="_blank">t.me/@viscount</a>]  
   :: @CEO — <a href="/user/ceo">[/user/ceo]</a> [<a href="https://t.me/ceo" target="_blank">t.me/@ceo</a>]
-
-  <hr>
-
-  <div class="enter-button" id="enterBtn" onclick="startExperience()">CLICK TO ENTER</div>
-
-  <!-- Multiple music tracks -->
-  <audio id="bgMusic1" src="music1.mp3" preload="auto"></audio>
-  <audio id="bgMusic2" src="music2.mp3" preload="auto"></audio>
-  <audio id="bgMusic3" src="music3.mp3" preload="auto"></audio>
 </div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="startExperience()">
+  <div class="overlay-text">CLICK TO ENTER</div>
+</div>
+
+<!-- Audio -->
+<audio id="bgMusic" src="music/audio.mp3" preload="auto" loop></audio>
 
 <script>
   function startExperience() {
-    const btn = document.getElementById("enterBtn");
-    btn.classList.add("hidden");
+    const overlay = document.getElementById("overlay");
+    overlay.classList.add("hidden");
 
-    // List of music elements
-    const tracks = [
-      document.getElementById("bgMusic1"),
-      document.getElementById("bgMusic2"),
-      document.getElementById("bgMusic3")
-    ];
-
-    // Randomly pick one to play
-    const chosenTrack = tracks[Math.floor(Math.random() * tracks.length)];
-    chosenTrack.loop = true;
-    chosenTrack.volume = 0.7;
-    chosenTrack.play().catch(err => {
-      console.error("Autoplay failed:", err);
+    const audio = document.getElementById("bgMusic");
+    audio.volume = 0.7;
+    audio.play().catch(err => {
+      console.error("Audio play failed:", err);
     });
   }
 </script>
