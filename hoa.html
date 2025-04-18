@@ -49,7 +49,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
       gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
@@ -58,35 +58,39 @@
 
     .card {
       background: #1a1a1a;
-      border-radius: 10px;
-      padding: 10px;
+      border-radius: 12px;
+      padding: 12px;
       text-align: center;
       box-shadow: 0 0 10px rgba(255, 0, 255, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
     }
 
     .card img {
       width: 100%;
-      border-radius: 10px;
-      aspect-ratio: 1 / 1;
+      height: 150px;
       object-fit: cover;
-      max-height: 220px;
+      border-radius: 8px;
     }
 
     .card h2 {
       color: limegreen;
-      margin: 10px 0 5px;
-      font-size: 1.1em;
+      margin: 10px 0 4px;
+      font-size: 1.05em;
     }
 
     .card p {
-      font-size: 0.85em;
+      font-size: 0.8em;
       color: #ccc;
       margin: 6px 0;
     }
 
     .card a {
       display: inline-block;
-      margin-top: 6px;
+      margin-top: 5px;
       color: violet;
       font-size: 0.8em;
       text-decoration: underline;
@@ -132,7 +136,7 @@
   <audio autoplay loop id="bgmusic" src="music/audio3.mp3">
     Your browser does not support the audio tag.
   </audio>
-  
+
   <canvas id="confetti-canvas"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -146,11 +150,17 @@
       useWorker: true
     });
 
+    const rainbowColors = ['#ff0000', '#ffa500', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#ee82ee'];
+
     function launchTrail(x, y) {
       confettiInstance({
         particleCount: 2,
-        startVelocity: 10,
-        spread: 15,
+        startVelocity: 5,
+        scalar: 0.5,
+        spread: 20,
+        gravity: 0.5,
+        ticks: 60,
+        colors: rainbowColors,
         origin: {
           x: x / window.innerWidth,
           y: y / window.innerHeight
