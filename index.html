@@ -86,6 +86,29 @@
   90%  { opacity: 0.2; }
   100% { opacity: 1; }
 }
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  animation: twinkle 2s infinite;
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
 
   </style>
 </head>
@@ -113,6 +136,8 @@
 <div class="overlay" id="overlay" onclick="startExperience()">
   <div class="overlay-text">Enter</div>
 </div>
+
+  <div class="stars" id="stars"></div>
 
 <!-- Audio -->
 <audio id="bgMusic" src="music/audio.mp3" preload="auto" loop></audio>
@@ -159,6 +184,26 @@
   }
 
   document.addEventListener("DOMContentLoaded", applyFlickerEffect);
+  <script>
+  function createStars(count) {
+    const container = document.getElementById('stars');
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.textContent = '+';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.fontSize = (Math.random() * 0.5 + 0.7) + 'rem';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      container.appendChild(star);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    createStars(80); // You can bump this up for denser stars
+  });
+</script>
+
 </script>
 
 </body>
