@@ -1,115 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instakill</title>
+  <meta charset="UTF-8">
+  <title>Iron Veil Terminal</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: #000;
-      color: #f4b6e5;
-      font-family: monospace;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .terminal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      white-space: pre-line;
+      font-size: 1rem;
+      padding: 1rem;
     }
 
     a {
-      color: #f4b6e5;
-      text-decoration: none;
+      color: white;
+      text-decoration: underline;
     }
 
-    .nav {
-      background-color: #111;
-      padding: 10px 20px;
-      border-bottom: 2px solid #f4b6e5;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    hr {
+      width: 60%;
+      border: none;
+      border-top: 1px solid white;
+      margin: 1rem 0;
     }
 
-    .nav a {
-      margin: 0 10px;
+    .enter-button {
+      cursor: pointer;
+      color: white;
       font-weight: bold;
+      margin-top: 2rem;
+      border: 2px solid white;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
     }
 
-    .glitch {
-      font-size: 2rem;
-      text-align: center;
-      animation: flicker 1.5s infinite;
+    .enter-button:hover {
+      background: white;
+      color: black;
     }
 
-    .flicker-text, .flicker-text1, .flicker-text2 {
-      animation: flicker 2s infinite alternate;
-    }
-
-    .blink2 {
-      animation: blink 1s step-end infinite;
-    }
-
-    .section {
-      padding: 20px;
-      white-space: pre-wrap;
-    }
-
-    .red { color: red; }
-    .pale-red { color: #f4b6e5; }
-    .yellow { color: yellow; }
-    .purple { color: #d288ff; }
-    .atts { color: lime; }
-
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
-      20%, 24%, 55% { opacity: 0; }
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .ascii-header {
-      font-size: 1.2rem;
-      color: #f4b6e5;
-      text-align: center;
-      margin-top: 30px;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <div class="nav">
-    <div>
-      <a href="#home">Home</a>
-      <a href="#hoa">Hall of Autism</a>
-      <a href="#members">Members</a>
-    </div>
-    <div class="flicker-text2">[IV]</div>
-  </div>
+<div class="terminal" id="terminal">
+  :: Welcome to Iron Veil's terminal.  
+  :: Secure access granted...  
+  :: System active. Proceed with navigation.
 
-  <!-- ASCII Header -->
-  <div class="ascii-header">
-    0---- <span class="red flicker-text2">XXX</span> -------------------<span class="red flicker-text1">I</span><span class="flicker-text1 red">V</span>---------------------------
-  </div>
+  <hr>
 
-  <!-- HOME Section -->
-  <div class="section" id="home">
-    <span class="yellow">::</span> Welcome to Iron Veil's terminal.<br>
-    <span class="yellow">::</span> <span class="blink2">Secure access granted...</span><br>
-    <span class="yellow">::</span> System active. Proceed with navigation.
-  </div>
+  <a href="hoa.html">:: Hall of Autism (H.O.A)</a>  
+  :: Meme wall, degenerates, confetti trails & amphetamine-core HTML.  
+  :: Enter at your own risk.
 
-  <!-- HOA Section -->
-  <div class="section" id="hoa">
-    <span class="yellow">::</span> <span class="blink2">Hall of Autism (H.O.A)</span><br>
-    <span class="yellow">::</span> Meme wall, degenerates, confetti trails & amphetamine-core HTML.<br>
-    <span class="yellow">::</span> Enter at your own risk.
-  </div>
+  <hr>
 
-  <!-- MEMBERS Section -->
-  <div class="section" id="members">
-    <span class="yellow">::</span> <span class="atts">@</span><a href="#">LTE</a> — <span class="purple">[<a href="#">/user/lte</a>]</span> [<a href="#">t.me/@bleed</a>]<br>
-    <span class="yellow">::</span> <span class="atts">@</span><a href="#">VIS</a> — <span class="purple">[<a href="#">/user/vv</a>]</span> [<a href="#">t.me/@viscount</a>]<br>
-    <span class="yellow">::</span> <span class="atts">@</span><a href="#">CEO</a> — <span class="purple">[<a href="#">/user/ceo</a>]</span> [<a href="#">t.me/@ceo</a>]
-  </div>
+  :: @LTE — <a href="/user/lte">[/user/lte]</a> [<a href="https://t.me/bleed" target="_blank">t.me/@bleed</a>]  
+  :: @VIS — <a href="/user/vv">[/user/vv]</a> [<a href="https://t.me/viscount" target="_blank">t.me/@viscount</a>]  
+  :: @CEO — <a href="/user/ceo">[/user/ceo]</a> [<a href="https://t.me/ceo" target="_blank">t.me/@ceo</a>]
+
+  <hr>
+
+  <div class="enter-button" id="enterBtn" onclick="startExperience()">CLICK TO ENTER</div>
+
+  <!-- Multiple music tracks -->
+  <audio id="bgMusic1" src="music1.mp3" preload="auto"></audio>
+  <audio id="bgMusic2" src="music2.mp3" preload="auto"></audio>
+  <audio id="bgMusic3" src="music3.mp3" preload="auto"></audio>
+</div>
+
+<script>
+  function startExperience() {
+    const btn = document.getElementById("enterBtn");
+    btn.classList.add("hidden");
+
+    // List of music elements
+    const tracks = [
+      document.getElementById("bgMusic1"),
+      document.getElementById("bgMusic2"),
+      document.getElementById("bgMusic3")
+    ];
+
+    // Randomly pick one to play
+    const chosenTrack = tracks[Math.floor(Math.random() * tracks.length)];
+    chosenTrack.loop = true;
+    chosenTrack.volume = 0.7;
+    chosenTrack.play().catch(err => {
+      console.error("Autoplay failed:", err);
+    });
+  }
+</script>
 
 </body>
 </html>
