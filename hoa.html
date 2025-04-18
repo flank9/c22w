@@ -1,147 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>instakill | Hall of retards</title>
+  <meta charset="UTF-8">
+  <title>Instakill | Hall of Autism</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    nav {
       background: #111;
-      color: #0f0;
-    }
-
-    .hero {
+      padding: 10px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
     }
 
-    .title-background {
-      position: relative;
-      display: inline-block;
-      padding: 1rem 2rem;
-    }
-
-    .title-background::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('img/gold.gif') center center / cover no-repeat;
-      opacity: 0.5;
-      z-index: 1;
-      border-radius: 10px;
-    }
-
-    .title-background h1 {
-      position: relative;
-      z-index: 2;
-      font-size: 2.4rem;
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 10px;
       font-weight: bold;
-      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px #000;
-      animation: rainbow 8s linear infinite;
-      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 20px 0;
+      animation: rainbow 4s infinite linear;
     }
 
     @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+      0% { color: red; }
+      16% { color: orange; }
+      32% { color: yellow; }
+      48% { color: green; }
+      64% { color: blue; }
+      80% { color: indigo; }
+      100% { color: violet; }
     }
 
-    .hof-container {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1400px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
       background: #1a1a1a;
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: 10px;
+      padding: 15px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
     }
 
     .card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      width: 100%;
+      border-radius: 10px;
       object-fit: cover;
-      margin-bottom: 1rem;
-      border: 2px solid #333;
+      max-height: 250px;
     }
 
-    .name {
-      font-size: 1.3rem;
-      font-weight: bold;
-      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 6s linear infinite;
-      margin-bottom: 0.2rem;
+    .card h2 {
+      color: hotpink;
+      margin: 10px 0 5px;
     }
 
-    .tag {
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-bottom: 0.6rem;
+    .card p {
+      font-size: 0.9em;
+      color: #ccc;
     }
 
-    .desc {
-      font-size: 0.85rem;
-      color: #0f0;
-      line-height: 1.4;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 0.7rem;
-      font-size: 0.85rem;
-      color: #42aaff;
-      text-decoration: underline;
+    canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div><a href="index.html">Home</a></div>
+    <div><a href="index.html#members">Members</a></div>
+  </nav>
 
-  <!-- Hero title with animated gold gif background -->
-  <div class="hero">
-    <div class="title-background">
-      <h1>Hall of retards</h1>
-    </div>
-  </div>
+  <h1>HALL OF AUTISM</h1>
 
-  <!-- Cards Section -->
-  <div class="hof-container">
+  <div class="grid">
     <div class="card">
-      <img src="https://files.catbox.moe/83rwzp.png" alt="Retard 1" />
-      <div class="name">Kaan Kemikli</div>
-      <div class="tag">Blacklist</div>
-      <div class="desc">
-        Wannabe 1337 hacker, but he is the biggest larp.
-      </div>
+      <img src="ttps://files.catbox.moe/83rwzp.png" alt="Funny Cat">
+      <h2>Kaan Kemikli</h2>
+      <p>Wannabe 1337 hacker, but he is the biggest larp.</p>
       <a href="https://files.catbox.moe/twjv1y.txt">Paste</a>
     </div>
-
-    <!-- Add more cards here as needed -->
-
+    <div class="card">
+      <img src="https://placebear.com/300/300" alt="Meme Lord">
+      <h2>Grizzly Goon</h2>
+      <p>Claims to hack NASA but can't open a ZIP file. Classic.</p>
+    </div>
+    <!-- Add more cards here -->
   </div>
 
+  <audio autoplay loop id="bgmusic" src="music.mp3"></audio>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const canvas = document.getElementById('confetti-canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const confetti = confetti.create(canvas, { resize: true });
+
+    document.addEventListener('mousemove', (e) => {
+      confetti({
+        particleCount: 2,
+        spread: 20,
+        origin: {
+          x: e.clientX / window.innerWidth,
+          y: e.clientY / window.innerHeight
+        }
+      });
+    });
+  </script>
 </body>
 </html>
