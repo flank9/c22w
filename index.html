@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>instakill</title>
   <style>
+    @font-face {
+      font-family: 'GothicByte';
+      src: url('GothicByte.ttf') format('truetype');
+    }
+
     body, html {
       margin: 0;
       padding: 0;
@@ -12,7 +17,7 @@
       overflow: hidden;
       background: black;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'GothicByte', Arial, sans-serif;
     }
 
     #enterOverlay {
@@ -37,12 +42,15 @@
       height: 100%;
     }
 
-    iframe {
-      width: 80vw;
-      height: 45vw;
-      max-width: 960px;
-      max-height: 540px;
-      border: none;
+    #mainContent a img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    #mainContent a img:hover {
+      transform: scale(1.03);
     }
 
     audio {
@@ -57,7 +65,9 @@
   </div>
 
   <div id="mainContent">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <a href="https://t.me/instakilled" target="_blank">
+      <img src="img/tele.png" alt="Clickable Image">
+    </a>
   </div>
 
   <audio id="bgMusic" loop>
