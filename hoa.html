@@ -2,182 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Instakill | Hall of Autism</title>
+  <title>Particle Image - Monochrome</title>
   <style>
-    html, body {
+    body, html {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
-      height: 100%;
+      overflow: hidden;
+      background: black;
     }
-
-    nav {
-      background: #111;
-      padding: 12px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      color: #f0f0f0;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.8em;
-      margin: 25px 0;
-      animation: rainbow 5s infinite linear;
-      font-weight: bold;
-    }
-
-    @keyframes rainbow {
-      0% { color: red; }
-      16% { color: orange; }
-      32% { color: yellow; }
-      48% { color: green; }
-      64% { color: blue; }
-      80% { color: indigo; }
-      100% { color: violet; }
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 0, 255, 0.15);
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .card h2 {
-      color: limegreen;
-      margin: 10px 0 4px;
-      font-size: 1.05em;
-    }
-
-    .card p {
-      font-size: 0.8em;
-      color: #ccc;
-      margin: 6px 0;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 5px;
-      color: violet;
-      font-size: 0.8em;
-      text-decoration: underline;
-    }
-
     canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
+      display: block;
     }
   </style>
 </head>
 <body>
+<canvas id="canvas"></canvas>
 
-  <nav>
-    <a href="index">Home</a>
-    <a href="hoa">Hall of Autism</a>
-  </nav>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+resizeCanvas();
 
-  <h1>HALL OF AUTISM</h1>
+let particles = [];
+let mouse = { x: 0, y: 0, radius: 100, down: false };
 
-  <div class="grid">
-    <div class="card">
-      <img src="https://files.catbox.moe/83rwzp.png" alt="Kaan">
-      <h2>Kaan Kemikli</h2>
-      <p>Wannabe 1337 hacker, but he is the biggest larp.</p>
-      <a href="https://files.catbox.moe/twjv1y.txt" target="_blank">Paste</a>
-    </div>
+window.addEventListener('resize', resizeCanvas);
+canvas.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+canvas.addEventListener('mousedown', () => mouse.down = true);
+canvas.addEventListener('mouseup', () => mouse.down = false);
+canvas.addEventListener('touchmove', e => {
+  mouse.x = e.touches[0].clientX;
+  mouse.y = e.touches[0].clientY;
+});
+canvas.addEventListener('touchstart', () => mouse.down = true);
+canvas.addEventListener('touchend', () => mouse.down = false);
 
-    <div class="card">
-      <img src="https://files.catbox.moe/ujq3xg.jpg " alt="Grizzly Goon">
-      <h2>Oliwer jensen fuchs</h2>
-      <p>Lmfao hes a pedo.</p>
-   <a href="https://doxbin.com/upload/OliwerFuchsApedo" target="_blank">Paste</a>
-    </div>
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 
-    <!-- Add more cards here -->
-  </div>
+class Particle {
+  constructor(x, y) {
+    this.homeX = x;
+    this.homeY = y;
+    this.x = x + Math.random() * 50 - 25;
+    this.y = y + Math.random() * 50 - 25;
+    this.vx = 0;
+    this.vy = 0;
+    this.color = 'rgb(200, 200, 200)'; // <-- GREY particles
+  }
 
-  <audio autoplay loop id="bgmusic" src="music/audio3.mp3">
-    Your browser does not support the audio tag.
-  </audio>
+  update() {
+    this.vy += 0.1;
 
-  <canvas id="confetti-canvas"></canvas>
+    let dx = this.homeX - this.x;
+    let dy = this.homeY - this.y;
+    this.vx += dx * 0.001;
+    this.vy += dy * 0.001;
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    const canvas = document.getElementById('confetti-canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const confettiInstance = confetti.create(canvas, {
-      resize: true,
-      useWorker: true
-    });
-
-    const rainbowColors = ['#ff0000', '#ffa500', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#ee82ee'];
-
-    function launchTrail(x, y) {
-      confettiInstance({
-        particleCount: 2,
-        startVelocity: 5,
-        scalar: 0.5,
-        spread: 20,
-        gravity: 0.5,
-        ticks: 60,
-        colors: rainbowColors,
-        origin: {
-          x: x / window.innerWidth,
-          y: y / window.innerHeight
-        }
-      });
+    let mx = this.x - mouse.x;
+    let my = this.y - mouse.y;
+    let dist = Math.sqrt(mx*mx + my*my);
+    if (dist < mouse.radius) {
+      let force = (mouse.radius - dist) / mouse.radius;
+      let angle = Math.atan2(my, mx);
+      if (mouse.down) {
+        this.vx += Math.cos(angle) * force * 2;
+        this.vy += Math.sin(angle) * force * 2;
+      } else {
+        this.vx -= Math.cos(angle) * force * 0.5;
+        this.vy -= Math.sin(angle) * force * 0.5;
+      }
     }
 
-    document.addEventListener('mousemove', e => {
-      launchTrail(e.clientX, e.clientY);
-    });
+    this.x += this.vx;
+    this.y += this.vy;
 
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
+    this.vx *= 0.9;
+    this.vy *= 0.9;
+  }
 
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, 1, 1);
+  }
+}
+
+// Load image
+const img = new Image();
+img.src = 'img/rose-outline-cartoon_78370-3410-removebg-preview.png'; // <-- your image here
+img.onload = () => {
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  tempCanvas.width = img.width;
+  tempCanvas.height = img.height;
+  tempCtx.drawImage(img, 0, 0);
+
+  const imageData = tempCtx.getImageData(0, 0, img.width, img.height).data;
+
+  for (let y = 0; y < img.height; y += 2) {
+    for (let x = 0; x < img.width; x += 2) {
+      let index = (y * img.width + x) * 4;
+      let a = imageData[index + 3];
+      if (a > 128) { // Only visible pixels
+        let offsetX = (canvas.width - img.width) / 2;
+        let offsetY = (canvas.height - img.height) / 2;
+        particles.push(new Particle(x + offsetX, y + offsetY));
+      }
+    }
+  }
+
+  animate();
+};
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let p of particles) {
+    p.update();
+    p.draw();
+  }
+  requestAnimationFrame(animate);
+}
+</script>
 </body>
 </html>
