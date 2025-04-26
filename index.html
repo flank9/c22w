@@ -61,6 +61,14 @@
       justify-content: center;
       align-items: center;
       height: 100%;
+      flex-direction: column;
+    }
+
+    #mainContent img {
+      max-width: 40vw;
+      max-height: 40vh;
+      object-fit: contain;
+      margin-bottom: 20px;
     }
 
     audio {
@@ -80,7 +88,9 @@
   </div>
 
   <div id="mainContent">
-    <!-- You can add something here later if needed -->
+    <!-- PNG centered in the middle of the page -->
+    <img src="img/rose-outline-cartoon_78370-3410-removebg-preview.png" alt="Instakill Logo" id="centerImage">
+    <div id="dynamicText"></div>
   </div>
 
   <audio id="bgMusic" loop muted preload="auto">
@@ -89,6 +99,7 @@
   </audio>
 
   <script>
+    // Function to trigger when ENTER is clicked
     function enterSite() {
       const overlay = document.getElementById('enterOverlay');
       overlay.style.opacity = '0';
@@ -120,6 +131,33 @@
     }
 
     window.onload = typeTitle;
+
+    let dynamicTextLoop = "instakill";
+    let typedTextLoop = "";
+    let loopIndex = 0;
+    let deleteIndex = dynamicTextLoop.length;
+
+    function typeAndDeleteText() {
+      if (loopIndex < dynamicTextLoop.length) {
+        typedTextLoop += dynamicTextLoop.charAt(loopIndex);
+        document.getElementById('dynamicText').textContent = typedTextLoop;
+        loopIndex++;
+        setTimeout(typeAndDeleteText, 200);
+      } else if (typedTextLoop.length > 0) {
+        typedTextLoop = typedTextLoop.slice(0, typedTextLoop.length - 1);
+        document.getElementById('dynamicText').textContent = typedTextLoop;
+        setTimeout(typeAndDeleteText, 150);
+      } else {
+        loopIndex = 0;
+        setTimeout(typeAndDeleteText, 500);
+      }
+    }
+
+    // Start the looped typing animation
+    window.onload = function() {
+      typeTitle(); // Keep original tab title animation
+      setTimeout(typeAndDeleteText, 1000); // Start loop after delay
+    };
   </script>
 
 </body>
