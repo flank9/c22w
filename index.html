@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>instakill</title>
+  <title>@</title>
   <style>
     @font-face {
       font-family: 'GothicByte';
@@ -20,6 +20,26 @@
       font-family: 'GothicByte', Arial, sans-serif;
     }
 
+    #topLinks {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      font-size: 1.5em;
+    }
+
+    #topLinks a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    #topLinks a:hover {
+      color: red;
+    }
+
     #enterOverlay {
       position: fixed;
       top: 0;
@@ -33,6 +53,7 @@
       font-size: 3em;
       cursor: pointer;
       z-index: 999;
+      transition: opacity 0.5s ease;
     }
 
     #mainContent {
@@ -42,17 +63,6 @@
       height: 100%;
     }
 
-    #mainContent a img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-      transition: transform 0.2s ease;
-    }
-
-    #mainContent a img:hover {
-      transform: scale(1.03);
-    }
-
     audio {
       display: none;
     }
@@ -60,31 +70,56 @@
 </head>
 <body>
 
+  <div id="topLinks" style="display:none;">
+    <a href="https://t.me/decorateable" target="_blank">telegram</a>
+    <a href="https://doxbin.com/flanked" target="_blank">doxbin</a>
+  </div>
+
   <div id="enterOverlay" onclick="enterSite()">
     ENTER
   </div>
 
   <div id="mainContent">
-    <a href="https://t.me/instakilled" target="_blank">
-      <img src="img/tele.png" alt="Clickable Image">
-    </a>
+    <!-- You can add something here later if needed -->
   </div>
 
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop muted preload="auto">
     <source src="music/song.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
   <script>
     function enterSite() {
-      document.getElementById('enterOverlay').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'flex';
-      const audio = document.getElementById('bgMusic');
-      audio.muted = false;
-      audio.play().catch((e) => {
-        console.error('Autoplay failed:', e);
-      });
+      const overlay = document.getElementById('enterOverlay');
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        document.getElementById('mainContent').style.display = 'flex';
+        document.getElementById('topLinks').style.display = 'block';
+        const audio = document.getElementById('bgMusic');
+        audio.muted = false;
+        audio.play().catch((e) => {
+          console.error('Autoplay failed:', e);
+        });
+      }, 500);
     }
+
+    // Animated typing tab title (@instakill)
+    const staticSymbol = "@";
+    const dynamicText = "instakill";
+    let typedText = "";
+    let index = 0;
+
+    function typeTitle() {
+      if (index < dynamicText.length) {
+        typedText += dynamicText.charAt(index);
+        document.title = staticSymbol + typedText;
+        index++;
+        setTimeout(typeTitle, 200);
+      }
+    }
+
+    window.onload = typeTitle;
   </script>
 
 </body>
