@@ -45,15 +45,15 @@ function resizeCanvas() {
 }
 
 class Particle {
-  constructor(x, y) {
+  constructor(x, y, color) {
     this.homeX = x;
     this.homeY = y;
     this.x = x + Math.random() * 50 - 25;
     this.y = y + Math.random() * 50 - 25;
     this.vx = 0;
     this.vy = 0;
-    this.color = 'rgb(220, 220, 220)';
-    this.size = Math.random() < 0.5 ? 1 : 2; // Random 1px or 2px
+    this.color = color;
+    this.size = Math.random() < 0.5 ? 1 : 2;
   }
 
   update() {
@@ -86,7 +86,7 @@ class Particle {
 
   draw() {
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.size, this.size); // Sharp square pixels
+    ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
@@ -102,14 +102,19 @@ img.onload = () => {
 
   const imageData = tempCtx.getImageData(0, 0, img.width, img.height).data;
 
-  for (let y = 0; y < img.height; y += 4) { // <-- Less dense (was 2 before, now 4)
-    for (let x = 0; x < img.width; x += 4) { // <-- Less dense
+  for (let y = 0; y < img.height; y += 4) {
+    for (let x = 0; x < img.width; x += 4) {
       let index = (y * img.width + x) * 4;
+      let r = imageData[index];
+      let g = imageData[index + 1];
+      let b = imageData[index + 2];
       let a = imageData[index + 3];
+
       if (a > 128) {
         let offsetX = (canvas.width - img.width) / 2;
         let offsetY = (canvas.height - img.height) / 2;
-        particles.push(new Particle(x + offsetX, y + offsetY));
+        let color = `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+        particles.push(new Particle(x + offsetX, y + offsetY, color));
       }
     }
   }
@@ -118,7 +123,7 @@ img.onload = () => {
 };
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // <-- No ghost trail
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let p of particles) {
     p.update();
     p.draw();
